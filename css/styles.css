@@ -11601,3 +11601,14 @@ body {
   stroke-width: 2px;
   shape-rendering: crispEdges;
 }
+
+.tooltip {
+  opacity: 1;
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  border: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 5px;
+}

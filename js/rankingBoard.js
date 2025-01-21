@@ -97,7 +97,7 @@ export class RankingBoard {
       .selectAll("image")
       .data(this.dataset, (d) => d.name)
       .join("image")
-      .attr("xlink:href", (d) => `../assets/svg/${d.board_svg}`)
+      .attr("xlink:href", (d) => `assets/svg/${d.board_svg}`)
       .attr("preserveAspectRatio", "none")
       .attr("height", yScale.bandwidth())
       .attr("x", 0)
