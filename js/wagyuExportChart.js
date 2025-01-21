@@ -106,9 +106,9 @@ export class WagyuExportChart {
     const xLabel = this.xAxisGroup
       .append("text")
       .attr("class", "x axisLabel")
-      .attr("y", 40)
+      .attr("y", 30)
       .attr("x", this.dimensions.ctrWidth / 2)
-      .attr("font-size", "16px")
+      .attr("font-size", "14px")
       .attr("text-anchor", "middle")
       .attr("fill", "black")
       .text("FY");
