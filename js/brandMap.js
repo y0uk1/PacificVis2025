@@ -81,7 +81,6 @@ export class BrandMap {
   }
 
   updateVis() {
-    const vis = this;
     const scale = 2000;
     const center = d3.geoCentroid(this.geoJson);
     const projection = d3
@@ -120,32 +119,42 @@ export class BrandMap {
       .attr("height", 30)
       .attr("x", (d) => projection(d3.geoCentroid(d))[0] - 15) // Center the icon
       .attr("y", (d) => projection(d3.geoCentroid(d))[1] - 15)
-      .on("mouseover", function (event, d) {
-        vis.tooltip.style("opacity", 1);
-        d3.select(this).attr("xlink:href", vis.wagyuIcon.white);
+      .on("mouseover", (event, d) => this.onMouseOver(event, d))
+      .on("mousemove", (event, d) => this.onMouseMove(event))
+      .on("mouseleave", (event, d) => this.onMouseLeave(event, d));
+  }
 
-        const prefecture = d.properties.name_nl;
-        const brandData = vis.groupedWagyuList.get(prefecture)[0];
-        vis.tooltip
-          .html(
-            `
-            <p>${brandData.brand} (${brandData.brand_jp})</p>
-            <p>${brandData.prefecture}</p>
-            <p>${brandData.explanation}</p>
-            <img src="assets/img/${brandData.image}" width="400">
-          `
-          )
-          .style("left", event.pageX + 20 + "px")
-          .style("top", event.pageY + 20 + "px");
-      })
-      .on("mousemove", function (event, d) {
-        vis.tooltip
-          .style("left", event.pageX + 20 + "px")
-          .style("top", event.pageY + 20 + "px");
-      })
-      .on("mouseleave", function (event, d) {
-        d3.select(this).attr("xlink:href", vis.wagyuIcon.black);
-        vis.tooltip.style("opacity", 0);
-      });
+  onMouseOver(event, d) {
+    const prefecture = d.properties.name_nl;
+    const brandData = this.groupedWagyuList.get(prefecture)[0];
+
+    this.tooltip.style("opacity", 1);
+    this.tooltip.style("visibility", "visible");
+    d3.select(event.currentTarget).attr("xlink:href", this.wagyuIcon.white);
+
+    this.tooltip
+      .html(
+        `
+        <p>${brandData.brand} (${brandData.brand_jp})</p>
+        <p>${brandData.prefecture}</p>
+        <p>${brandData.explanation}</p>
+        <img src="assets/img/${brandData.image}" width="400">
+      `
+      )
+      .style("left", event.pageX + 20 + "px")
+      .style("top", event.pageY + 20 + "px");
+  }
+
+  // Handle mousemove event
+  onMouseMove(event) {
+    this.tooltip
+      .style("left", event.pageX + 20 + "px")
+      .style("top", event.pageY + 20 + "px");
+  }
+
+  // Handle mouseleave event
+  onMouseLeave(event, d) {
+    d3.select(event.currentTarget).attr("xlink:href", this.wagyuIcon.black);
+    this.tooltip.style("visibility", "hidden");
   }
 }
