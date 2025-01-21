@@ -1,3 +1,4 @@
+import { BrandMap } from "./brandMap.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
@@ -10,6 +11,7 @@ const draw = async () => {
 
   let rankingKey;
 
+  const brandMap = new BrandMap("#brand-map");
   const rankingBoard = new RankingBoard("#ranking-board", rankingData);
   const wagyuExportChart = new WagyuExportChart(
     "#wagyu-export-chart",
