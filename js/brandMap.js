@@ -20,8 +20,8 @@ export class BrandMap {
   async loadData(mode = "japan") {
     if (mode === "japan") {
       this.geoJson = await d3.json("data/japan.geo.json");
-      const wagyu_brand_list = await d3.json("data/wagyu_brand_list.json");
-      this.groupedWagyuList = d3.group(wagyu_brand_list, (d) => d.prefecture);
+      const wagyuBrandList = await d3.json("data/wagyu_brand_list.json");
+      this.groupedWagyuList = d3.group(wagyuBrandList, (d) => d.prefecture);
     } else {
       // TODO: world mapへ変更する
       this.geoJson = await d3.json("data/japan_geo.json");
@@ -133,7 +133,7 @@ export class BrandMap {
     this.tooltip
       .html(
         `
-        <p>${brandData.brand} (${brandData.brand_jp})</p>
+        <p>${brandData.brand} (${brandData.brandJP})</p>
         <p>${brandData.prefecture}</p>
         <p>${brandData.explanation}</p>
         <img src="assets/img/${brandData.image}" width="400">
