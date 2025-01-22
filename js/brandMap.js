@@ -26,8 +26,6 @@ export class BrandMap {
       // TODO: world mapへ変更する
       this.geoJson = await d3.json("data/japan_geo.json");
     }
-
-    console.log(this.groupedWagyuList);
   }
 
   // Initialize chart dimensions
