@@ -1,98 +1,98 @@
 [
   {
     "brand": "Matsuzaka Beef",
-    "brand_jp": "松坂牛",
+    "brandJP": "松坂牛",
     "prefecture": "Mie",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Kobe Beef",
-    "brand_jp": "神戸牛",
+    "brandJP": "神戸牛",
     "prefecture": "Hyogo",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Yonezawa Beef",
-    "brand_jp": "米沢牛",
+    "brandJP": "米沢牛",
     "prefecture": "Yamagata",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Ohmi Beef",
-    "brand_jp": "近江牛",
+    "brandJP": "近江牛",
     "prefecture": "Shiga",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Hida Beef",
-    "brand_jp": "飛騨牛",
+    "brandJP": "飛騨牛",
     "prefecture": "Gifu",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Miyazaki Beef",
-    "brand_jp": "宮崎牛",
+    "brandJP": "宮崎牛",
     "prefecture": "Miyazaki",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Maezawa Beef",
-    "brand_jp": "前沢牛",
+    "brandJP": "前沢牛",
     "prefecture": "Iwate",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Tajima Beef",
-    "brand_jp": "但馬牛",
+    "brandJP": "但馬牛",
     "prefecture": "Hyogo",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Saga Beef",
-    "brand_jp": "佐賀牛",
+    "brandJP": "佐賀牛",
     "prefecture": "Saga",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Sendai Beef",
-    "brand_jp": "仙台牛",
+    "brandJP": "仙台牛",
     "prefecture": "Miyagi",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Kagoshimakuro Beef",
-    "brand_jp": "鹿児島黒牛",
+    "brandJP": "鹿児島黒牛",
     "prefecture": "Kagoshima",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Hitachi Beef",
-    "brand_jp": "常陸牛",
+    "brandJP": "常陸牛",
     "prefecture": "Ibaraki",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Kumamotoaka Beef",
-    "brand_jp": "くまもとあかうし",
+    "brandJP": "くまもとあかうし",
     "prefecture": "Kumamoto",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"
   },
   {
     "brand": "Hiba Beef",
-    "brand_jp": "比婆牛",
+    "brandJP": "比婆牛",
     "prefecture": "Hiroshima",
     "explanation": "Add explanation of beef",
     "image": "matsuzaka_beef.jpg"

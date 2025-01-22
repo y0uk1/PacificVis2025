@@ -11603,7 +11603,7 @@ body {
 }
 
 .tooltip {
-  opacity: 1;
+  opacity: 0;
   position: absolute;
   z-index: 1000;
   background-color: white;

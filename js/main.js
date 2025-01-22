@@ -1,4 +1,5 @@
 import { BrandMap } from "./brandMap.js";
+import { BeefExportMap } from "./beefExportMap.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
@@ -10,8 +11,10 @@ const draw = async () => {
   );
 
   let rankingKey;
+  let year = 2012;
 
   const brandMap = new BrandMap("#brand-map");
+  const beefExportMap = new BeefExportMap("#kobebeef-export-map");
   const rankingBoard = new RankingBoard("#ranking-board", rankingData);
   const wagyuExportChart = new WagyuExportChart(
     "#wagyu-export-chart",
@@ -32,7 +35,7 @@ const draw = async () => {
 
   d3.select("#ranking-try").on("change", (e) => {
     e.preventDefault();
-    rankingKey = "want_to_try";
+    rankingKey = "wantToTry";
     rankingBoard.updateVis(rankingKey);
   });
 
@@ -45,6 +48,13 @@ const draw = async () => {
     e.preventDefault();
     wagyuExportChart.updateVis("lineChart");
   });
+
+  const step = () => {
+    beefExportMap.updateVis(year);
+    year = year > 2024 ? 2012 : year + 1;
+  };
+
+  setInterval(step, 1000);
 };
 
 draw();

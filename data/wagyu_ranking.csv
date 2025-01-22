@@ -1,4 +1,4 @@
-name,name_jp,board_svg,popularity,want_to_try,price
+name,nameJP,boardSVG,popularity,wantToTry,price
 Matsuzaka Beef,松坂牛,board0.svg,81.4,32.9,3500
 Kobe Beef,神戸牛,board1.svg,80.5,13.9,3000
 Yonezawa Beef,米沢牛,board2.svg,78,6.4,2500
