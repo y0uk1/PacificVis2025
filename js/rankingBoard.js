@@ -97,7 +97,7 @@ export class RankingBoard {
       .selectAll("image")
       .data(this.dataset, (d) => d.name)
       .join("image")
-      .attr("xlink:href", (d) => `assets/svg/${d.board_svg}`)
+      .attr("xlink:href", (d) => `assets/svg/${d.boardSVG}`)
       .attr("preserveAspectRatio", "none")
       .attr("height", yScale.bandwidth())
       .attr("x", 0)
@@ -120,7 +120,7 @@ export class RankingBoard {
       .attr("dominant-baseline", "middle")
       .attr("fill", "black")
       .transition(transition)
-      .text((d) => `${d.name} (${d.name_jp}): ${d[rankingKey]}`)
+      .text((d) => `${d.name} (${d.nameJP}): ${d[rankingKey]}`)
       .attr("y", (d) => yScale(d.name) + yScale.bandwidth() / 2);
   }
 }
