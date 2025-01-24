@@ -11611,4 +11611,17 @@ body {
   border-width: 2px;
   border-radius: 5px;
   padding: 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.beef-parts-tooltip {
+  opacity: 0;
+  background-color: white;
+  border: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
