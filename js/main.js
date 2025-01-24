@@ -1,5 +1,6 @@
-import { BrandMap } from "./brandMap.js";
 import { BeefExportMap } from "./beefExportMap.js";
+import { BrandMap } from "./brandMap.js";
+import { BeefPartsMap } from "./beefPartsMap.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
@@ -13,6 +14,10 @@ const draw = async () => {
   let rankingKey;
   let year = 2012;
 
+  const beefPartsMap = new BeefPartsMap(
+    "#beef-parts-map",
+    "#beef-parts-tooltip"
+  );
   const brandMap = new BrandMap("#brand-map");
   const beefExportMap = new BeefExportMap("#kobebeef-export-map");
   const rankingBoard = new RankingBoard("#ranking-board", rankingData);
