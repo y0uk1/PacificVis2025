@@ -2,6 +2,7 @@ import { BeefExportMap } from "./beefExportMap.js";
 import { BrandMap } from "./brandMap.js";
 import { BeefPartsMap } from "./beefPartsMap.js";
 import { RankingBoard } from "./rankingBoard.js";
+import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
@@ -12,8 +13,13 @@ const draw = async () => {
   );
 
   let rankingKey;
-  let year = 2012;
+  let yearKobeTajima = 2008;
+  let yearExport = 2012;
 
+  const kobeTajimaCompare = new KobeTajimaCompare(
+    "#kobe-tajima-compare",
+    "#kobe-tajima-label"
+  );
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
     "#beef-parts-tooltip"
@@ -55,8 +61,10 @@ const draw = async () => {
   });
 
   const step = () => {
-    beefExportMap.updateVis(year);
-    year = year > 2024 ? 2012 : year + 1;
+    kobeTajimaCompare.updateVis(yearKobeTajima);
+    beefExportMap.updateVis(yearExport);
+    yearKobeTajima = yearKobeTajima >= 2023 ? 2008 : yearKobeTajima + 1;
+    yearExport = yearExport >= 2024 ? 2012 : yearExport + 1;
   };
 
   setInterval(step, 1000);
