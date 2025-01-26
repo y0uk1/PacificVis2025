@@ -1,6 +1,7 @@
 import { BeefExportMap } from "./beefExportMap.js";
 import { BrandMap } from "./brandMap.js";
 import { BeefPartsMap } from "./beefPartsMap.js";
+import { BeefGradingGuide } from "./beefGradingGuide.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
@@ -16,6 +17,7 @@ const draw = async () => {
   let yearKobeTajima = 2008;
   let yearExport = 2012;
 
+  const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
   const kobeTajimaCompare = new KobeTajimaCompare(
     "#kobe-tajima-compare",
     "#kobe-tajima-label"
