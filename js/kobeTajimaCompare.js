@@ -70,7 +70,6 @@ export class KobeTajimaCompare {
   }
 
   updateVis(year = 2023) {
-    console.log(year);
     const duration = 300;
     const exitTransition = d3.transition().duration(duration);
     const updateTransition = exitTransition.transition().duration(duration);

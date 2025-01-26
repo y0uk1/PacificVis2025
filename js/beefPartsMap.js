@@ -9,7 +9,6 @@ export class BeefPartsMap {
   async initVis() {
     this.setDimensions();
     this.createSvg();
-    this.createGroups();
     this.createTooltip();
     await this.loadData();
     this.addBeefPartsMap();
@@ -68,8 +67,6 @@ export class BeefPartsMap {
       .classed("beef-parts-tooltip", true);
   }
 
-  createGroups() {}
-
   addBeefPartsMap() {
     const scale = 0.8;
     this.beefPartsMapGroup = this.ctr
@@ -93,9 +90,6 @@ export class BeefPartsMap {
   }
 
   onMouseOver(event, item) {
-    const beefPartsSvg = d3.select("#beef-parts");
-    console.log(event.pageY);
-
     d3.selectAll(`#parts #${item.part}`)
       .classed("parts-on", true)
       .classed("parts-off", false);
