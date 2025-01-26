@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108.99 109">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #e80026;
+      }
+    </style>
+  </defs>
+  <g id="flags">
+    <g id="Japan">
+      <g>
+        <path class="cls-1" d="M54.5,0C24.4,0,0,24.4,0,54.5c0,.15,0,.28,0,.43.23,29.9,24.53,54.07,54.49,54.07s54.26-24.17,54.48-54.07c0-.15,0-.28,0-.43C108.99,24.4,84.6,0,54.5,0Z"/>
+        <circle class="cls-2" cx="54.5" cy="54.5" r="27.25" transform="translate(-16.81 83.74) rotate(-67.3)"/>
+      </g>
+    </g>
+  </g>
+</svg>
