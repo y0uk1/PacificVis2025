@@ -24,9 +24,8 @@ export class ScrollamaSetting {
         debug: true,
       })
       .onStepEnter((response) => {
-        const currentIdx = response.index;
-        this.addActiveClass(currentIdx);
-        this.visInstance.handlerStepEnter(currentIdx);
+        this.addActiveClass(response);
+        this.visInstance.handlerStepEnter(response);
       });
 
     window.addEventListener("resize", this.handleResize);
@@ -40,7 +39,6 @@ export class ScrollamaSetting {
 
   handleResize = () => {
     const stepH = Math.floor(window.innerHeight * 0.75);
-    console.log(stepH);
     this.steps.style("height", stepH + "px");
     this.steps.style("width", "250px");
 
@@ -54,7 +52,8 @@ export class ScrollamaSetting {
     this.scroller.resize();
   };
 
-  addActiveClass = (currentIdx) => {
-    this.steps.classed("is-active", (d, i) => i === currentIdx);
+  addActiveClass = (response) => {
+    const currIdx = response.index;
+    this.steps.classed("is-active", (d, i) => i === currIdx);
   };
 }

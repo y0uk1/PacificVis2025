@@ -1,7 +1,13 @@
 export class KobeTajimaCompare {
-  constructor(_parentElement, _labelElement) {
+  constructor(_parentElement, _labelElements) {
     this.parentElement = _parentElement;
-    this.labelElement = _labelElement;
+    this.labelElements = _labelElements;
+
+    this.wagyuImg = {
+      kobe: "assets/svg/wagyu-kobe.svg",
+      tajima: "assets/svg/wagyu-tajima.svg",
+      remove: "assets/svg/wagyu-remove.svg",
+    };
 
     this.initVis();
   }
@@ -10,8 +16,8 @@ export class KobeTajimaCompare {
     this.setDimensions();
     this.createSvg();
     this.createGroups();
-    this.createLabel();
     await this.loadData();
+    this.createLabels();
     this.updateVis();
   }
 
@@ -24,13 +30,13 @@ export class KobeTajimaCompare {
 
   setDimensions() {
     this.dimensions = {
-      width: 1200,
-      height: 800,
+      width: 700,
+      height: 500,
       margin: {
         top: 10,
-        right: 30,
-        bottom: 30,
-        left: 60,
+        right: 50,
+        bottom: 10,
+        left: 50,
       },
     };
     this.dimensions.ctrWidth =
@@ -58,28 +64,52 @@ export class KobeTajimaCompare {
       );
   }
 
-  createLabel() {
-    this.label = d3
-      .select(`${this.labelElement}`)
-      .append("div")
-      .classed("kobe-tajima-label", true);
+  createLabels() {
+    this.labelElements.map((labelElement) => {
+      const year = parseInt(labelElement.split("-").at(-1));
+      const { tajimaGyuCount, kobeGyuCount } = this.getGyuCount(year);
+
+      d3.select(labelElement)
+        .append("div")
+        .classed("kobe-tajima-label", true)
+        .html(
+          `
+          <div>
+            <p>
+              <img src="${this.wagyuImg.kobe}" style="width: 30px; height: 30px; margin-right: 10px;">
+              Kobe: ${kobeGyuCount}
+            </p>
+          </div>
+          <div>
+            <p>
+              <img src="${this.wagyuImg.kobe}" style="width: 30px; height: 30px;">
+              <img src="${this.wagyuImg.tajima}" style="width: 30px; height: 30px;">
+              Kobe&Tajima: ${tajimaGyuCount}
+            </p>
+          </div>
+          `
+        );
+    });
   }
 
   createGroups() {
     this.wagyuGroup = this.ctr.append("g");
   }
 
-  updateVis(year = 2023) {
+  getGyuCount(year) {
+    const tajimaGyuCount = this.dataset.filter((d) => d.year === year)[0]
+      .tajimaGyu;
+    const kobeGyuCount = this.dataset.filter((d) => d.year === year)[0].kobeGyu;
+
+    return { tajimaGyuCount, kobeGyuCount };
+  }
+
+  updateVis(year = 0) {
     const duration = 300;
     const exitTransition = d3.transition().duration(duration);
     const updateTransition = exitTransition.transition().duration(duration);
 
-    const kobeGyuImg = "assets/svg/wagyu-kobe.svg";
-    const tajimaGyuImg = "assets/svg/wagyu-tajima.svg";
-
-    const tajimaGyuCount = this.dataset.filter((d) => d.year === year)[0]
-      .tajimaGyu;
-    const kobeGyuCount = this.dataset.filter((d) => d.year === year)[0].kobeGyu;
+    const { tajimaGyuCount, kobeGyuCount } = this.getGyuCount(year);
 
     const scaledTajimaGyuCount = (tajimaGyuCount / 10) | 0;
     const scaledKobeGyuCount = (kobeGyuCount / 10) | 0;
@@ -92,41 +122,52 @@ export class KobeTajimaCompare {
       })
     );
 
-    this.label.html(
-      `
-        <h2>Year: ${year}</h2>
-        <div style="display: flex; align-items: center;">
-          <img src="${kobeGyuImg}" style="width: 40px; height: 40px; margin-right: 10px;">
-          <span class="h4">Kobe Gyu: ${kobeGyuCount}</span>
-        </div>
-        <div style="display: flex; align-items: center;">
-          <img src="${kobeGyuImg}" style="width: 40px; height: 40px; margin-right: 10px;">
-          <span class="h4">+</span>
-          <img src="${tajimaGyuImg}" style="width: 40px; height: 40px; margin-right: 10px;">
-          <span class="h4">Tajima Gyu: ${tajimaGyuCount}</span>
-        </div>
-        `
-    );
-
     this.wagyuGroup
       .selectAll(".wagyu")
       .data(expandedData)
       .join(
-        (enter) => enter.append("image").attr("x", this.dimensions.ctrWidth),
+        (enter) =>
+          enter
+            .append("image")
+            .attr("x", (d, i) => this.dimensions.ctrWidth + ((i / 25) | 0) * 21)
+            .attr("y", (d, i) => (i % 25) * 19),
         (update) => update,
         (exit) =>
           exit
+            .attr("xlink:href", this.wagyuImg.remove)
             .transition(exitTransition)
-            .attr("x", this.dimensions.ctrWidth)
-            .attr("y", 0)
+            .attr("x", (d, i) => this.dimensions.ctrWidth + ((i / 25) | 0) * 21)
             .remove()
       )
       .attr("class", "wagyu")
       .transition(updateTransition)
-      .attr("xlink:href", (d) => (d.isKobeGyu ? kobeGyuImg : tajimaGyuImg))
-      .attr("width", 22)
-      .attr("height", 22)
-      .attr("x", (d, i) => ((i / 30) | 0) * 24)
-      .attr("y", (d, i) => (i % 30) * 24);
+      .attr("xlink:href", (d) =>
+        d.isKobeGyu ? this.wagyuImg.kobe : this.wagyuImg.tajima
+      )
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("x", (d, i) => ((i / 25) | 0) * 21)
+      .attr("y", (d, i) => (i % 25) * 19);
   }
+
+  handlerStepEnter = (response) => {
+    const currIdx = response.index;
+
+    switch (currIdx) {
+      case 0:
+        this.updateVis(2008);
+        break;
+      case 1:
+        this.updateVis(2013);
+        break;
+      case 2:
+        this.updateVis(2018);
+        break;
+      case 3:
+        this.updateVis(2023);
+        break;
+      default:
+        break;
+    }
+  };
 }
