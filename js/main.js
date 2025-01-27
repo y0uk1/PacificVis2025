@@ -1,7 +1,6 @@
-import { BeefExportMap } from "./beefExportMap.js";
-import { BrandMap } from "./brandMap.js";
 import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
+import { Map } from "./map.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { ScrollamaSetting } from "./scrollamaSetting.js";
 import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
@@ -14,17 +13,15 @@ const draw = async () => {
     d3.autoType
   );
 
-  let rankingKey;
-  let yearKobeTajima = 2008;
-  let yearExport = 2012;
-
   const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
     "#beef-parts-tooltip"
   );
-  const brandMap = new BrandMap("#brand-map");
-  const beefExportMap = new BeefExportMap("#kobebeef-export-map");
+
+  const map = new Map("#map");
+  new ScrollamaSetting(map, "#map-scrolly");
+
   const wagyuExportChart = new WagyuExportChart(
     "#wagyu-export-chart",
     wagyuExportData
@@ -51,13 +48,6 @@ const draw = async () => {
     e.preventDefault();
     wagyuExportChart.updateVis("lineChart");
   });
-
-  const step = () => {
-    beefExportMap.updateVis(yearExport);
-    yearExport = yearExport >= 2024 ? 2012 : yearExport + 1;
-  };
-
-  setInterval(step, 1000);
 };
 
 draw();

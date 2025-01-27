@@ -21,7 +21,7 @@ export class ScrollamaSetting {
       .setup({
         step: `${this.scrollyElement} article .step`,
         offset: 0.5,
-        debug: true,
+        debug: false,
       })
       .onStepEnter((response) => {
         this.addActiveClass(response);
