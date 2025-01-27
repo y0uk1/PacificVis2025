@@ -3,6 +3,7 @@ import { BrandMap } from "./brandMap.js";
 import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
 import { RankingBoard } from "./rankingBoard.js";
+import { ScrollamaSetting } from "./scrollamaSetting.js";
 import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
@@ -28,29 +29,13 @@ const draw = async () => {
   );
   const brandMap = new BrandMap("#brand-map");
   const beefExportMap = new BeefExportMap("#kobebeef-export-map");
-  const rankingBoard = new RankingBoard("#ranking-board", rankingData);
   const wagyuExportChart = new WagyuExportChart(
     "#wagyu-export-chart",
     wagyuExportData
   );
 
-  d3.select("#ranking-popularity").on("change", (e) => {
-    e.preventDefault();
-    rankingKey = "popularity";
-    rankingBoard.updateVis(rankingKey);
-  });
-
-  d3.select("#ranking-price").on("change", (e) => {
-    e.preventDefault();
-    rankingKey = "price";
-    rankingBoard.updateVis(rankingKey);
-  });
-
-  d3.select("#ranking-try").on("change", (e) => {
-    e.preventDefault();
-    rankingKey = "wantToTry";
-    rankingBoard.updateVis(rankingKey);
-  });
+  const rankingBoard = new RankingBoard("#ranking-board", rankingData);
+  new ScrollamaSetting(rankingBoard, "#ranking-board-scrolly");
 
   d3.select("#wagyu-stack").on("change", (e) => {
     e.preventDefault();

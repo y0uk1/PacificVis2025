@@ -391,49 +391,30 @@
       </div>
     </section>
 
-    <section class="ranking-board mt-4">
-      <div class="container px-4 px-lg-5">
-        <div class="row justify-content-between">
-          <div
-            class="btn-group"
-            role="group"
-            aria-label="Basic radio toggle button group"
-          >
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio"
-              id="ranking-popularity"
-              autocomplete="off"
-              checked
-            />
-            <label class="btn btn-outline-warning" for="ranking-popularity"
-              >Popularity</label
-            >
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio"
-              id="ranking-price"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-warning" for="ranking-price"
-              >Price</label
-            >
-            <input
-              type="radio"
-              class="btn-check"
-              name="btnradio"
-              id="ranking-try"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-warning" for="ranking-try">Try</label>
-          </div>
+    <section class="scrolly" id="ranking-board-scrolly">
+      <figure>
+        <div class="viz" id="ranking-board"></div>
+      </figure>
+      <article>
+        <div class="step" data-step="1">
+          <h2>Popularity</h2>
+          <p>
+            Sample
+          </p>
         </div>
-        <div class="row text-center">
-          <div id="ranking-board"></div>
+        <div class="step" data-step="2">
+          <h2>Price</h2>
+          <p>
+            Sample2
+          </p>
         </div>
-      </div>
+        <div class="step" data-step="3">
+          <h2>Try</h2>
+          <p>
+            Sample3
+          </p>
+        </div>
+      </article>
     </section>
     <!-- Footer-->
     <footer class="footer bg-black small text-center text-white-50">
@@ -443,6 +424,8 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script type="module" src="js/main.js"></script>
