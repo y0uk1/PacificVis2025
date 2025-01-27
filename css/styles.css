@@ -11625,3 +11625,59 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+
+.step {
+  margin: 25px 0;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step h2,
+.step p {
+  margin: 0;
+}
+
+.step h2 {
+  text-align: right;
+  font-size: 2em;
+  padding-bottom: 25px;
+  line-height: 0.9em;
+}
+
+.step h2,
+.step p {
+  padding-right: 25px;
+  border-right: 2px solid #8c8274;
+  color: #8c8274;
+}
+
+.step.is-active h2,
+.step.is-active p {
+  border-right-color: #01080d;
+  color: #01080d;
+}
+
+figure {
+  position: -webkit-sticky;
+  position: sticky;
+  right: 0;
+  width: 1000px;
+  margin: 0 auto;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+}
+
+.scrolly {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+#ranking-board {
+  width: 750px;
+  float: right;
+}

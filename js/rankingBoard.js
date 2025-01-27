@@ -12,13 +12,13 @@ export class RankingBoard {
   // Initialize chart dimensions
   setDimensions() {
     this.dimensions = {
-      width: 800,
-      height: 600,
+      width: 700,
+      height: 500,
       margin: {
         top: 10,
-        right: 30,
-        bottom: 30,
-        left: 60,
+        right: 50,
+        bottom: 10,
+        left: 50,
       },
     };
     this.dimensions.ctrWidth =
@@ -71,20 +71,20 @@ export class RankingBoard {
 
   // Create scales for x and y axes
   createScales(rankingKey) {
-    const xAccessor = (d) => d[rankingKey];
-    const yAccessor = (d) => d.name;
+    const xAccessor = (d) => d.name;
+    const yAccessor = (d) => d[rankingKey];
 
     const xScale = d3
-      .scaleLinear()
-      .domain(d3.extent(this.dataset, xAccessor))
-      .range([0, this.dimensions.ctrWidth])
-      .nice();
+      .scaleBand()
+      .domain(this.dataset.map(xAccessor))
+      .range([0, this.dimensions.ctrHeight])
+      .padding(0.1);
 
     const yScale = d3
-      .scaleBand()
-      .domain(this.dataset.map(yAccessor))
-      .range([this.dimensions.margin.top, this.dimensions.ctrHeight])
-      .padding(0.1);
+      .scaleLinear()
+      .domain(d3.extent(this.dataset, yAccessor))
+      .range([0, this.dimensions.ctrHeight])
+      .nice();
 
     return { xScale, yScale };
   }
@@ -99,28 +99,45 @@ export class RankingBoard {
       .join("image")
       .attr("xlink:href", (d) => `assets/svg/${d.boardSVG}`)
       .attr("preserveAspectRatio", "none")
-      .attr("height", yScale.bandwidth())
-      .attr("x", 0)
+      .attr("width", xScale.bandwidth())
+      .attr("y", 0)
       .transition(transition)
-      .attr("width", (d) => xScale(d[rankingKey]))
-      .attr("y", (d) => yScale(d.name));
+      .attr("height", (d) => yScale(d[rankingKey]))
+      .attr("x", (d) => xScale(d.name));
   }
 
   // Update the text labels
   updateLabels(scales, rankingKey, transition) {
-    const { yScale } = scales;
+    const { xScale } = scales;
     const labelMargin = 10;
 
     this.nameLabelsGroup
       .selectAll("text")
       .data(this.dataset, (d) => d.name)
       .join("text")
-      .attr("x", labelMargin)
       .attr("text-anchor", "start")
       .attr("dominant-baseline", "middle")
       .attr("fill", "black")
+      .attr("x", labelMargin)
+      .attr("transform", "rotate(90)")
       .transition(transition)
-      .text((d) => `${d.name} (${d.nameJP}): ${d[rankingKey]}`)
-      .attr("y", (d) => yScale(d.name) + yScale.bandwidth() / 2);
+      .text((d) => `${d.name}: ${d[rankingKey]}`)
+      .attr("y", (d) => -xScale(d.name) - xScale.bandwidth() / 2);
   }
+
+  handlerStepEnter = (currentIdx) => {
+    switch (currentIdx) {
+      case 0:
+        this.updateVis("popularity");
+        break;
+      case 1:
+        this.updateVis("price");
+        break;
+      case 2:
+        this.updateVis("wantToTry");
+        break;
+      default:
+        break;
+    }
+  };
 }
