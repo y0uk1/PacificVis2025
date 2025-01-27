@@ -1,11 +1,11 @@
 export class WagyuExportChart {
-  constructor(parentElement, dataset) {
+  constructor(parentElement) {
     this.parentElement = parentElement;
-    this.dataset = dataset;
     this.initVis();
   }
 
-  initVis() {
+  async initVis() {
+    await this.loadData();
     this.setDimensions();
     this.setAccessors();
     this.createSvg();
@@ -14,6 +14,13 @@ export class WagyuExportChart {
     this.createAxes();
     this.createGroups();
     this.updateVis();
+  }
+
+  async loadData() {
+    this.dataset = await d3.csv(
+      "data/amount_value_of_exported_beef.csv",
+      d3.autoType
+    );
   }
 
   setDimensions() {

@@ -1,12 +1,19 @@
 export class RankingBoard {
-  constructor(_parentElement, _dataset) {
+  constructor(_parentElement) {
     this.parentElement = _parentElement;
-    this.dataset = _dataset;
+    this.initVis();
+  }
 
+  async initVis() {
+    await this.loadData();
     this.setDimensions();
     this.createSvg();
     this.createGroups();
     this.updateVis();
+  }
+
+  async loadData() {
+    this.dataset = await d3.csv("data/wagyu_ranking.csv", d3.autoType);
   }
 
   // Initialize chart dimensions
