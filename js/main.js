@@ -19,10 +19,6 @@ const draw = async () => {
   let yearExport = 2012;
 
   const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
-  const kobeTajimaCompare = new KobeTajimaCompare(
-    "#kobe-tajima-compare",
-    "#kobe-tajima-label"
-  );
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
     "#beef-parts-tooltip"
@@ -33,6 +29,15 @@ const draw = async () => {
     "#wagyu-export-chart",
     wagyuExportData
   );
+
+  const kobeTajimaCompare = new KobeTajimaCompare("#kobe-tajima-compare", [
+    "#kobe-tajima-label-2008",
+    "#kobe-tajima-label-2013",
+    "#kobe-tajima-label-2018",
+    "#kobe-tajima-label-2023",
+  ]);
+
+  new ScrollamaSetting(kobeTajimaCompare, "#kobe-tajima-compare-scrolly");
 
   const rankingBoard = new RankingBoard("#ranking-board", rankingData);
   new ScrollamaSetting(rankingBoard, "#ranking-board-scrolly");
@@ -48,9 +53,7 @@ const draw = async () => {
   });
 
   const step = () => {
-    kobeTajimaCompare.updateVis(yearKobeTajima);
     beefExportMap.updateVis(yearExport);
-    yearKobeTajima = yearKobeTajima >= 2023 ? 2008 : yearKobeTajima + 1;
     yearExport = yearExport >= 2024 ? 2012 : yearExport + 1;
   };
 

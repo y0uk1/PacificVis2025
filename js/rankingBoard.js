@@ -125,8 +125,9 @@ export class RankingBoard {
       .attr("y", (d) => -xScale(d.name) - xScale.bandwidth() / 2);
   }
 
-  handlerStepEnter = (currentIdx) => {
-    switch (currentIdx) {
+  handlerStepEnter = (response) => {
+    const currIdx = response.index;
+    switch (currIdx) {
       case 0:
         this.updateVis("popularity");
         break;
