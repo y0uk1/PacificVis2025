@@ -1,7 +1,8 @@
 export class ScrollamaSetting {
-  constructor(_visInstance, _scrollyElement) {
+  constructor(_visInstance, _scrollyElement, _stepHRate = 0.75) {
     this.visInstance = _visInstance;
     this.scrollyElement = _scrollyElement;
+    this.stepHRate = _stepHRate;
 
     this.initScrollama();
   }
@@ -15,7 +16,7 @@ export class ScrollamaSetting {
     this.scroller = scrollama();
 
     this.setupStickyfill();
-    this.handleResize();
+    this.handleResize(this.stepHRate);
 
     this.scroller
       .setup({
@@ -37,14 +38,13 @@ export class ScrollamaSetting {
     });
   }
 
-  handleResize = () => {
-    const stepH = Math.floor(window.innerHeight * 0.75);
+  handleResize = (stepHRate) => {
+    const stepH = Math.floor(window.innerHeight * stepHRate);
     this.steps.style("height", stepH + "px");
     this.steps.style("width", "250px");
 
     const figureHeight = window.innerHeight / 2;
     const figureMarginTop = (window.innerHeight - figureHeight) / 2;
-
     this.figure
       .style("height", figureHeight + "px")
       .style("top", figureMarginTop + "px");
