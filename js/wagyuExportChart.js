@@ -1,11 +1,11 @@
 export class WagyuExportChart {
-  constructor(parentElement, dataset) {
+  constructor(parentElement) {
     this.parentElement = parentElement;
-    this.dataset = dataset;
     this.initVis();
   }
 
-  initVis() {
+  async initVis() {
+    await this.loadData();
     this.setDimensions();
     this.setAccessors();
     this.createSvg();
@@ -13,14 +13,21 @@ export class WagyuExportChart {
     this.setScales();
     this.createAxes();
     this.createGroups();
-    this.updateVis();
+    this.updateVis("stackedAreaChart", 2012);
+  }
+
+  async loadData() {
+    this.dataset = await d3.csv(
+      "data/amount_value_of_exported_beef.csv",
+      d3.autoType
+    );
   }
 
   setDimensions() {
     this.dimensions = {
-      width: 800,
-      height: 600,
-      margin: { top: 10, right: 30, bottom: 80, left: 60 },
+      width: 700,
+      height: 500,
+      margin: { top: 50, right: 50, bottom: 50, left: 50 },
     };
     this.dimensions.ctrWidth =
       this.dimensions.width -
@@ -54,6 +61,15 @@ export class WagyuExportChart {
   }
 
   processData() {
+    const countryGroups = {
+      "Hong Kong": "hongkong",
+      Taiwan: "taiwan",
+      USA: "usa",
+      Cambodia: "cambodia",
+      Singapore: "singapore",
+      Thailand: "thailand",
+    };
+
     this.summarizedData = Array.from(
       d3.rollup(
         this.dataset,
@@ -63,7 +79,7 @@ export class WagyuExportChart {
           country_jp: values[0].country_jp,
         }),
         (d) => d.year,
-        (d) => d.country
+        (d) => countryGroups[d.country] || "others"
       ),
       ([year, countryMap]) =>
         Array.from(countryMap, ([country, data]) => ({
@@ -82,18 +98,34 @@ export class WagyuExportChart {
       .nice();
 
     this.yScale = d3.scaleLinear().rangeRound([this.dimensions.ctrHeight, 0]);
+
+    const countries = d3.union(this.summarizedData.map((d) => d.country));
+    this.colorScale = d3
+      .scaleOrdinal()
+      .domain(countries)
+      .range([
+        "#fbb4ae",
+        "#b3cde3",
+        "#ccebc5",
+        "#decbe4",
+        "#fed9a6",
+        "#fddaec",
+        "#e5d8bd",
+      ]);
   }
 
   createAxes() {
     this.xAxis = d3.axisBottom(this.xScale).tickFormat(d3.format("d"));
     this.xAxisGroup = this.ctr
       .append("g")
+      .attr("class", "x axis")
       .attr("transform", `translate(0, ${this.dimensions.ctrHeight})`)
       .call(this.xAxis);
 
     this.yAxisGroup = this.ctr
       .append("g")
       .attr("transform", "translate(0, 0)")
+      .attr("class", "y axis")
       .call((g) => g.select(".domain").remove())
       .call((g) =>
         g
@@ -111,60 +143,59 @@ export class WagyuExportChart {
       .attr("font-size", "14px")
       .attr("text-anchor", "middle")
       .attr("fill", "black")
-      .text("FY");
+      .text("Year");
   }
 
   createGroups() {
-    this.stackChartGroup = this.ctr.append("g").classed("stack-chart", true);
-
-    this.tooltip = d3.select(this.parentElement).select("tooltip");
+    this.chartGroup = this.ctr.append("g").classed("chart", true);
+    this.legend = this.ctr.append("g").attr("transform", "translate(50, -25)");
   }
 
-  updateVis(mode = "stackedAreaChart") {
-    const duration = 300;
-    const updateTransition = d3
-      .transition()
-      .duration(duration)
-      .ease(d3.easeLinear);
-
-    const countries = d3.union(this.summarizedData.map((d) => d.country));
-    const color = d3
-      .scaleOrdinal()
-      .domain(countries)
-      .range(d3.schemeOranges[3]);
+  updateVis(mode, year) {
+    const duration = 100;
+    const updateTransition = d3.transition().duration(duration);
 
     const data =
       mode === "stackedAreaChart"
-        ? this.getStackedData()
-        : this.getGroupedData();
+        ? this.getStackedData(year)
+        : this.getGroupedData(year);
 
-    this.updateScales(data, mode);
+    this.updateScales(mode);
     this.updateAxes(updateTransition);
-    this.drawPaths(data, mode, color, updateTransition);
+    this.drawPaths(data, mode, updateTransition);
+    this.addLegend();
   }
 
-  getStackedData() {
+  getYearFilteredData(year) {
+    return this.summarizedData.filter((d) => d.year <= year);
+  }
+
+  getStackedData(year) {
+    const filteredData = this.getYearFilteredData(year);
+
     return d3
       .stack()
-      .keys(d3.union(this.summarizedData.map((d) => d.country)))
+      .keys(d3.union(filteredData.map((d) => d.country)))
       .value(([, group], key) => {
         const entry = group.get(key);
         return entry ? entry.amount : 0;
       })(
       d3.index(
-        this.summarizedData,
+        filteredData,
         (d) => d.year,
         (d) => d.country
       )
     );
   }
 
-  getGroupedData() {
-    return Array.from(d3.group(this.summarizedData, (d) => d.country));
+  getGroupedData(year) {
+    const filteredData = this.getYearFilteredData(year);
+    return Array.from(d3.group(filteredData, (d) => d.country));
   }
 
-  updateScales(data, mode) {
+  updateScales(mode) {
     if (mode === "stackedAreaChart") {
+      const data = this.getStackedData(2024);
       this.yScale.domain([0, d3.max(data, (d) => d3.max(d, (d) => d[1]))]);
     } else {
       this.yScale.domain(d3.extent(this.summarizedData, this.yAccessor));
@@ -176,7 +207,7 @@ export class WagyuExportChart {
     this.yAxisGroup.transition(updateTransition).call(yAxis);
   }
 
-  drawPaths(data, mode, color, updateTransition) {
+  drawPaths(data, mode, updateTransition) {
     const area = d3
       .area()
       .x((d) => this.xScale(d.data[0]))
@@ -188,19 +219,88 @@ export class WagyuExportChart {
       .x((d) => this.xScale(this.xAccessor(d)))
       .y((d) => this.yScale(this.yAccessor(d)));
 
-    this.stackChartGroup
+    this.chartGroup
       .selectAll("path")
       .data(data)
       .join("path")
       .transition(updateTransition)
+      .attr("id", (d) => (mode === "stackedAreaChart" ? d.key : d[0]))
       .attr(
         "d",
         mode === "stackedAreaChart" ? area : ([, values]) => line(values)
       )
-      .attr("fill", mode === "stackedAreaChart" ? (d) => color(d.key) : "none")
+      .attr(
+        "fill",
+        mode === "stackedAreaChart" ? (d) => this.colorScale(d.key) : "none"
+      )
       .attr(
         "stroke",
-        mode === "stackedAreaChart" ? "none" : (d) => color(d[0])
-      );
+        mode === "stackedAreaChart" ? "none" : (d) => this.colorScale(d[0])
+      )
+      .attr("stroke-width", 2);
   }
+
+  addLegend() {
+    const legendArray = [
+      { label: "Hong Kong", id: "hongkong" },
+      { label: "Taiwan", id: "taiwan" },
+      { label: "USA", id: "usa" },
+      { label: "Cambodia", id: "cambodia" },
+      { label: "Singapore", id: "singapore" },
+      { label: "Thailand", id: "thailand" },
+      { label: "Others", id: "others" },
+    ];
+
+    const legendCol = this.legend
+      .selectAll(".legendCol")
+      .data(legendArray)
+      .enter()
+      .append("g")
+      .attr("class", "legendCol")
+      .attr(
+        "transform",
+        (d, i) => `translate(${(i % 4) * 150}, ${((i / 4) | 0) * 30})`
+      )
+      .attr("id", (d) => d.id);
+
+    legendCol
+      .append("rect")
+      .attr("class", "legendRect")
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", (d) => this.colorScale(d.id))
+      .attr("fill-opacity", 0.5)
+      .on("mouseover", (event, d) => this.onMouseOver(d))
+      .on("mouseleave", () => this.onMouseLeave());
+
+    legendCol
+      .append("text")
+      .attr("class", "legendText")
+      .attr("x", 20)
+      .attr("y", 10)
+      .attr("text-anchor", "start")
+      .text((d) => d.label)
+      .on("mouseover", (event, d) => this.onMouseOver(d))
+      .on("mouseleave", () => this.onMouseLeave());
+  }
+
+  onMouseOver(d) {
+    d3.selectAll(".legendCol").attr("opacity", 0.1);
+    d3.selectAll(".chart path").attr("opacity", 0.1);
+    d3.selectAll(`#${d.id}`).attr("opacity", 1);
+  }
+
+  onMouseLeave() {
+    d3.selectAll(".legendCol").attr("opacity", 1);
+    d3.selectAll(".chart path").attr("opacity", 1);
+  }
+
+  handlerStepEnter = (response) => {
+    const currIdx = response.index;
+    if (currIdx < 13) {
+      this.updateVis("stackedAreaChart", currIdx + 2012);
+    } else {
+      this.updateVis("lineChart", 2024);
+    }
+  };
 }

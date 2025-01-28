@@ -7,12 +7,6 @@ import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
-  const rankingData = await d3.csv("data/wagyu_ranking.csv", d3.autoType);
-  const wagyuExportData = await d3.csv(
-    "data/amount_value_of_exported_beef.csv",
-    d3.autoType
-  );
-
   const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
@@ -22,10 +16,8 @@ const draw = async () => {
   const map = new Map("#map");
   new ScrollamaSetting(map, "#map-scrolly");
 
-  const wagyuExportChart = new WagyuExportChart(
-    "#wagyu-export-chart",
-    wagyuExportData
-  );
+  const wagyuExportChart = new WagyuExportChart("#export-chart");
+  new ScrollamaSetting(wagyuExportChart, "#export-chart-scrolly", 0.35);
 
   const kobeTajimaCompare = new KobeTajimaCompare("#kobe-tajima-compare", [
     "#kobe-tajima-label-2008",
@@ -33,10 +25,9 @@ const draw = async () => {
     "#kobe-tajima-label-2018",
     "#kobe-tajima-label-2023",
   ]);
-
   new ScrollamaSetting(kobeTajimaCompare, "#kobe-tajima-compare-scrolly");
 
-  const rankingBoard = new RankingBoard("#ranking-board", rankingData);
+  const rankingBoard = new RankingBoard("#ranking-board");
   new ScrollamaSetting(rankingBoard, "#ranking-board-scrolly");
 
   d3.select("#wagyu-stack").on("change", (e) => {
