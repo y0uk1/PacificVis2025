@@ -283,6 +283,7 @@ export class Map {
   }
 
   onMouseOverBrand(event, d) {
+    const imgBaseDir = "assets/img/raw-meet";
     this.tooltip.style("opacity", 1);
     this.tooltip.style("visibility", "visible");
     d3.select(event.currentTarget).attr("xlink:href", this.wagyuIcon.white);
@@ -296,11 +297,11 @@ export class Map {
         <h2 class="text-center">${brandData.brand}</h2>
         <h4 class="text-center">(${brandData.prefecture})</h4>
         <p>${brandData.explanation}</p>
-        <img src="assets/img/${brandData.image}" width="300">
+        <img src="${imgBaseDir}/${brandData.image}" width="300">
       `
       )
-      .style("left", event.offsetX + 20 + "px")
-      .style("top", event.offsetY + 20 + "px");
+      .style("left", event.offsetX - 400 + "px")
+      .style("top", event.offsetY - 350 + "px");
   }
 
   onMouseOverExport(event, d, exportData) {
