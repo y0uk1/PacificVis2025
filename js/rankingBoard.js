@@ -19,13 +19,13 @@ export class RankingBoard {
   // Initialize chart dimensions
   setDimensions() {
     this.dimensions = {
-      width: 700,
+      width: 750,
       height: 500,
       margin: {
         top: 10,
-        right: 50,
+        right: 10,
         bottom: 10,
-        left: 50,
+        left: 10,
       },
     };
     this.dimensions.ctrWidth =
@@ -56,9 +56,9 @@ export class RankingBoard {
 
   // Create groups for boards and labels
   createGroups() {
-    this.boardsGroup = this.ctr.append("g").classed("board", true);
-    this.nameLabelsGroup = this.ctr.append("g").classed("board-text", true);
-    this.valueLabelsGroup = this.ctr.append("g").classed("board-text", true);
+    this.kanbansGroup = this.ctr.append("g").classed("kanban", true);
+    this.barsGroup = this.ctr.append("g").classed("bar", true);
+    this.nameLabelsGroup = this.ctr.append("g").classed("bar-text", true);
   }
 
   // Update visualization based on the selected ranking key
@@ -69,6 +69,14 @@ export class RankingBoard {
 
     this.updateBoards(scales, rankingKey, updateTransition);
     this.updateLabels(scales, rankingKey, updateTransition);
+    this.updateKanbans(scales, updateTransition);
+    this.kanbansGroup
+      .append("image")
+      .attr("class", "kanban-rope")
+      .attr("xlink:href", "assets/svg/kanban_rope.svg")
+      .attr("preserveAspectRatio", "none")
+      .attr("transform", "rotate(0.5)")
+      .attr("width", this.dimensions.ctrWidth);
   }
 
   // Sort dataset by the selected ranking key
@@ -84,7 +92,7 @@ export class RankingBoard {
     const xScale = d3
       .scaleBand()
       .domain(this.dataset.map(xAccessor))
-      .range([0, this.dimensions.ctrHeight])
+      .range([0, this.dimensions.ctrWidth])
       .padding(0.1);
 
     const yScale = d3
@@ -98,25 +106,42 @@ export class RankingBoard {
 
   // Update the board visuals
   updateBoards(scales, rankingKey, transition) {
+    const svgBaseDir = "assets/svg";
     const { xScale, yScale } = scales;
 
-    this.boardsGroup
+    this.barsGroup
       .selectAll("image")
       .data(this.dataset, (d) => d.name)
       .join("image")
-      .attr("xlink:href", (d) => `assets/svg/${d.boardSVG}`)
+      .attr("xlink:href", (d) => `${svgBaseDir}/${d.boardSVG}`)
       .attr("preserveAspectRatio", "none")
       .attr("width", xScale.bandwidth())
-      .attr("y", 0)
+      .attr("y", 150)
       .transition(transition)
       .attr("height", (d) => yScale(d[rankingKey]))
+      .attr("x", (d) => xScale(d.name));
+  }
+
+  updateKanbans(scales, transition) {
+    const imgBaseDir = "assets/img/wagyu-brand-kanban";
+    const { xScale } = scales;
+
+    this.kanbansGroup
+      .selectAll("image:not(.kanban-rope)")
+      .data(this.dataset, (d) => d.name)
+      .join("image")
+      .attr("xlink:href", (d) => `${imgBaseDir}/${d.kanbanImg}`)
+      // .attr("preserveAspectRatio", "none")
+      .attr("width", xScale.bandwidth())
+      .attr("y", 8)
+      .transition(transition)
       .attr("x", (d) => xScale(d.name));
   }
 
   // Update the text labels
   updateLabels(scales, rankingKey, transition) {
     const { xScale } = scales;
-    const labelMargin = 10;
+    const labelMargin = 160;
 
     this.nameLabelsGroup
       .selectAll("text")
