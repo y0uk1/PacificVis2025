@@ -228,6 +228,37 @@ export class Map {
       .on("mouseleave", (event, d) => this.onMouseLeaveBrand(event, d));
   }
 
+  drawHyogoMap() {
+    const duration = 500;
+    const updateTransition = d3
+      .transition()
+      .duration(duration)
+      .ease(d3.easeLinear);
+
+    // 兵庫県のみを取得
+    const hyogoFeature = this.geo.japan.features.find(
+      (d) => d.properties.name_nl === "Hyogo"
+    );
+
+    // 兵庫県のみを表示
+    const projection = this.createProjection(
+      { type: "FeatureCollection", features: [hyogoFeature] },
+      20000
+    );
+    const path = d3.geoPath().projection(projection);
+
+    this.mapGroup
+      .selectAll("path")
+      .data([hyogoFeature]) // 兵庫県のみをデータにする
+      .join("path")
+      .transition(updateTransition)
+      .attr("d", path)
+      .attr("fill", "#DDD6CF")
+      .attr("stroke", "#666")
+      .attr("stroke-width", 0.5)
+      .attr("fill-opacity", 0.6);
+  }
+
   drawExportMap(year = 2023) {
     const duration = 500;
     const updateTransition = d3
@@ -353,16 +384,19 @@ export class Map {
       case 0:
         this.drawBrandMap();
         this.iconGroup.attr("visibility", "visible");
+        break;
+      case 1:
+        this.drawHyogoMap();
+        this.iconGroup.attr("visibility", "hidden");
         if (currDirection === "up") {
           this.connectionGroup.attr("visibility", "hidden");
         }
         break;
-      case 1:
+      case 2:
         this.drawExportMap(2023);
         this.connectionGroup.attr("visibility", "visible");
-        this.iconGroup.attr("visibility", "hidden");
         break;
-      case 2:
+      case 3:
         this.drawExportMap(2024);
         break;
       default:
