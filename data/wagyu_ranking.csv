@@ -1,15 +1,15 @@
-name,nameJP,boardSVG,popularity,wantToTry,price
-Matsuzaka Beef,松坂牛,board0.svg,81.4,32.9,3500
-Kobe Beef,神戸牛,board1.svg,80.5,13.9,3000
-Yonezawa Beef,米沢牛,board2.svg,78,6.4,2500
-Ohmi Beef,近江牛,board3.svg,70.3,3.4,2200
-Hida Beef,飛騨牛,board4.svg,67.5,3.9,2500
-Miyazaki Beef,宮崎牛,board5.svg,59,2.4,1500
-Maezawa Beef,前沢牛,board6.svg,57.7,3.9,3000
-Tajima Beef,但馬牛,board7.svg,56.4,3.9,2500
-Saga Beef,佐賀牛,board8.svg,46.6,1.5,2500
-Sendai Beef,仙台牛,board9.svg,40.2,0.8,3000
-Kagoshimakuro Beef,鹿児島黒牛,board0.svg,28.6,2.6,2500
-Hitachi Beef,常陸牛,board1.svg,22.6,1.5,1700
-Kumamotoaka Beef,くまもとあかうし,board2.svg,22.2,2.4,1600
-Hiba Beef,比婆牛,board3.svg,4.5,0.4,2800
+name,nameJP,kanbanImg,boardSVG,popularity,wantToTry,price
+Matsuzaka Beef,松坂牛,matsuzaka_beef.png,board0.svg,81.4,32.9,3500
+Kobe Beef,神戸牛,kobe_beef.png,board1.svg,80.5,13.9,3000
+Yonezawa Beef,米沢牛,yonezawa_beef.png,board2.svg,78,6.4,2500
+Ohmi Beef,近江牛,ohmi_beef.png,board3.svg,70.3,3.4,2200
+Hida Beef,飛騨牛,hida_beef.png,board4.svg,67.5,3.9,2500
+Miyazaki Beef,宮崎牛,miyazaki_beef.png,board5.svg,59,2.4,1500
+Maezawa Beef,前沢牛,maezawa_beef.png,board6.svg,57.7,3.9,3000
+Tajima Beef,但馬牛,tajima_beef.png,board7.svg,56.4,3.9,2500
+Saga Beef,佐賀牛,saga_beef.png,board8.svg,46.6,1.5,2500
+Sendai Beef,仙台牛,sendai_beef.png,board9.svg,40.2,0.8,3000
+Kagoshimakuro Beef,鹿児島黒牛,kagoshimakuro_beef.png,board0.svg,28.6,2.6,2500
+Hitachi Beef,常陸牛,hitachi_beef.png,board1.svg,22.6,1.5,1700
+Kumamotoaka Beef,くまもとあかうし,kumamotoaka_beef.png,board2.svg,22.2,2.4,1600
+Hiba Beef,比婆牛,hiba_beef.png,board3.svg,4.5,0.4,2800
