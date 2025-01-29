@@ -15,6 +15,233 @@
                     [
                         [
                             [
+                                134.36558094775495,
+                                35.59996541631113
+                            ],
+                            [
+                                134.5369873090001,
+                                35.67220309900006
+                            ],
+                            [
+                                134.86324991265326,
+                                35.65827840142708
+                            ],
+                            [
+                                134.9108663269194,
+                                35.512819728947306
+                            ],
+                            [
+                                135.04382978741467,
+                                35.50269114857764
+                            ],
+                            [
+                                135.0447599634016,
+                                35.39499746396177
+                            ],
+                            [
+                                134.93024498941463,
+                                35.37959788693291
+                            ],
+                            [
+                                134.92678266788573,
+                                35.302367458691265
+                            ],
+                            [
+                                135.15271203043585,
+                                35.24477407536324
+                            ],
+                            [
+                                135.20128787743351,
+                                35.17007579176436
+                            ],
+                            [
+                                135.379158156024,
+                                35.107883206244935
+                            ],
+                            [
+                                135.36334516784518,
+                                34.99745067051202
+                            ],
+                            [
+                                135.43982628815263,
+                                34.90370962210136
+                            ],
+                            [
+                                135.41293378996238,
+                                34.69208405223719
+                            ],
+                            [
+                                135.25489028200002,
+                                34.70091002200007
+                            ],
+                            [
+                                135.24234854000008,
+                                34.650751996000054
+                            ],
+                            [
+                                135.04576878800003,
+                                34.624966887000085
+                            ],
+                            [
+                                134.74439537900003,
+                                34.76654694200005
+                            ],
+                            [
+                                134.4912215500001,
+                                34.78705475500004
+                            ],
+                            [
+                                134.3046405571964,
+                                34.70910855032946
+                            ],
+                            [
+                                134.26361901270718,
+                                35.00096466708567
+                            ],
+                            [
+                                134.39410200360453,
+                                35.14069774010858
+                            ],
+                            [
+                                134.39565229721575,
+                                35.22921946870349
+                            ],
+                            [
+                                134.51068403514,
+                                35.28880239521436
+                            ],
+                            [
+                                134.36558094775495,
+                                35.59996541631113
+                            ]
+                        ]
+                    ],
+                    [
+                        [
+                            [
+                                135.002681887,
+                                34.60842304800008
+                            ],
+                            [
+                                134.89576256600003,
+                                34.372748114000046
+                            ],
+                            [
+                                134.95825406100005,
+                                34.27035550100004
+                            ],
+                            [
+                                134.72867714100005,
+                                34.190939349000075
+                            ],
+                            [
+                                134.68325958600008,
+                                34.328226407000045
+                            ],
+                            [
+                                135.002681887,
+                                34.60842304800008
+                            ]
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "featurecla": "Admin-1 scale rank",
+                "scalerank": 6,
+                "adm1_code": "JPN-1849",
+                "diss_me": 1849,
+                "iso_3166_2": "JP-28",
+                "wikipedia": null,
+                "iso_a2": "JP",
+                "adm0_sr": 3,
+                "name": "Hyōgo",
+                "name_alt": "Hiogo",
+                "name_local": "兵庫県",
+                "type": "Ken",
+                "type_en": "Prefecture",
+                "code_local": null,
+                "code_hasc": "JP.HG",
+                "note": null,
+                "hasc_maybe": "JP.KM",
+                "region": "Kinki",
+                "region_cod": "JPN-KIN",
+                "provnum_ne": 10,
+                "gadm_level": 1,
+                "check_me": 20,
+                "datarank": 2,
+                "abbrev": null,
+                "postal": "HG",
+                "area_sqkm": 0,
+                "sameascity": -99,
+                "labelrank": 6,
+                "name_len": 5,
+                "mapcolor9": 5,
+                "mapcolor13": 4,
+                "fips": "JA13",
+                "fips_alt": "JA21",
+                "woe_id": 2345862,
+                "woe_label": "Hyogo Prefecture, JP, Japan",
+                "woe_name": "Hyōgo",
+                "latitude": 35.063,
+                "longitude": 134.837,
+                "sov_a3": "JPN",
+                "adm0_a3": "JPN",
+                "adm0_label": 4,
+                "admin": "Japan",
+                "geonunit": "Japan",
+                "gu_a3": "JPN",
+                "gn_id": 1862047,
+                "gn_name": "Hyogo-ken",
+                "gns_id": -229942,
+                "gns_name": "Hyogo-ken",
+                "gn_level": 1,
+                "gn_region": null,
+                "gn_a1_code": "JP.13",
+                "region_sub": null,
+                "sub_code": null,
+                "gns_level": 1,
+                "gns_lang": "jpn",
+                "gns_adm1": "JA13",
+                "gns_region": null,
+                "min_label": 7,
+                "max_label": 11,
+                "min_zoom": 3,
+                "wikidataid": "Q130290",
+                "name_ar": "هيوغو",
+                "name_bn": "হিয়োগো প্রশাসনিক অঞ্চল",
+                "name_de": "Präfektur Hyogo",
+                "name_en": "Hyōgo Prefecture",
+                "name_es": "Prefectura de Hyōgo",
+                "name_fr": "Préfecture de Hyōgo",
+                "name_el": "Χιγκόρο",
+                "name_hi": "ह्योगो प्रीफेक्चर",
+                "name_hu": "Hjógo prefektúra",
+                "name_id": "Prefektur Hyogo",
+                "name_it": "prefettura di Hyōgo",
+                "name_ja": "兵庫県",
+                "name_ko": "효고현",
+                "name_nl": "Hyogo",
+                "name_pl": "Prefektura Hyōgo",
+                "name_pt": "Hyogo",
+                "name_ru": "Хёго",
+                "name_sv": "Hyogo prefektur",
+                "name_tr": "Hyōgo ili",
+                "name_vi": "Hyōgo",
+                "name_zh": "兵库县",
+                "ne_id": 1159309339,
+                "layer": "japan",
+                "path": "C:\\Users\\kamiyama\\Downloads\\japan.geojson|layername=japan"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                    [
+                        [
+                            [
                                 129.7832137380001,
                                 31.799627997000073
                             ],
@@ -3591,233 +3818,6 @@
                 "name_vi": "Tottori",
                 "name_zh": "鳥取縣",
                 "ne_id": 1159312175,
-                "layer": "japan",
-                "path": "C:\\Users\\kamiyama\\Downloads\\japan.geojson|layername=japan"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "MultiPolygon",
-                "coordinates": [
-                    [
-                        [
-                            [
-                                134.36558094775495,
-                                35.59996541631113
-                            ],
-                            [
-                                134.5369873090001,
-                                35.67220309900006
-                            ],
-                            [
-                                134.86324991265326,
-                                35.65827840142708
-                            ],
-                            [
-                                134.9108663269194,
-                                35.512819728947306
-                            ],
-                            [
-                                135.04382978741467,
-                                35.50269114857764
-                            ],
-                            [
-                                135.0447599634016,
-                                35.39499746396177
-                            ],
-                            [
-                                134.93024498941463,
-                                35.37959788693291
-                            ],
-                            [
-                                134.92678266788573,
-                                35.302367458691265
-                            ],
-                            [
-                                135.15271203043585,
-                                35.24477407536324
-                            ],
-                            [
-                                135.20128787743351,
-                                35.17007579176436
-                            ],
-                            [
-                                135.379158156024,
-                                35.107883206244935
-                            ],
-                            [
-                                135.36334516784518,
-                                34.99745067051202
-                            ],
-                            [
-                                135.43982628815263,
-                                34.90370962210136
-                            ],
-                            [
-                                135.41293378996238,
-                                34.69208405223719
-                            ],
-                            [
-                                135.25489028200002,
-                                34.70091002200007
-                            ],
-                            [
-                                135.24234854000008,
-                                34.650751996000054
-                            ],
-                            [
-                                135.04576878800003,
-                                34.624966887000085
-                            ],
-                            [
-                                134.74439537900003,
-                                34.76654694200005
-                            ],
-                            [
-                                134.4912215500001,
-                                34.78705475500004
-                            ],
-                            [
-                                134.3046405571964,
-                                34.70910855032946
-                            ],
-                            [
-                                134.26361901270718,
-                                35.00096466708567
-                            ],
-                            [
-                                134.39410200360453,
-                                35.14069774010858
-                            ],
-                            [
-                                134.39565229721575,
-                                35.22921946870349
-                            ],
-                            [
-                                134.51068403514,
-                                35.28880239521436
-                            ],
-                            [
-                                134.36558094775495,
-                                35.59996541631113
-                            ]
-                        ]
-                    ],
-                    [
-                        [
-                            [
-                                135.002681887,
-                                34.60842304800008
-                            ],
-                            [
-                                134.89576256600003,
-                                34.372748114000046
-                            ],
-                            [
-                                134.95825406100005,
-                                34.27035550100004
-                            ],
-                            [
-                                134.72867714100005,
-                                34.190939349000075
-                            ],
-                            [
-                                134.68325958600008,
-                                34.328226407000045
-                            ],
-                            [
-                                135.002681887,
-                                34.60842304800008
-                            ]
-                        ]
-                    ]
-                ]
-            },
-            "properties": {
-                "featurecla": "Admin-1 scale rank",
-                "scalerank": 6,
-                "adm1_code": "JPN-1849",
-                "diss_me": 1849,
-                "iso_3166_2": "JP-28",
-                "wikipedia": null,
-                "iso_a2": "JP",
-                "adm0_sr": 3,
-                "name": "Hyōgo",
-                "name_alt": "Hiogo",
-                "name_local": "兵庫県",
-                "type": "Ken",
-                "type_en": "Prefecture",
-                "code_local": null,
-                "code_hasc": "JP.HG",
-                "note": null,
-                "hasc_maybe": "JP.KM",
-                "region": "Kinki",
-                "region_cod": "JPN-KIN",
-                "provnum_ne": 10,
-                "gadm_level": 1,
-                "check_me": 20,
-                "datarank": 2,
-                "abbrev": null,
-                "postal": "HG",
-                "area_sqkm": 0,
-                "sameascity": -99,
-                "labelrank": 6,
-                "name_len": 5,
-                "mapcolor9": 5,
-                "mapcolor13": 4,
-                "fips": "JA13",
-                "fips_alt": "JA21",
-                "woe_id": 2345862,
-                "woe_label": "Hyogo Prefecture, JP, Japan",
-                "woe_name": "Hyōgo",
-                "latitude": 35.063,
-                "longitude": 134.837,
-                "sov_a3": "JPN",
-                "adm0_a3": "JPN",
-                "adm0_label": 4,
-                "admin": "Japan",
-                "geonunit": "Japan",
-                "gu_a3": "JPN",
-                "gn_id": 1862047,
-                "gn_name": "Hyogo-ken",
-                "gns_id": -229942,
-                "gns_name": "Hyogo-ken",
-                "gn_level": 1,
-                "gn_region": null,
-                "gn_a1_code": "JP.13",
-                "region_sub": null,
-                "sub_code": null,
-                "gns_level": 1,
-                "gns_lang": "jpn",
-                "gns_adm1": "JA13",
-                "gns_region": null,
-                "min_label": 7,
-                "max_label": 11,
-                "min_zoom": 3,
-                "wikidataid": "Q130290",
-                "name_ar": "هيوغو",
-                "name_bn": "হিয়োগো প্রশাসনিক অঞ্চল",
-                "name_de": "Präfektur Hyogo",
-                "name_en": "Hyōgo Prefecture",
-                "name_es": "Prefectura de Hyōgo",
-                "name_fr": "Préfecture de Hyōgo",
-                "name_el": "Χιγκόρο",
-                "name_hi": "ह्योगो प्रीफेक्चर",
-                "name_hu": "Hjógo prefektúra",
-                "name_id": "Prefektur Hyogo",
-                "name_it": "prefettura di Hyōgo",
-                "name_ja": "兵庫県",
-                "name_ko": "효고현",
-                "name_nl": "Hyogo",
-                "name_pl": "Prefektura Hyōgo",
-                "name_pt": "Hyogo",
-                "name_ru": "Хёго",
-                "name_sv": "Hyogo prefektur",
-                "name_tr": "Hyōgo ili",
-                "name_vi": "Hyōgo",
-                "name_zh": "兵库县",
-                "ne_id": 1159309339,
                 "layer": "japan",
                 "path": "C:\\Users\\kamiyama\\Downloads\\japan.geojson|layername=japan"
             }
