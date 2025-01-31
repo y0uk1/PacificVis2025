@@ -269,7 +269,6 @@ export class WagyuExportChart {
       .attr("width", 10)
       .attr("height", 10)
       .attr("fill", (d) => this.colorScale(d.id))
-      .attr("fill-opacity", 0.5)
       .on("mouseover", (event, d) => this.onMouseOver(d))
       .on("mouseleave", () => this.onMouseLeave());
 
