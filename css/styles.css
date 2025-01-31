@@ -11688,6 +11688,7 @@ figure {
 #selected-cuisine-img {
   height: 18rem;
   object-fit: cover;
+  margin-left: 150px;
 }
 
 .custom-card {
@@ -11696,11 +11697,13 @@ figure {
   transition: background-color 0.3s ease-in-out;
   border-radius: 20px;
   height: 100%;
+  align-items: center;
 }
 
 .custom-card .card-img-top {
   height: 200px; /* 画像の高さを統一 */
-  object-fit: cover; /* アスペクト比を保ちながら画像を収める */
+  object-fit: contain; /* 画像の全体を表示 */
+  width: 80%; /* カードの幅に合わせる */
 }
 
 .custom-card .card-body {
@@ -11734,4 +11737,18 @@ figure {
 .selected-cuisine .slide-in {
   transform: translateY(0);
   opacity: 1;
+}
+
+.background-cuisine {
+  background-image: url("../assets/img/cuisine/sake.png"),
+    url("../assets/img/cuisine/wine.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right top;
+  background-size: 15%, 25%;
+  height: 100%;
+}
+
+.selected-cuisine {
+  margin-top: 200px;
+  margin-bottom: 50px;
 }
