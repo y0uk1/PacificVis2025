@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Sukiyaki",
+    "nameJP": "すき焼き",
+    "explanation": "Add explanation of Sukiyaki",
+    "image": "sukiyaki.png"
+  },
+  {
+    "name": "Yakiniku",
+    "nameJP": "焼肉",
+    "explanation": "Add explanation of Yakiniku",
+    "image": "yakiniku.png"
+  },
+  {
+    "name": "Gyudon",
+    "nameJP": "牛丼",
+    "explanation": "Add explanation of Gyudon",
+    "image": "gyudon.png"
+  },
+  {
+    "name": "Gyukatsu",
+    "nameJP": "牛かつ",
+    "explanation": "Add explanation of Gyukatsu",
+    "image": "gyukatsu.png"
+  },
+  {
+    "name": "Shabushabu",
+    "nameJP": "しゃぶしゃぶ",
+    "explanation": "Add explanation of Shabushabu",
+    "image": "shabushabu.png"
+  },
+  {
+    "name": "Sushi",
+    "nameJP": "肉寿司",
+    "explanation": "Add explanation of Sushi",
+    "image": "sushi.png"
+  }
+]
