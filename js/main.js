@@ -1,5 +1,6 @@
 import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
+import { Cuisines } from "./cuisines.js";
 import { Map } from "./map.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { ScrollamaSetting } from "./scrollamaSetting.js";
@@ -30,15 +31,14 @@ const draw = async () => {
   const rankingBoard = new RankingBoard("#ranking-board");
   new ScrollamaSetting(rankingBoard, "#ranking-board-scrolly");
 
-  d3.select("#wagyu-stack").on("change", (e) => {
-    e.preventDefault();
-    wagyuExportChart.updateVis("stackedAreaChart");
-  });
-
-  d3.select("#wagyu-line").on("change", (e) => {
-    e.preventDefault();
-    wagyuExportChart.updateVis("lineChart");
-  });
+  const cuisines = new Cuisines(
+    "cuisine-list",
+    "selected-cuisine-img",
+    "selected-cuisine-name",
+    "selected-cuisine-jp-name",
+    "selected-cuisine-explanation",
+    "Yakiniku"
+  );
 };
 
 draw();

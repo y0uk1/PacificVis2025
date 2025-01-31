@@ -11684,3 +11684,54 @@ figure {
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
+
+#selected-cuisine-img {
+  height: 18rem;
+  object-fit: cover;
+}
+
+.custom-card {
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 20px;
+  height: 100%;
+}
+
+.custom-card .card-img-top {
+  height: 200px; /* 画像の高さを統一 */
+  object-fit: cover; /* アスペクト比を保ちながら画像を収める */
+}
+
+.custom-card .card-body {
+  flex-grow: 1; /* 余ったスペースを占める */
+  display: flex;
+  justify-content: center; /* 水平方向に中央揃え */
+  align-items: center; /* 垂直方向に中央揃え */
+  text-align: center; /* 文字を中央揃え */
+}
+
+.custom-card:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.selected-cuisine .fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.selected-cuisine .fade-in {
+  opacity: 1;
+}
+
+/* テキストのスライドイン */
+.selected-cuisine .slide {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.selected-cuisine .slide-in {
+  transform: translateY(0);
+  opacity: 1;
+}
