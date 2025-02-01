@@ -153,7 +153,7 @@ export class RankingBoard {
       .attr("x", labelMargin)
       .attr("transform", "rotate(90)")
       .transition(transition)
-      .text((d) => `${d.name}: ${d[rankingKey]}`)
+      .text((d) => `${d.name.split(" ")[0]}`)
       .attr("y", (d) => -xScale(d.name) - xScale.bandwidth() / 2);
   }
 
