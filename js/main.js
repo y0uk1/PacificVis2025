@@ -2,6 +2,7 @@ import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
 import { Cuisines } from "./cuisines.js";
 import { Map } from "./map.js";
+import { StickyHorizontalScroll } from "./stickyHorizontalScroll.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { ScrollamaSetting } from "./scrollamaSetting.js";
 import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
@@ -39,6 +40,8 @@ const draw = async () => {
     "selected-cuisine-explanation",
     "Yakiniku"
   );
+
+  new StickyHorizontalScroll(".sticky-wrap");
 };
 
 draw();
