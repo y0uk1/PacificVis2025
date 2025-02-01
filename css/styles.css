@@ -11700,6 +11700,11 @@ figure {
   align-items: center;
 }
 
+.custom-card-2 {
+  background-color: #fefbec;
+  width: 20rem;
+}
+
 .custom-card .card-img-top {
   height: 200px; /* 画像の高さを統一 */
   object-fit: contain; /* 画像の全体を表示 */
@@ -11751,4 +11756,68 @@ figure {
 .selected-cuisine {
   margin-top: 200px;
   margin-bottom: 50px;
+}
+
+.scroll-container {
+  height: 400vh;
+}
+
+.horizontal-scroll {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 400vw;
+  will-change: transform;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scroll-contents {
+  height: 100%;
+  width: 100vw;
+}
+
+.sticky-wrap {
+  overflow: hidden;
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+}
+
+.box {
+  position: relative;
+  padding: 3rem;
+  border-radius: 50%;
+  border: 4px solid #e1a639;
+  background-color: white;
+}
+
+.box:before,
+.box:after {
+  position: absolute;
+  left: 50%;
+  content: "";
+  height: 0;
+  width: 0;
+}
+
+.box:before {
+  top: 100%;
+  border: 14px solid;
+  border-color: transparent;
+  border-top-color: #e1a639;
+  margin-left: -14px;
+}
+
+.box:after {
+  top: 99%;
+  border: 10px solid;
+  border-color: transparent;
+  border-top-color: white;
+  margin-left: -10px;
+}
+
+.box p {
+  color: #333;
+  line-height: 1.5;
 }
