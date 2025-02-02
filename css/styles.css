@@ -11655,7 +11655,7 @@ figure {
   position: relative;
 }
 
-#ranking-board,
+.ranking-board,
 #export-chart {
   width: 750px;
   float: right;
