@@ -75,7 +75,7 @@
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
-  --bs-body-background-color: #e5d8be;
+  --bs-body-background-color: #e8dcc7;
   --bs-body-bg: #f2e9d2;
   --bs-border-width: 1px;
   --bs-border-style: solid;
@@ -11673,16 +11673,9 @@ figure {
 }
 
 .tooltip {
-  opacity: 0;
   position: absolute;
   z-index: 100;
-  background-color: white;
-  border: solid;
-  border-width: 2px;
-  border-radius: 5px;
-  padding: 5px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  font-family: var(--bs-body-font-family);
 }
 
 #selected-cuisine-img {
@@ -11702,7 +11695,11 @@ figure {
 
 .custom-card-2 {
   background-color: #fefbec;
-  width: 20rem;
+  width: 24rem;
+}
+
+.bg-base-100 {
+  background-color: #fefbec;
 }
 
 .custom-card .card-img-top {

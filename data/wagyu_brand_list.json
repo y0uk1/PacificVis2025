@@ -3,98 +3,98 @@
     "brand": "Matsuzaka Beef",
     "brandJP": "松坂牛",
     "prefecture": "Mie",
-    "explanation": "Add explanation of beef",
+    "explanation": "Matsusaka Beef is a brand of premium wagyu from virgin cows raised under stringent conditions in and around Matsusaka City in Mie Prefecture. The cattle are tracked from birth to slaughter to ensure their authenticity. The highly-marbled beef has a high fat-to-meat ratio and rich mouthfeel. These cows are famous for being fed beer to increase their appetites in some of the farms.",
     "image": "matsuzaka_beef.png"
   },
   {
     "brand": "Kobe Beef",
     "brandJP": "神戸牛",
     "prefecture": "Hyogo",
-    "explanation": "Add explanation of beef",
+    "explanation": "Arguably the most well-known brand of wagyu known outside of Japan, Kobe Beef refers to cows raised under stringent conditions at specialised livestock farms in Hyogo Prefecture . The cattle are fed specially selected rice and corn. The resulting well-marbled meat is known for its refined, rich sweetness and unique aroma. Former U.S. President Obama is just one of the many famous persons who wanted to eat Kobe Beef when visiting Japan.",
     "image": "kobe_beef.png"
   },
   {
     "brand": "Yonezawa Beef",
     "brandJP": "米沢牛",
     "prefecture": "Yamagata",
-    "explanation": "Add explanation of beef",
+    "explanation": "Yonezawa Beef is a premium Wagyu brand produced in the Okitama region of Yamagata Prefecture. With only 2,000 cattle shipped annually, only those that meet strict criteria can be certified as Yonezawa Beef. Farmers who raise Yonezawa cattle also cultivate rice themselves, harvesting rice straw to feed the cattle. Raised in a climate of scorching summers and harsh winters, Yonezawa Beef is known for its well-balanced ratio of lean meat to fat, offering natural tenderness, high-quality marbling, and a rich aroma. While it pairs well with various dishes such as yakiniku and shabu-shabu, it is especially recommended for sukiyaki, a traditional dish of the Yonezawa region.",
     "image": "yonezawa_beef.png"
   },
   {
     "brand": "Ohmi Beef",
     "brandJP": "近江牛",
     "prefecture": "Shiga",
-    "explanation": "Add explanation of beef",
+    "explanation": "A brand of wagyu raised in Shiga Prefecture , Omi cattle are raised with extreme care. In addition to having a very fine grain, this meat is distinctive from other wagyu types due to the viscosity of its fat. Before meat eating became common in Japan during the 19th century, miso marinated Omi Beef was presented to the ruling shogun as a medicinal cure.",
     "image": "ohmi_beef.png"
   },
   {
     "brand": "Hida Beef",
     "brandJP": "飛騨牛",
     "prefecture": "Gifu",
-    "explanation": "Add explanation of beef",
+    "explanation": "Hida Beef is a premium Wagyu brand raised in the rich natural environment of Gifu Prefecture, where the cattle grow stress-free. Nurtured in a land blessed with vast open spaces, pure air, abundant nature, and clean water, Hida Beef benefits from ideal conditions for high-quality meat production. According to the Japan Meat Grading Association, Hida Beef consistently achieves a significantly higher percentage of Grade 5 rankings compared to the national average. It offers a rich umami flavor with a hint of sweetness, yet no undesirable odor, and has a clean, refreshing aftertaste. This makes it an excellent choice even for those who typically find fatty meat too heavy.",
     "image": "hida_beef.png"
   },
   {
     "brand": "Miyazaki Beef",
     "brandJP": "宮崎牛",
     "prefecture": "Miyazaki",
-    "explanation": "Add explanation of beef",
+    "explanation": "Miyazaki Prefecture  is the second largest producer of the Japanese Black breed, and only the highest quality cattle from this region can be dubbed Miyazakigyu. These cattle have twice won the \"Wagyu Olympics\" and the beef is a popular export. Its beautiful color is one of its attractive factors. In major sumo tourneys, it is a custom to present the champion sumo wrestler with a Miyazaki cow.",
     "image": "miyazaki_beef.png"
   },
   {
     "brand": "Maezawa Beef",
     "brandJP": "前沢牛",
     "prefecture": "Iwate",
-    "explanation": "Add explanation of beef",
+    "explanation": "Maesawa Beef is a premium Wagyu brand raised in the Maesawa region of Oshu City, Iwate Prefecture. Located in the southern part of the Kitakami Basin, with the Kitakami River flowing through its center, the Maesawa region provides an ideal environment for cattle, offering an abundant supply of high-quality feed. Known as a prime rice-producing area, the region’s rice straw is fed to the cattle, contributing to Maesawa Beef’s vibrant marbling. The beef is characterized by its moist, tender texture, rich aroma, and melt-in-your-mouth sensation.",
     "image": "maezawa_beef.png"
   },
   {
     "brand": "Tajima Beef",
     "brandJP": "但馬牛",
     "prefecture": "Hyogo",
-    "explanation": "Add explanation of beef",
+    "explanation": "Japan's \"top three\" wagyu brands — specifically Matsusaka Ushi, Kobe Beef, and Ohmi Beef — all hail from the Kansai region of Japan. While their bloodlines all trace their origins to Tajima beef, a subspecies of Japanese Black cattle from Hyogo Prefecture, each of these wagyu brands boasts a unique flavor profile.",
     "image": "tajima_beef.png"
   },
   {
     "brand": "Saga Beef",
     "brandJP": "佐賀牛",
     "prefecture": "Saga",
-    "explanation": "Add explanation of beef",
+    "explanation": "Saga Beef is a premium Wagyu brand produced in Saga Prefecture, where only black-haired Wagyu cattle that achieve a Meat Quality Grade of 4 or higher are certified as Saga Beef. The region’s mild climate and fertile land provide an ideal environment for raising high-quality cattle. Fed on carefully selected feed and nurtured with pure local water, Saga Beef is known for its fine, evenly distributed marbling. This results in an exceptionally tender texture, a rich umami flavor, and a smooth, buttery mouthfeel. Its well-balanced fat content gives it a melt-in-your-mouth quality while maintaining a clean, refined aftertaste.",
     "image": "saga_beef.png"
   },
   {
     "brand": "Sendai Beef",
     "brandJP": "仙台牛",
     "prefecture": "Miyagi",
-    "explanation": "Add explanation of beef",
+    "explanation": "Sendai Beef is a premium Wagyu brand produced in Miyagi Prefecture, where only cattle graded as Meat Quality Grade 5 are certified as Sendai Beef. While approximately 20,000 cattle are shipped for meat production in Miyagi each year, only about 40% meet the strict criteria to bear the Sendai Beef name. Raised on rice straw from locally grown varieties such as Sasanishiki and Hitomebore, nurtured with the region’s pure water, Sendai Beef is carefully raised over three years. It is known for its exceptionally tender texture and rich, juicy flavor.",
     "image": "sendai_beef.png"
   },
   {
     "brand": "Kagoshimakuro Beef",
     "brandJP": "鹿児島黒牛",
     "prefecture": "Kagoshima",
-    "explanation": "Add explanation of beef",
+    "explanation": "Kagoshima Black Beef is a premium Wagyu produced in Kagoshima Prefecture, home to the largest number of Wagyu cattle in Japan. Raised under strict standards, the cattle benefit from the region's warm climate and high-quality feed. With fine marbling and rich umami flavor, Kagoshima Black Beef is known for its tender texture, juicy bite, and melt-in-your-mouth quality, making it a favorite among Wagyu connoisseurs.",
     "image": "kagoshimakuro_beef.png"
   },
   {
     "brand": "Hitachi Beef",
     "brandJP": "常陸牛",
     "prefecture": "Ibaraki",
-    "explanation": "Add explanation of beef",
+    "explanation": "Hitachigyu are born and raised by hand in Ibaraki Prefecture , a long-term grain-growing region. Feed containing barley and other grains gives the beef a superbly balanced marbling. Hitachigyu beef is famous for its fine meat grain and tenderness.",
     "image": "hitachi_beef.png"
   },
   {
     "brand": "Kumamotoaka Beef",
     "brandJP": "くまもとあかうし",
     "prefecture": "Kumamoto",
-    "explanation": "Add explanation of beef",
+    "explanation": "This type of wagyu comes from the rare Japanese Brown breed. The cattle are born and raised in Kumamoto Prefecture . The breed's lack of excess fat makes it very healthy, but it still retains a high level of tenderness and a mellow flavor. A popular way to serve Kumamoto Akaushi is roast beef.",
     "image": "kumamotoaka_beef.png"
   },
   {
     "brand": "Hiba Beef",
     "brandJP": "比婆牛",
     "prefecture": "Hiroshima",
-    "explanation": "Add explanation of beef",
+    "explanation": "Hiba Beef is a premium Wagyu brand produced in the Hiba region of Hiroshima Prefecture, where only carefully selected Japanese Black cattle raised under strict conditions earn the Hiba Beef name. The region’s rich natural environment, with its clean water and lush pastures, provides an ideal setting for cattle rearing. Known for its fine-textured meat and balanced marbling, Hiba Beef offers a deep umami flavor with a rich yet delicate taste. Its tender, juicy texture and smooth fat distribution create a melt-in-your-mouth experience, making it a prized choice for various culinary preparations.",
     "image": "hiba_beef.png"
   }
 ]
