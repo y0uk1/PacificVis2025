@@ -259,7 +259,7 @@ export class Map {
       .attr("fill-opacity", 0.6);
   }
 
-  drawExportMap(year = 2023) {
+  drawExportMap(year = 2024) {
     const duration = 500;
     const updateTransition = d3
       .transition()
@@ -271,6 +271,7 @@ export class Map {
     const filteredData = this.summarizedExportData.filter(
       (item) => item.year === year
     );
+filteredData.sort((a, b) => b.weightKg - a.weightKg);
     const groupedData = d3.group(filteredData, (d) => d.exportedTo);
     const countries = Array.from(groupedData.keys());
     const connections = this.createConnections(countries);
@@ -303,6 +304,7 @@ export class Map {
       .on("mousemove", (event, d) => this.onMouseMove(event))
       .on("mouseleave", (event, d) => this.onMouseLeaveExport(event, d))
       .transition(updateTransition)
+      .delay((d, i) => i * 500)
       .attr("d", path)
       .attr("fill", "none")
       .attr("stroke", "orange")
@@ -393,11 +395,8 @@ export class Map {
         }
         break;
       case 2:
-        this.drawExportMap(2023);
-        this.connectionGroup.attr("visibility", "visible");
-        break;
-      case 3:
         this.drawExportMap(2024);
+        this.connectionGroup.attr("visibility", "visible");
         break;
       default:
         break;
