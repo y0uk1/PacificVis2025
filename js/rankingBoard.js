@@ -113,10 +113,19 @@ export class RankingBoard {
       .selectAll("image")
       .data(this.dataset, (d) => d.name)
       .join("image")
+      .attr("id", (d) => d.id)
       .attr("xlink:href", (d) => `${svgBaseDir}/${d.boardSVG}`)
       .attr("preserveAspectRatio", "none")
       .attr("width", xScale.bandwidth())
       .attr("y", 150)
+      .on("mouseover", (event, d) => {
+        d3.select(event.currentTarget).attr("opacity", 0.5);
+        this.kanbansGroup.selectAll(`#${d.id}`).attr("opacity", 0.5);
+      })
+      .on("mouseout", (event, d) => {
+        d3.select(event.currentTarget).attr("opacity", 1);
+        this.kanbansGroup.selectAll(`#${d.id}`).attr("opacity", 1);
+      })
       .transition(transition)
       .attr("height", (d) => yScale(d[rankingKey]))
       .attr("x", (d) => xScale(d.name));
@@ -130,10 +139,18 @@ export class RankingBoard {
       .selectAll("image:not(.kanban-rope)")
       .data(this.dataset, (d) => d.name)
       .join("image")
+      .attr("id", (d) => d.id)
       .attr("xlink:href", (d) => `${imgBaseDir}/${d.kanbanImg}`)
-      // .attr("preserveAspectRatio", "none")
       .attr("width", xScale.bandwidth())
       .attr("y", 8)
+      .on("mouseover", (event, d) => {
+        d3.select(event.currentTarget).attr("opacity", 0.5);
+        this.barsGroup.selectAll(`#${d.id}`).attr("opacity", 0.5);
+      })
+      .on("mouseout", (event, d) => {
+        d3.select(event.currentTarget).attr("opacity", 1);
+        this.barsGroup.selectAll(`#${d.id}`).attr("opacity", 1);
+      })
       .transition(transition)
       .attr("x", (d) => xScale(d.name));
   }
@@ -152,8 +169,24 @@ export class RankingBoard {
       .attr("fill", "black")
       .attr("x", labelMargin)
       .attr("transform", "rotate(90)")
+      .on("mouseover", (event, d) => {
+        this.barsGroup.selectAll(`#${d.id}`).attr("opacity", 0.5);
+        this.kanbansGroup.selectAll(`#${d.id}`).attr("opacity", 0.5);
+      })
+      .on("mouseout", (event, d) => {
+        this.barsGroup.selectAll(`#${d.id}`).attr("opacity", 1);
+        this.kanbansGroup.selectAll(`#${d.id}`).attr("opacity", 1);
+      })
       .transition(transition)
-      .text((d) => `${d.name}: ${d[rankingKey]}`)
+      .text((d) => {
+        const dollarYen = 155;
+        const name = d.name.split(" ")[0];
+        if (rankingKey !== "priceYen") {
+          return name;
+        }
+        const priceDollar = (d.priceYen / dollarYen).toFixed(1);
+        return `${name} ($${priceDollar})`;
+      })
       .attr("y", (d) => -xScale(d.name) - xScale.bandwidth() / 2);
   }
 
@@ -164,7 +197,7 @@ export class RankingBoard {
         this.updateVis("popularity");
         break;
       case 1:
-        this.updateVis("price");
+        this.updateVis("priceYen");
         break;
       case 2:
         this.updateVis("wantToTry");
