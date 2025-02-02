@@ -243,7 +243,8 @@ export class Map {
     // 兵庫県のみを表示
     const projection = this.createProjection(
       { type: "FeatureCollection", features: [hyogoFeature] },
-      20000
+      13000,
+      [0, -0.2]
     );
     const path = d3.geoPath().projection(projection);
 
@@ -271,7 +272,7 @@ export class Map {
     const filteredData = this.summarizedExportData.filter(
       (item) => item.year === year
     );
-filteredData.sort((a, b) => b.weightKg - a.weightKg);
+    filteredData.sort((a, b) => b.weightKg - a.weightKg);
     const groupedData = d3.group(filteredData, (d) => d.exportedTo);
     const countries = Array.from(groupedData.keys());
     const connections = this.createConnections(countries);
@@ -327,14 +328,31 @@ filteredData.sort((a, b) => b.weightKg - a.weightKg);
     this.tooltip
       .html(
         `
-        <h2 class="text-center">${brandData.brand}</h2>
-        <h4 class="text-center">(${brandData.prefecture})</h4>
-        <p>${brandData.explanation}</p>
-        <img src="${imgBaseDir}/${brandData.image}" width="300">
+        <div class="card custom-card-2">
+          <img class="card-img-top" src="${imgBaseDir}/${brandData.image}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${brandData.brand}</h5>
+            <h6 class="card-title">${brandData.prefecture} Prefecture</h6>
+            <p class="card-text">${brandData.explanation}</p>
+          </div>
+        </div>
       `
       )
-      .style("left", event.offsetX - 400 + "px")
+      .style("left", event.offsetX - 440 + "px")
       .style("top", event.offsetY - 350 + "px");
+
+    // <div class="container">
+    //       <h2 class="text-center">${brandData.brand}</h2>
+    //       <h4 class="text-center">(${brandData.prefecture} Prefecture)</h4>
+    //       <div class="row">
+    //         <div class="col-8">
+    //           <p>${brandData.explanation}</p>
+    //         </div>
+    //         <div class="col-4">
+    //           <img src="${imgBaseDir}/${brandData.image}">
+    //         </div>
+    //       </div>
+    //     </div>
   }
 
   onMouseOverExport(event, d, exportData) {
@@ -352,8 +370,12 @@ filteredData.sort((a, b) => b.weightKg - a.weightKg);
     this.tooltip
       .html(
         `
-        <h2 class="text-center">${d.exportedTo}</h2>
-        <h4 class="text-center">${weightKg}kg</h4>
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <h5 class="card-title">${d.exportedTo}</h5>
+            <h6 class="card-title">${weightKg}kg</h6>
+          </div>
+        </div>
       `
       )
       .style("left", event.offsetX + 20 + "px")
