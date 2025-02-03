@@ -2,37 +2,37 @@
   {
     "name": "Sukiyaki",
     "nameJP": "すき焼き",
-    "explanation": "Add explanation of Sukiyaki",
+    "explanation": "Sukiyaki is a traditional Japanese hot pot dish made with thinly sliced beef, tofu, vegetables, and noodles simmered in a sweet and savory broth. The broth is typically made from soy sauce, sugar, and mirin.",
     "image": "sukiyaki.png"
   },
   {
     "name": "Yakiniku",
     "nameJP": "焼肉",
-    "explanation": "Add explanation of Yakiniku",
+    "explanation": "Yakiniku is a style of Japanese barbecue where diners grill bite-sized pieces of meat, usually beef, pork, or chicken, over a charcoal or gas grill at their table. It's a popular dining experience where people cook their own meat and enjoy it with various dipping sauces, such as tare (a sweet soy-based sauce) or salt-based seasonings.",
     "image": "yakiniku.png"
   },
   {
     "name": "Gyudon",
     "nameJP": "牛丼",
-    "explanation": "Add explanation of Gyudon",
+    "explanation": "Gyudon, also known as gyumeshi, is a popular Japanese rice bowl dish consisting of thinly sliced beef and onions simmered in a savory-sweet sauce made of soy sauce, mirin, sugar, and dashi, then served over steamed rice. It's often topped with a raw or soft-cooked egg, pickled red ginger (beni shoga), and sometimes green onions or sesame seeds.",
     "image": "gyudon.png"
   },
   {
     "name": "Gyukatsu",
     "nameJP": "牛かつ",
-    "explanation": "Add explanation of Gyukatsu",
+    "explanation": "Gyukatsu (deep-fried beef steak cutlet) is a Western-style Japanese “yoshoku” dish consisting of beef fillet coated in a batter and panko breadcrumbs, then deep-fried. It is also known as beef katsu, bifukatsu, or beef cutlet. It’s often eaten with shredded cabbage, rice, miso soup and served with salt, wasabi, or katsu sauce on the side for dipping.",
     "image": "gyukatsu.png"
   },
   {
     "name": "Shabushabu",
     "nameJP": "しゃぶしゃぶ",
-    "explanation": "Add explanation of Shabushabu",
+    "explanation": "Shabushabu is a Japanese nabemono hotpot dish of thinly sliced meat and vegetables boiled in water and served with dipping sauces. The term is onomatopoeic, derived from the sound – \"swish swish\" – emitted when the ingredients are stirred in the cooking pot. The food is cooked piece by piece by the diner at the table. The two main styles of shabushabu dipping sauce are ponzu, a citrusy soy sauce, and goma-tare, a type of sesame sauce.",
     "image": "shabushabu.png"
   },
   {
     "name": "Sushi",
     "nameJP": "肉寿司",
-    "explanation": "Add explanation of Sushi",
+    "explanation": "Wagyu sushi is served seared, called \"aburi\" in Japanese. Sushi rice is made by seasoning Japanese medium grain rice with vinegar, sugar, and salt. With lightly sear, Wagyu tastes more flavor with sweetness!",
     "image": "sushi.png"
   }
 ]
