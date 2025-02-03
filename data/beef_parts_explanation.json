@@ -5,7 +5,7 @@
     "lowFat": 4,
     "tenderness": 2,
     "rarity": 4,
-    "explanation": "牛の舌です。筋繊維が多く弾力のある肉質で、ほどよい噛みごたえが人気です。 ビタミンＢ群を多く含んでいるヘルシーなお肉でもあります。スライスして焼肉用で食べていただくのがお勧めです。 場所によって肉質が異なり、タン先、タン中、タン元、タンサガリと分けられます。 一般的にタン中（中心部）からタン元（根元の方）にかけて焼肉商材に使用されます。 根元に近づくほど脂がのっていて柔らかくなります。 タン先（舌の先）やタンサガリ（下側）は硬いのでタンシチューなど煮込み料理に向いています。 処理をしていない状態のタンはザラザラした硬い皮が覆いかぶさっており、その皮を剥いた状態のものをムキタンと呼びます。 １頭につき１本しか取れない割に、とても人気のある部位ですので、国産牛のタンはすごく貴重です。",
+    "explanation": "meat has a high amount of muscle fibers, giving it a firm and elastic texture with a satisfying chew. It is also a healthy option, rich in B vitamins. We recommend slicing it and enjoying it as grilled meat.",
     "recommendedDishes": [
       "Yakiniku",
       "Stew"
@@ -17,7 +17,7 @@
     "lowFat": 3,
     "tenderness": 2,
     "rarity": 4,
-    "explanation": "牛の頬です。牛は反芻をする動物なので、頬の筋肉はとてもよく動き、硬く歯ごたえがあります。 しかしながら脂肪とゼラチン質（コラーゲン）を多く含むので、長時間煮込む事によって、とろとろで柔らかな食感に変えることができます。 また、強い旨味が特徴で煮込むほどに美味しくなります。フランス料理の赤ワイン煮などが人気です。 飲食店からの引き合いも強い人気の部位です。",
+    "explanation": "Cows are ruminant animals, so their cheek muscles are highly active, making the meat firm and chewy. However, since it contains a good amount of fat and gelatin (collagen), slow cooking over a long period transforms it into a tender, melt-in-your-mouth texture. It is also characterized by a rich umami flavor that deepens the longer it is simmered. Dishes like French-style red wine stew are particularly popular.",
     "recommendedDishes": [
       "Simmered dishes"
     ]
@@ -28,7 +28,7 @@
     "lowFat": 4,
     "tenderness": 2,
     "rarity": 2,
-    "explanation": "ネックはよく動かす首の筋肉なので、脂肪が少なく硬めの赤身肉になります。 きめが粗く筋も多いのですが、味は濃厚でコラーゲンを豊富に含んでいます。 長時間じっくり煮込むことで柔らかくなり、コクや旨味が深まり美味しく食べることができます。 煮込み料理がお勧めですが、挽肉にしてハンバーグなどの材料にしても美味しいお肉です。",
+    "explanation": "Neck cut is tough and sinewy with rough texture. Because of its lean and less fat, this is suitable for ground meat. Neck is juicy like shank meat. You can use it as an ingredient of soup stock.",
     "recommendedDishes": [
       "Simmered dishes",
       "Curry",
@@ -42,7 +42,7 @@
     "lowFat": 3,
     "tenderness": 3,
     "rarity": 2,
-    "explanation": "ロースと呼ばれる部位の中では一番首側で肉塊の大きな部位になります。 「ロース」の呼び名の由来は、ロースト（オーブンで焼くこと）に適することからきています。 肩ロースは適度に脂肪を含み、柔らかく、赤身の旨味が濃いのが特徴です。大きな判が取れるため、すき焼きなどにお勧めの部位です。 肩ロースは肉質の違う複数の部位に分けることができ、ロース芯はステーキ用に、ザブトンは焼肉用に向いています。 ロース芯やザブトンは様々な料理に使用できますが、ネック側、体表側にかぶさる肩こぶと呼ばれる部分、バラ側の肋骨と接する部分は硬い食感となるので、カレー用などの煮込み料理にしていただくのがお勧めです。",
+    "explanation": "This meat has moderate fat content, and is characterized by a rich flavor and a slight toughness. It is ideal for cooking in thin slices.",
     "recommendedDishes": [
       "Steak",
       "Sukiyaki",
@@ -55,7 +55,7 @@
     "lowFat": 2,
     "tenderness": 3,
     "rarity": 1,
-    "explanation": "肩ロースの下側に位置する胸の筋肉です。肉質の異なる部位が組み合わさっており、脂肪と赤身が層になっています。 サンカクバラ、ブリスケ、テンカイチと分割することができます。（前バラ全体を総称してブリスケと呼ぶ場合もあります）",
+    "explanation": "Brisket cut is close to forefoot and outer part of ribs. The cut is layered by fat and lean meats. The meat is coarse and a little tough. If you simmer longer and longer, you can get richer taste and find its outstanding presence. Otherwise, when simmering the brisket with rib, you can also get richer taste soup.",
     "recommendedDishes": [
       "Yakiniku",
       "Curry"
@@ -67,7 +67,7 @@
     "lowFat": 3,
     "tenderness": 4,
     "rarity": 3,
-    "explanation": "牛の背中の部位でロースの中間（肩ロースとサーロインの間）に位置するお肉です。 リブロース芯（リブアイロール）と外側にかぶさっているカブリ（リブキャップ）に分けることができます。 リブロース芯はきめ細やかでサシが入りやすく、柔らかい肉質です。リブキャップは脂に覆われておりますが、内側に旨味の強い赤身肉が存在します。 リブロースはステーキ用として人気の部位ですが、リブロース全体として大きな判がとれるので、すき焼き用やローストビーフにもよく使われます。",
+    "explanation": "This high-grade cut is on a par with sirloin. It is characterized by an attractive pattern called “shimofuri” or fat marbling, fine texture and a soft flavor.",
     "recommendedDishes": [
       "Steak",
       "Sukiyaki",
@@ -80,7 +80,7 @@
     "lowFat": 2,
     "tenderness": 4,
     "rarity": 2,
-    "explanation": "ソトバラの前方部です。ショートリブよりも赤身と脂のバランスが良く肉厚になっています。 脂の旨味が濃厚な部位ですので焼肉用に向いています。屋外での網焼きバーべーキューなどに特にお勧めの部位です。 スライスして牛丼やカレーの材料に使用しても、脂の甘みが活きて美味しく食べていただけます。 ",
+    "explanation": "Plate has a well-balanced ratio of lean meat and fat, with a thick and meaty texture. The rich flavor of the fat makes it ideal for grilling, especially for outdoor barbecues. It is also great when sliced and used in dishes like beef bowls or curry, where the sweetness of the fat enhances the taste.",
     "recommendedDishes": [
       "Yakiniku",
       "Beef bowl",
@@ -93,7 +93,7 @@
     "lowFat": 3,
     "tenderness": 5,
     "rarity": 3,
-    "explanation": "リブ（あばら）とロイン(腰周 辺)の間の部位です。柔らかくジュージーで味わい深く、かつ栄養価の高い赤身肉として尊ばれ、生産管理や格付も厳しい基準が設けられている。",
+    "explanation": " Short Loin is highly valued as a tender, juicy, and flavorful lean meat with high nutritional value. Strict standards are set for its production management and grading.",
     "recommendedDishes": [
       "Steak"
     ]
@@ -104,7 +104,7 @@
     "lowFat": 3,
     "tenderness": 5,
     "rarity": 3,
-    "explanation": "腰椎に接する腰の部位で、ロースの中でも特にきめが細かく柔らかい肉質が特徴です。 その美味しさから「サー（貴族の名につける敬称）」の称号を与えられた事が名前の由来です。 リブロースよりも余分な脂は少なめで、サシが細かく入り、上品な脂と赤身の旨みを楽しめるお肉です。 是非ステーキで食べていただきたい美味しい部位になります。 また、骨が付いたままの状態でステーキカットしたTボーンステーキ（ヒレがついているもの）や、Lボーンステーキ（ヒレを外したもの）も豪快で人気があります。 骨周り独特の旨味も加わり、お肉もより美味しくいただけます。 ",
+    "explanation": "This cut has less excess fat than ribeye, with fine marbling that allows you to enjoy the refined balance of rich fat and savory lean meat. It is best enjoyed as a steak, bringing out its full flavor and tenderness. Additionally, when cut with the bone intact, it becomes the well-known T-bone steak (which includes the tenderloin) or the L-bone steak (with the tenderloin removed), both of which are bold and popular choices.",
     "recommendedDishes": [
       "Steak"
     ]
@@ -115,7 +115,7 @@
     "lowFat": 5,
     "tenderness": 5,
     "rarity": 4,
-    "explanation": "サーロインの内側に腰椎の骨を挟んで位置する牛肉の最高級部位です。 ほとんど運動しない筋肉なので、牛肉部位の中でも特に食感が柔らかく、赤身の旨味に溢れたお肉です。 一方、繊細な肉質の為に取扱いや火加減には注意が必要です。（変色が早く、火が通り過ぎるとパサパサになって風味も消えてしまいます） ヒレ本来の美味しさを堪能していただく為に、できるだけレアに近い焼き加減で食べていただく事をお勧めします。 サイドマッスル（小腰筋）をはずして取り扱いされる場合もありますが、分割しないままで十分美味しくいただけます。 ヒレはさらに、テート（お尻側）、シャトーブリアン（中央部分）、フィレミニヨン（先端側）と分けられる事があります。",
+    "explanation": "Tender Loin is called “Hire” in Japanese. This is located in the deep part of sirloin. Because this portion is inactive, the cut is very soft and dainty. You can enjoy its delicate taste. The amount is very slight in carcass per head, so it is high-priced meat. When lightly grilled, you can enjoy both smooth melting and elegant taste in your mouth.",
     "recommendedDishes": [
       "Steak"
     ]
@@ -126,7 +126,7 @@
     "lowFat": 4,
     "tenderness": 3,
     "rarity": 2,
-    "explanation": "牛肉のお尻の部分でサーロインに続くランプとソトモモに続くイチボに分かれます。 赤身肉であるモモの部位の中では一番柔らかく、幅広い料理に使用できます。 多くの飲食店でよく取り扱いされる人気の部位です。",
+    "explanation": "Top sirloin is a lean, tender cut with a rich beef flavor, making it ideal for grilling, pan-searing, or roasting. It offers a perfect balance of texture and taste, often used for steaks and versatile enough for various dishes.",
     "recommendedDishes": []
   },
   {
@@ -135,7 +135,7 @@
     "lowFat": 4,
     "tenderness": 3,
     "rarity": 2,
-    "explanation": "後脚の外側前方に位置して、４つの部位に分割できるバラエティー豊かなモモの筋肉です。 丸い形状の為「芯玉(シンタマ)」と呼ばれます。 トモサンカクと本体（マル）に分かれ、さらにマルはシンシン・マルカワ・カメノコに分割できます。",
+    "explanation": "Bottom Sirloin contains a good balance of lean meat and fat, making it juicy and rich in umami. While it is slightly firmer than the top sirloin, proper cooking techniques such as slow roasting, grilling, or marinating can enhance its tenderness. Popular cuts from the bottom sirloin include tri-tip, which is well-loved for its robust beefy flavor and excellent texture. This cut is versatile and works well for grilling, roasting, stir-frying, or slicing thin for steak sandwiches and fajitas.",
     "recommendedDishes": []
   },
   {
@@ -144,7 +144,7 @@
     "lowFat": 3,
     "tenderness": 3,
     "rarity": 4,
-    "explanation": "ソトバラの後方部でカイノミの下側、モモの近く位置するお腹の筋肉です。 トモバラはカットの都合上ざっくりと大きく分割されますが、実際はカイノミ同様、後方の一部分で少量しか取れない希少部位です。 笹の葉っぱの様に長い繊維が流れて見えるのでササミとも呼ばれます。 フランクはきめが細かく引き締まった食感が特徴です。赤身肉ながら脂を適度に含んでおり、くどさのない食べやすいお肉です。 火を通しすぎると硬くなりやすいので、レア気味に焼いて食べていただくのをお勧めします。",
+    "explanation": "Flank steak is characterized by its fine texture and firm bite. While it is a lean cut, it contains just the right amount of fat, making it flavorful yet not overly rich. Since it tends to become tough if overcooked, we recommend grilling it rare for the best taste and texture.",
     "recommendedDishes": [
       "Yakiniku"
     ]
@@ -155,7 +155,7 @@
     "lowFat": 5,
     "tenderness": 2,
     "rarity": 2,
-    "explanation": "後脚の外側部分の筋肉です。肉質は硬いのですが、赤身肉の味わいが強いお肉です。 スライスして、「すき焼き」や、「しゃぶしゃぶ」などで美味しく食べていただけます。",
+    "explanation": "This rich, flavorful meat is characterized by a generous amount of gelatin and a firm toughness. It is ideal for sautés and stews, and also tastes good when cut into thin slices.",
     "recommendedDishes": [
       "Sukiyaki",
       "Shabushabu"
@@ -167,7 +167,7 @@
     "lowFat": 5,
     "tenderness": 2,
     "rarity": 2,
-    "explanation": "牛のスネは前脚・後脚両方からとれ、前脚のスネをマエスネ、後脚のスネをトモスネといいます。筋が多く硬いお肉ですが、コラーゲンやタンパク質を多く含んでいて煮込み料理に向いています。長時間煮込むことで肉がホロホロと柔らかくなり美味しくいただけます。",
+    "explanation": "This cut of meat has lots of sinew and tendon and almost no fat since this is the most exercised part of the cow. This dark-colored portion of red meat produces a rich flavor and gradually becomes tender as it is slowly cooked over time, making it ideal for boiling or stewing. The highest quality mince is made from shank meat.",
     "recommendedDishes": [
       "Simmered dishes",
       "Curry"
@@ -179,7 +179,7 @@
     "lowFat": 2,
     "tenderness": 2,
     "rarity": 3,
-    "explanation": "牛のしっぽです。流通の際には骨についたままで、骨のつなぎ目でカットして料理に使用します。 コラーゲンを豊富に含んでおり、長時間煮込む事でゼラチン化してお肉がトロトロになります。 ビタミンＢ群を多く含みヘルシーですが、タンパク質と脂肪も多めなのでカロリーは高めです。 コクのある良いダシがとれるので、スープや煮込み料理として食べていただくのが一般的です。 テールスープは栄養価も高くお勧めですが、実は焼いて食べても旨味が強く美味しい部位です。 テールの先っぽ部分もスープのだしを取るのに重宝され、別途テールエンドとして流通されています。",
+    "explanation": "Ox Tail is rich in collagen, which gelatinizes when slow-cooked, making the meat incredibly tender. It contains a high amount of B vitamins and is a healthy choice, but it is also relatively high in calories due to its protein and fat content. It produces a rich and flavorful broth, making it ideal for soups and stews. Oxtail soup is highly nutritious and recommended, but surprisingly, this cut is also delicious when grilled, bringing out its deep umami flavor.",
     "recommendedDishes": [
       "Soup"
     ]
