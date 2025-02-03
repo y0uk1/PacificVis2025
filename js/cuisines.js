@@ -41,7 +41,7 @@ export class Cuisines {
 
       card.innerHTML = `
           <div class="card w-100 custom-card" id=${cuisine.name}">
-            <img class="card-img-top" src="${this.imageBaseDir}/${cuisine.image}" alt="${cuisine.name}">
+            <img class="card-img-top" src="${this.imageBaseDir}/single/${cuisine.image}" alt="${cuisine.name}">
             <div class="card-body">
               <p class="card-text text-center">${cuisine.name}</p>
             </div>
@@ -65,7 +65,7 @@ export class Cuisines {
     console.log(selectedCuisine);
     this.selectedName.textContent = selectedCuisine.name;
     this.selectedJpName.textContent = selectedCuisine.nameJP;
-    this.selectedImage.src = `${this.imageBaseDir}/${selectedCuisine.image}`;
+    this.selectedImage.src = `${this.imageBaseDir}/single/${selectedCuisine.image}`;
     this.selectedExplanation.textContent = selectedCuisine.explanation;
   }
 
@@ -75,7 +75,7 @@ export class Cuisines {
     this.selectedImage.classList.remove("fade-in");
     this.selectedImage.classList.add("fade");
     setTimeout(() => {
-      this.selectedImage.src = `${this.imageBaseDir}/${cuisine.image}`; // 画像の更新
+      this.selectedImage.src = `${this.imageBaseDir}/scene/${cuisine.image}`; // 画像の更新
       this.selectedImage.classList.remove("fade");
       this.selectedImage.classList.add("fade-in");
     }, 500); // 画像の変更が遅れるようにタイミングを合わせる
