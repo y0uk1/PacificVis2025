@@ -1,22 +1,22 @@
 import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
+import { BrandMap } from "./brandMap.js";
 import { Cuisines } from "./cuisines.js";
-import { Map } from "./map.js";
-import { StickyHorizontalScroll } from "./stickyHorizontalScroll.js";
+import { KobebeefExportMap } from "./kobebeefExportMap.js";
 import { RankingBoard } from "./rankingBoard.js";
+import { StickyHorizontalScroll } from "./stickyHorizontalScroll.js";
 import { ScrollamaSetting } from "./scrollamaSetting.js";
 import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
-  const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
     "#beef-parts-tooltip"
   );
-
-  const map = new Map("#map");
-  new ScrollamaSetting(map, "#map-scrolly");
+  const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
+  const brandMap = new BrandMap("#brand-map");
+  new ScrollamaSetting(brandMap, "#brand-map-scrolly");
 
   const wagyuExportChart = new WagyuExportChart("#export-chart");
   new ScrollamaSetting(wagyuExportChart, "#export-chart-scrolly", 0.35);
@@ -40,6 +40,9 @@ const draw = async () => {
     "selected-cuisine-explanation",
     "Yakiniku"
   );
+
+  const exportMap = new KobebeefExportMap("#export-map");
+  new ScrollamaSetting(exportMap, "#export-map-scrolly");
 
   new StickyHorizontalScroll(".sticky-wrap");
 };

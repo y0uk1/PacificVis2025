@@ -29,7 +29,10 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="#page-top"> The Finest Wagyu Story </a>
+        <a class="navbar-brand" href="#page-top"> 
+          <img src="assets/img/navbar-icon.png" height="40px"></img> 
+          The Finest Wagyu Story 
+        </a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -42,7 +45,7 @@
           Menu
           <i class="fas fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="#about">About</a>
@@ -53,7 +56,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#signup">Contact</a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
@@ -70,7 +73,6 @@
               The Finest Wagyu Story: Bringing Charm of Japan's Pride to the
               World
             </h2>
-            <a class="btn btn-primary" href="#about">Get Started</a>
           </div>
         </div>
       </div>
@@ -78,32 +80,37 @@
     <!-- About-->
     <section class="about-section text-center" id="about">
       <div class="container px-4 px-lg-5">
+        <img class="img-fluid" src="assets/img/japaneseblack.png" alt="..." />
         <div class="row gx-4 gx-lg-5 justify-content-center">
-          <div class="col-lg-8">
-            <h2 class="text-white mb-4">Built with Bootstrap 5</h2>
+          <div class="col-lg-8 text-center">
+            <h1 class="text-white mb-4">和&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牛</h1>
+            <h2 class="text-danger text-center">
+              Wa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gyu</span>
+            </h2>
             <p class="text-white-50">
-              Grayscale is a free Bootstrap theme created by Start Bootstrap. It
-              can be yours right now, simply download the template on
-              <a href="https://startbootstrap.com/theme/grayscale/"
-                >the preview page.</a
-              >
-              The theme is open source, and you can use it for any purpose,
-              personal or commercial.
+              Rich, tender and expensive, wagyu, literally "Japanese beef," </br> refers to four breeds of cattle raised in Japan
             </p>
           </div>
         </div>
-        <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
+      </div>
+      <div class="position-relative vh-100">
+        <div class="position-absolute top-50 start-50 translate-middle fs-3 fw-bold text-white-50">
+          refers to four breeds of cattle raised in Japan
+        </div>
+        <img src="assets/img/demo-image-01.jpg" class="wagyu-type position-absolute top-10 start-10 " alt="画像1">
+        <img src="assets/img/demo-image-02.jpg" class="wagyu-type position-absolute top-10 end-10" alt="画像2">
+        <img src="assets/img/demo-image-01.jpg" class="wagyu-type position-absolute bottom-10 start-10" alt="画像3">
+        <img src="assets/img/demo-image-02.jpg" class="wagyu-type position-absolute bottom-10 end-10" alt="画像4">
       </div>
     </section>
-    <!-- Projects-->
-    <section class="projects-section bg-light" id="projects">
+
+    <!-- <section class="projects-section bg-light" id="projects">
       <div class="container px-4 px-lg-5">
-        <!-- Featured Project Row-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
           <div class="col-xl-8 col-lg-7">
             <img
               class="img-fluid mb-3 mb-lg-0"
-              src="assets/img/bg-masthead.jpg"
+              src="assets/img/bg-masthead.png"
               alt="..."
             />
           </div>
@@ -118,7 +125,6 @@
             </div>
           </div>
         </div>
-        <!-- Project One Row-->
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
           <div class="col-lg-6">
             <img
@@ -143,7 +149,6 @@
             </div>
           </div>
         </div>
-        <!-- Project Two Row-->
         <div class="row gx-0 justify-content-center">
           <div class="col-lg-6">
             <img
@@ -169,197 +174,102 @@
           </div>
         </div>
       </div>
-    </section>
-    <!-- Signup-->
-    <section class="signup-section" id="signup">
-      <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5">
-          <div class="col-md-10 col-lg-8 mx-auto text-center">
-            <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-            <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- * * SB Forms Contact Form * *-->
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- This form is pre-integrated with SB Forms.-->
-            <!-- To make this form functional, sign up at-->
-            <!-- https://startbootstrap.com/solution/contact-forms-->
-            <!-- to get an API token!-->
-            <form
-              class="form-signup"
-              id="contactForm"
-              data-sb-form-api-token="API_TOKEN"
-            >
-              <!-- Email address input-->
-              <div class="row input-group-newsletter">
-                <div class="col">
-                  <input
-                    class="form-control"
-                    id="emailAddress"
-                    type="email"
-                    placeholder="Enter email address..."
-                    aria-label="Enter email address..."
-                    data-sb-validations="required,email"
-                  />
-                </div>
-                <div class="col-auto">
-                  <button
-                    class="btn btn-primary disabled"
-                    id="submitButton"
-                    type="submit"
-                  >
-                    Notify Me!
-                  </button>
-                </div>
-              </div>
-              <div
-                class="invalid-feedback mt-2"
-                data-sb-feedback="emailAddress:required"
-              >
-                An email is required.
-              </div>
-              <div
-                class="invalid-feedback mt-2"
-                data-sb-feedback="emailAddress:email"
-              >
-                Email is not valid.
-              </div>
-              <!-- Submit success message-->
-              <!---->
-              <!-- This is what your users will see when the form-->
-              <!-- has successfully submitted-->
-              <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center mb-3 mt-2 text-white">
-                  <div class="fw-bolder">Form submission successful!</div>
-                  To activate this form, sign up at
-                  <br />
-                  <a href="https://startbootstrap.com/solution/contact-forms"
-                    >https://startbootstrap.com/solution/contact-forms</a
-                  >
-                </div>
-              </div>
-              <!-- Submit error message-->
-              <!---->
-              <!-- This is what your users will see when there is-->
-              <!-- an error submitting the form-->
-              <div class="d-none" id="submitErrorMessage">
-                <div class="text-center text-danger mb-3 mt-2">
-                  Error sending message!
-                </div>
-              </div>
-            </form>
-          </div>
+    </section> -->
+
+    <section class="scrolly" id="brand-map-scrolly">
+      <figure>
+        <div id="brand-map"></div>
+      </figure>
+      <article>
+        <div class="step" data-step="1">
+          <h2>Wagyu Brands</h2>
+          <p>
+            Japan produces over 320 wagyu brands raised in regions all over the country.
+            Similar to how wine is categorized by its region and method of cultivation, each wagyu brand meets unique standards according to the production area, bloodline, breed, grade, the method of rearing and period of time raised.
+          </p>
         </div>
-      </div>
-    </section>
-    <!-- Contact-->
-    <section class="contact-section bg-black">
-      <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5">
-          <div class="col-md-4 mb-3 mb-md-0">
-            <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                <h4 class="text-uppercase m-0">Address</h4>
-                <hr class="my-4 mx-auto" />
-                <div class="small text-black-50">
-                  4923 Market Street, Orlando FL
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3 mb-md-0">
-            <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-envelope text-primary mb-2"></i>
-                <h4 class="text-uppercase m-0">Email</h4>
-                <hr class="my-4 mx-auto" />
-                <div class="small text-black-50">
-                  <a href="#!">hello@yourdomain.com</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-3 mb-md-0">
-            <div class="card py-4 h-100">
-              <div class="card-body text-center">
-                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                <h4 class="text-uppercase m-0">Phone</h4>
-                <hr class="my-4 mx-auto" />
-                <div class="small text-black-50">+1 (555) 902-8832</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="social d-flex justify-content-center">
-          <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-          <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-          <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
+      </article>
     </section>
 
-    <section class="beef-grading-guide mt-4">
-      <div class="container px-4 px-lg-5">
-        <div class="row">
-          <div class="col-md-7 d-flex align-items-center justify-content-center">
-            <img  src="assets/img/meat.png" height="500"></img>
-          </div>
-          <div class="col-md-5">
-            <div id="beef-grading-guide"></div>
-          </div>
-      </div>
+    <section class="scrolly" id="ranking-board-scrolly">
+      <figure>
+        <div class="ranking-board">
+          <h2 >Wagyu Brand Ranking</h2>
+        </div>
+        <div class="ranking-board" id="ranking-board"></div>
+      </figure>
+      <article>
+        <div class="step" data-step="1">
+          <h2>Brand Awareness</h2>
+          <p>
+            Sample
+          </p>
+        </div>
+        <div class="step" data-step="2">
+          <h2>Price</h2>
+          <p>
+            Sample2
+          </p>
+        </div>
+        <div class="step" data-step="3">
+          <h2>Most Wanted Brand to Try</h2>
+          <p>
+            Sample3
+          </p>
+        </div>
+      </article>
     </section>
 
     <div class="scroll-container">
-        <div class="sticky-wrap">
-          <div class="horizontal-scroll">
-            <div class="scroll-contents">
-              <h1>Page1</h1>
-              <div class="container h-100">
-                <div class="row h-75">
-                  <div class="col-12 d-flex flex-column align-items-center justify-content-end">
-                    <div class="box mb-4">
-                      <p>Hello, I'm Yuki, a PhD student.</p>
-                    </div>
-                    <img src="assets/img/yuki/style2/introbox.png" height="300px"></img>
+      <div class="sticky-wrap">
+        <div class="horizontal-scroll">
+          <div class="scroll-contents">
+            <h1>Page1</h1>
+            <div class="container h-100">
+              <div class="row h-75">
+                <div class="col-12 d-flex flex-column align-items-center justify-content-end">
+                  <div class="box mb-4">
+                    <p>Hello, I'm Yuki, a PhD student.</p>
                   </div>
+                  <img src="assets/img/yuki/style2/introbox.png" height="300px"></img>
                 </div>
-              </div>  
-            </div>
-            <div class="scroll-contents">
-              <h1>Page2</h1>
-              <div class="container h-100">
-                <div class="row h-75">
-                  <div class="col-6">
-                    <img src="assets/img/japanese-map.png" height="800px"></img>
-                  </div>
-                  <div class="col-6 d-flex flex-column align-items-start justify-content-end">
-                    <div class="box mb-4">
-                      <p>I'm from Kobe.</p>
-                    </div>
-                    <img src="assets/img/yuki/style2/intro2.png" height="300px"></img>
-                  </div>
+              </div>
+            </div>  
+          </div>
+          <div class="scroll-contents">
+            <h1>Page2</h1>
+            <div class="container h-100">
+              <div class="row h-75">
+                <div class="col-6">
+                  <img src="assets/img/japanese-map.png" height="800px"></img>
                 </div>
-              </div>  
-            </div>
-            <div class="scroll-contents">
-              <h1>Page3</h1>
-            </div>
-            <div class="scroll-contents">
-              <h1>Page4</h1>
-              <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
-                <h2>Why Kobe Beef?</h2>
-                <div class="card custom-card-2">
-                  <img class="card-img-top" src="assets/img/japaneseblack.png" alt="Card image cap">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col-6 d-flex flex-column align-items-start justify-content-end">
+                  <div class="box mb-4">
+                    <p>I'm from Kobe.</p>
                   </div>
+                  <img src="assets/img/yuki/style2/intro2.png" height="300px"></img>
                 </div>
-              </div>  
-            </div>
+              </div>
+            </div>  
+          </div>
+          <div class="scroll-contents">
+            <h1>Page3</h1>
+          </div>
+          <div class="scroll-contents">
+            <h1>Page4</h1>
+            <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+              <h2>Why Kobe Beef?</h2>
+              <div class="card custom-card-2">
+                <img class="card-img-top" src="assets/img/japaneseblack.png" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>  
           </div>
         </div>
       </div>
+    </div>
 
     <section class="scrolly mt-4" id="kobe-tajima-compare-scrolly">
       <figure>
@@ -397,20 +307,9 @@
       </article>
     </section>
 
-    <section class="beef-parts-map mt-4">
-      <div class="container px-4 px-lg-5">
-        <div class="row">
-          <div class="col-md-8">
-            <div id="beef-parts-map"></div>
-          </div>
-          <div class="col-md-4 mt-5" id="beef-parts-tooltip">
-          </div>
-      </div>
-    </section>
-
-    <section class="scrolly" id="map-scrolly">
+    <section class="scrolly" id="export-map-scrolly">
       <figure>
-        <div id="map"></div>
+        <div id="export-map"></div>
       </figure>
       <article>
         <div class="step" data-step="1">
@@ -462,34 +361,85 @@
       </article>
     </section>
 
-    <section class="scrolly" id="ranking-board-scrolly">
-      <figure>
-        <div class="ranking-board">
-          <h2 >Wagyu Brand Ranking</h2>
+    <div class="scroll-container">
+      <div class="sticky-wrap">
+        <div class="horizontal-scroll">
+          <div class="scroll-contents">
+            <h1>Page1</h1>
+            <div class="container h-100">
+              <div class="row h-75">
+                <div class="col-12 d-flex flex-column align-items-center justify-content-end">
+                  <div class="box mb-4">
+                    <p>Hello, I'm Yuki, a PhD student.</p>
+                  </div>
+                  <img src="assets/img/yuki/style2/introbox.png" height="300px"></img>
+                </div>
+              </div>
+            </div>  
+          </div>
+          <div class="scroll-contents">
+            <h1>Page2</h1>
+            <div class="container h-100">
+              <div class="row h-75">
+                <div class="col-6">
+                  <img src="assets/img/japanese-map.png" height="800px"></img>
+                </div>
+                <div class="col-6 d-flex flex-column align-items-start justify-content-end">
+                  <div class="box mb-4">
+                    <p>I'm from Kobe.</p>
+                  </div>
+                  <img src="assets/img/yuki/style2/intro2.png" height="300px"></img>
+                </div>
+              </div>
+            </div>  
+          </div>
+          <div class="scroll-contents">
+            <h1>Page3</h1>
+          </div>
+          <div class="scroll-contents">
+            <h1>Page4</h1>
+            <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+              <h2>Why Kobe Beef?</h2>
+              <div class="card custom-card-2">
+                <img class="card-img-top" src="assets/img/japaneseblack.png" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+            </div>  
+          </div>
         </div>
-        <div class="ranking-board" id="ranking-board"></div>
-      </figure>
-      <article>
-        <div class="step" data-step="1">
-          <h2>Brand Awareness</h2>
-          <p>
-            Sample
-          </p>
-        </div>
-        <div class="step" data-step="2">
-          <h2>Price</h2>
-          <p>
-            Sample2
-          </p>
-        </div>
-        <div class="step" data-step="3">
-          <h2>Most Wanted Brand to Try</h2>
-          <p>
-            Sample3
-          </p>
-        </div>
-      </article>
+      </div>
+    </div>
+
+    <section class="beef-grading-guide mt-4">
+      <div class="container px-4 px-lg-5">
+        <div class="row">
+          <div class="col-md-7 d-flex align-items-center justify-content-center">
+            <img  src="assets/img/meat.png" height="500"></img>
+          </div>
+          <div class="col-md-5">
+            <div id="beef-grading-guide"></div>
+          </div>
+      </div>
     </section>
+
+
+    
+
+    <section class="beef-parts-map mt-4">
+      <div class="container px-4 px-lg-5">
+        <div class="row">
+          <div class="col-md-8">
+            <div id="beef-parts-map"></div>
+          </div>
+          <div class="col-md-4 mt-5" id="beef-parts-tooltip">
+          </div>
+      </div>
+    </section>
+
+
+    
 
     <div class="container mt-5 cuisines-section">
       <h1>How to Enjoy Wagyu in Japanese Style</h1>
