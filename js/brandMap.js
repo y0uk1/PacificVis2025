@@ -1,5 +1,4 @@
-// This file was divided into brandMap.jsとkobebeefExportMap.js. This file may not be used.
-export class Map {
+export class BrandMap {
   constructor(_parentElement) {
     this.parentElement = _parentElement;
 
@@ -12,22 +11,15 @@ export class Map {
     this.createTooltip();
     this.createGroups();
     await this.loadData();
-    this.processData();
     this.drawBrandMap();
   }
 
   async loadData() {
-    const [japanGeo, worldGeo, wagyuBrandList, exportDataset] =
-      await Promise.all([
-        d3.json("data/japan.geo.json"),
-        d3.json("data/world.geo.json"),
-        d3.json("data/wagyu_brand_list.json"),
-        d3.csv("data/amount_of_exported_kobe_beef.csv", (d) => ({
-          year: new Date(d.date).getFullYear(),
-          exportedTo: d.exportedTo,
-          weightKg: +d.weightKg,
-        })),
-      ]);
+    const [japanGeo, worldGeo, wagyuBrandList] = await Promise.all([
+      d3.json("data/japan.geo.json"),
+      d3.json("data/world.geo.json"),
+      d3.json("data/wagyu_brand_list.json"),
+    ]);
 
     this.geo = { japan: japanGeo, world: worldGeo };
     this.groupedWagyuList = d3.group(wagyuBrandList, (d) => d.prefecture);
@@ -35,27 +27,6 @@ export class Map {
       white: "assets/svg/wagyu-icon-white.svg",
       black: "assets/svg/wagyu-icon-black.svg",
     };
-    this.exportDataset = exportDataset;
-  }
-
-  processData() {
-    this.summarizedExportData = Array.from(
-      d3.rollup(
-        this.exportDataset,
-        (values) => ({
-          weightKg: d3.sum(values, (d) => d.weightKg),
-          exportedTo: values[0].exportedTo,
-        }),
-        (d) => d.year,
-        (d) => d.exportedTo
-      ),
-      ([year, countryMap]) =>
-        Array.from(countryMap, ([exportedTo, data]) => ({
-          year,
-          exportedTo,
-          ...data,
-        }))
-    ).flat();
   }
 
   createConnections(countries) {
@@ -261,62 +232,6 @@ export class Map {
       .attr("fill-opacity", 0.6);
   }
 
-  drawExportMap(year = 2024) {
-    const duration = 500;
-    const updateTransition = d3
-      .transition()
-      .duration(duration)
-      .ease(d3.easeLinear);
-
-    const projection = this.createProjection(this.geo.world, 150, [-115, 10]);
-    const path = d3.geoPath().projection(projection);
-    const filteredData = this.summarizedExportData.filter(
-      (item) => item.year === year
-    );
-    filteredData.sort((a, b) => b.weightKg - a.weightKg);
-    const groupedData = d3.group(filteredData, (d) => d.exportedTo);
-    const countries = Array.from(groupedData.keys());
-    const connections = this.createConnections(countries);
-    const widthLengthScale = this.createStrokeWidthScale(
-      this.summarizedExportData
-    );
-
-    this.mapGroup
-      .selectAll("path")
-      .data(this.geo.world.features)
-      .join("path")
-      .transition(updateTransition)
-      .attr("d", path)
-      .attr("stroke", "#666")
-      .attr("stroke-width", 0.25)
-      .attr("fill", (d) =>
-        this.escapeId(d.properties.name) === "japan" ? "red" : "#DDD6CF"
-      )
-      .attr("fill-opacity", 0.3)
-      .attr("id", (d) => this.escapeId(d.properties.name));
-
-    this.createArrowheadDef();
-    this.connectionGroup
-      .selectAll("path")
-      .data(connections)
-      .join("path")
-      .on("mouseover", (event, d) =>
-        this.onMouseOverExport(event, d, groupedData)
-      )
-      .on("mousemove", (event, d) => this.onMouseMove(event))
-      .on("mouseleave", (event, d) => this.onMouseLeaveExport(event, d))
-      .transition(updateTransition)
-      .delay((d, i) => i * 500)
-      .attr("d", path)
-      .attr("fill", "none")
-      .attr("stroke", "orange")
-      .attr("opacity", 0.4)
-      .attr("marker-end", "url(#arrow)")
-      .attr("stroke-width", (d) =>
-        widthLengthScale(groupedData.get(d.exportedTo)[0].weightKg)
-      );
-  }
-
   onMouseOverBrand(event, d) {
     const imgBaseDir = "assets/img/raw-meet";
     this.tooltip.style("opacity", 1);
@@ -356,33 +271,6 @@ export class Map {
     //     </div>
   }
 
-  onMouseOverExport(event, d, exportData) {
-    const format = d3.format(".2f");
-
-    d3.select(event.target).style("opacity", 1);
-
-    const countryId = this.escapeId(d.exportedTo);
-    d3.select(`#${countryId}`).attr("fill", "orange").attr("fill-opacity", 0.7);
-
-    this.tooltip.style("opacity", 1);
-    this.tooltip.style("visibility", "visible");
-
-    const weightKg = format(exportData.get(d.exportedTo)[0].weightKg);
-    this.tooltip
-      .html(
-        `
-        <div class="card bg-base-100">
-          <div class="card-body">
-            <h5 class="card-title">${d.exportedTo}</h5>
-            <h6 class="card-title">${weightKg}kg</h6>
-          </div>
-        </div>
-      `
-      )
-      .style("left", event.offsetX + 20 + "px")
-      .style("top", event.offsetY + 20 + "px");
-  }
-
   onMouseMove(event) {
     this.tooltip
       .style("left", event.offsetX + 20 + "px")
@@ -394,14 +282,6 @@ export class Map {
     this.tooltip.style("visibility", "hidden");
   }
 
-  onMouseLeaveExport(event, d) {
-    d3.select(event.target).style("opacity", 0.4);
-    this.tooltip.style("visibility", "hidden");
-
-    const countryId = this.escapeId(d.exportedTo);
-    d3.select(`#${countryId}`).attr("fill", "#DDD6CF");
-  }
-
   handlerStepEnter = (response) => {
     const currIdx = response.index;
     const currDirection = response.direction;
@@ -409,17 +289,6 @@ export class Map {
       case 0:
         this.drawBrandMap();
         this.iconGroup.attr("visibility", "visible");
-        break;
-      case 1:
-        this.drawHyogoMap();
-        this.iconGroup.attr("visibility", "hidden");
-        if (currDirection === "up") {
-          this.connectionGroup.attr("visibility", "hidden");
-        }
-        break;
-      case 2:
-        this.drawExportMap(2024);
-        this.connectionGroup.attr("visibility", "visible");
         break;
       default:
         break;

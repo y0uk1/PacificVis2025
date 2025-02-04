@@ -11666,7 +11666,8 @@ figure {
   float: right;
 }
 
-#map {
+#brand-map,
+#export-map {
   width: 800px;
   float: right;
   position: relative;
