@@ -56,6 +56,7 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
+  --bs-gold-rgb: 203, 180, 96;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
@@ -7532,6 +7533,14 @@ fieldset:disabled .btn {
   top: 0 !important;
 }
 
+.top-10 {
+  top: 10% !important;
+}
+
+.top-25 {
+  top: 25% !important;
+}
+
 .top-50 {
   top: 50% !important;
 }
@@ -7542,6 +7551,14 @@ fieldset:disabled .btn {
 
 .bottom-0 {
   bottom: 0 !important;
+}
+
+.bottom-10 {
+  bottom: 10% !important;
+}
+
+.bottom-25 {
+  bottom: 25% !important;
 }
 
 .bottom-50 {
@@ -7556,6 +7573,14 @@ fieldset:disabled .btn {
   left: 0 !important;
 }
 
+.start-10 {
+  left: 10% !important;
+}
+
+.start-25 {
+  left: 25% !important;
+}
+
 .start-50 {
   left: 50% !important;
 }
@@ -7566,6 +7591,14 @@ fieldset:disabled .btn {
 
 .end-0 {
   right: 0 !important;
+}
+
+.end-10 {
+  right: 10% !important;
+}
+
+.end-25 {
+  right: 25% !important;
 }
 
 .end-50 {
@@ -8559,6 +8592,11 @@ fieldset:disabled .btn {
 .text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-gold {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-gold-rgb), var(--bs-text-opacity)) !important;
 }
 
 .text-body {
@@ -11424,7 +11462,7 @@ body {
       rgba(0, 0, 0, 0.7) 75%,
       #000 100%
     ),
-    url("../assets/img/bg-masthead.jpg");
+    url("../assets/img/bg-masthead.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11818,4 +11856,9 @@ figure {
 .box p {
   color: #333;
   line-height: 1.5;
+}
+
+.wagyu-type {
+  width: 350px;
+  /* height: 150px; */
 }
