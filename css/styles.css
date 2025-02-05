@@ -57,6 +57,7 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-gold-rgb: 203, 180, 96;
+  --bs-red-rgb: 177, 33, 34;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto,
@@ -8599,6 +8600,11 @@ fieldset:disabled .btn {
   color: rgba(var(--bs-gold-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-red {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-red-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-body {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-body-color-rgb), var(--bs-text-opacity)) !important;
@@ -8617,6 +8623,11 @@ fieldset:disabled .btn {
 .text-white-50 {
   --bs-text-opacity: 1;
   color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.text-white-75 {
+  --bs-text-opacity: 1;
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .text-reset {
@@ -11509,14 +11520,20 @@ body {
 }
 
 .about-section {
-  padding-top: 10rem;
-  background: linear-gradient(
+  padding-top: 5rem;
+  height: 100vh;
+  background-image: url("../assets/img/japanese-black-with-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background: linear-gradient(
     to bottom,
     #000 0%,
     rgba(0, 0, 0, 0.9) 75%,
     rgba(0, 0, 0, 0.8) 100%
-  );
+  ); */
 }
+
 .about-section p {
   margin-bottom: 5rem;
 }
