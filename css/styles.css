@@ -11519,6 +11519,15 @@ body {
   }
 }
 
+.about-section-2 {
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 12, 10, 1) 0%,
+    rgba(224, 184, 93, 0.8) 60%,
+    rgba(241, 233, 209, 0.9) 100%
+  );
+}
+
 .about-section {
   padding-top: 5rem;
   height: 100vh;
@@ -11876,6 +11885,6 @@ figure {
 }
 
 .wagyu-type {
-  width: 350px;
+  width: 450px;
   /* height: 150px; */
 }
