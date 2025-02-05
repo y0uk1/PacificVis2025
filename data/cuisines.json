@@ -20,13 +20,13 @@
   {
     "name": "Gyukatsu",
     "nameJP": "牛かつ",
-    "explanation": "Gyukatsu (deep-fried beef steak cutlet) is a Western-style Japanese “yoshoku” dish consisting of beef fillet coated in a batter and panko breadcrumbs, then deep-fried. It is also known as beef katsu, bifukatsu, or beef cutlet. It’s often eaten with shredded cabbage, rice, miso soup and served with salt, wasabi, or katsu sauce on the side for dipping.",
+    "explanation": "Gyukatsu is a Western-style Japanese “yoshoku” dish consisting of beef fillet coated in a batter and panko breadcrumbs, then deep-fried. It is also known as beef katsu, bifukatsu, or beef cutlet. It’s often eaten with shredded cabbage, rice, miso soup and served with salt, wasabi, or katsu sauce on the side for dipping.",
     "image": "gyukatsu.png"
   },
   {
     "name": "Shabushabu",
     "nameJP": "しゃぶしゃぶ",
-    "explanation": "Shabushabu is a Japanese nabemono hotpot dish of thinly sliced meat and vegetables boiled in water and served with dipping sauces. The term is onomatopoeic, derived from the sound – \"swish swish\" – emitted when the ingredients are stirred in the cooking pot. The food is cooked piece by piece by the diner at the table. The two main styles of shabushabu dipping sauce are ponzu, a citrusy soy sauce, and goma-tare, a type of sesame sauce.",
+    "explanation": "Shabushabu is a Japanese nabemono hotpot dish of thinly sliced meat and vegetables boiled in water and served with dipping sauces. The term is onomatopoeic, derived from the sound – \"swish swish\" – emitted when the ingredients are stirred in the cooking pot. The food is cooked piece by piece by the diner at the table.",
     "image": "shabushabu.png"
   },
   {
