@@ -12,7 +12,8 @@ import { WagyuExportChart } from "./wagyuExportChart.js";
 const draw = async () => {
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
-    "#beef-parts-tooltip"
+    "#beef-parts-rate",
+    "#beef-parts-explanation"
   );
   const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
   const brandMap = new BrandMap("#brand-map");

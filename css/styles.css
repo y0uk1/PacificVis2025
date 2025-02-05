@@ -11632,7 +11632,6 @@ body {
 }
 
 .beef-parts-tooltip {
-  opacity: 0;
   background-color: white;
   border: solid;
   border-width: 2px;
@@ -11640,6 +11639,7 @@ body {
   padding: 5px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  height: 380px;
 }
 
 .step {

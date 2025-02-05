@@ -1,7 +1,10 @@
+import { BeefPartsRate } from "./beefPartsRate.js";
 export class BeefPartsMap {
-  constructor(_parentElement, _tooltipElement) {
+  constructor(_parentElement, _tooltipRate, _tooltipExplanation) {
     this.parentElement = _parentElement;
-    this.tooltipElement = _tooltipElement;
+    this.tooltipExplanation = _tooltipExplanation;
+
+    this.beefPartsRate = new BeefPartsRate(_tooltipRate);
 
     this.initVis();
   }
@@ -9,7 +12,8 @@ export class BeefPartsMap {
   async initVis() {
     this.setDimensions();
     this.createSvg();
-    this.createTooltip();
+    this.tooltipExplanation = d3.select(this.tooltipExplanation);
+    // this.createTooltip();
     await this.loadData();
     this.addBeefPartsMap();
     this.updateVis();
@@ -27,12 +31,12 @@ export class BeefPartsMap {
   setDimensions() {
     this.dimensions = {
       width: 800,
-      height: 600,
+      height: 500,
       margin: {
-        top: 30,
-        right: 30,
-        bottom: 30,
-        left: 30,
+        top: 10,
+        right: 50,
+        bottom: 10,
+        left: 50,
       },
     };
     this.dimensions.ctrWidth =
@@ -58,13 +62,6 @@ export class BeefPartsMap {
         "transform",
         `translate(${this.dimensions.margin.left}, ${this.dimensions.margin.top})`
       );
-  }
-
-  createTooltip() {
-    this.tooltip = d3
-      .select(`${this.tooltipElement}`)
-      .append("div")
-      .classed("beef-parts-tooltip", true);
   }
 
   addBeefPartsMap() {
@@ -97,26 +94,13 @@ export class BeefPartsMap {
       .classed("letters-on", true)
       .classed("letters-off", false);
 
-    this.tooltip.style("opacity", 1);
-    this.tooltip.style("visibility", "visible");
+    this.beefPartsRate.updateVis({ ...item });
 
-    const lowFatStars = "★".repeat(item.lowFat) + "☆".repeat(5 - item.lowFat);
-    const tendernessStars =
-      "★".repeat(item.tenderness) + "☆".repeat(5 - item.tenderness);
-    const rarityStars = "★".repeat(item.rarity) + "☆".repeat(5 - item.rarity);
-
-    this.tooltip
-      .html(
-        `
-        <h2 class="text-center">${item.name}</h2>
-        <p>Low Fat: ${lowFatStars}</p>
-        <p>Tenderness: ${tendernessStars}</p>
-        <p>Rarity: ${rarityStars}</p>
+    this.tooltipExplanation.html(
+      `
         <p>${item.explanation}</p>
       `
-      )
-      .style("right", "10px")
-      .style("width", "500px");
+    );
   }
 
   // Handle mouseleave event
@@ -127,6 +111,7 @@ export class BeefPartsMap {
     d3.selectAll(`#letters #${item.part}`)
       .classed("letters-off", true)
       .classed("letters-on", false);
-    this.tooltip.style("visibility", "hidden");
+    this.beefPartsRate.updateVis();
+    this.tooltipExplanation.html("");
   }
 }
