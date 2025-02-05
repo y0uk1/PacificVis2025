@@ -17,7 +17,7 @@
     "brand": "Yonezawa Beef",
     "brandJP": "米沢牛",
     "prefecture": "Yamagata",
-    "explanation": "Yonezawa Beef is a premium Wagyu brand produced in the Okitama region of Yamagata Prefecture. With only 2,000 cattle shipped annually, only those that meet strict criteria can be certified as Yonezawa Beef. Farmers who raise Yonezawa cattle also cultivate rice themselves, harvesting rice straw to feed the cattle. Raised in a climate of scorching summers and harsh winters, Yonezawa Beef is known for its well-balanced ratio of lean meat to fat, offering natural tenderness, high-quality marbling, and a rich aroma. While it pairs well with various dishes such as yakiniku and shabu-shabu, it is especially recommended for sukiyaki, a traditional dish of the Yonezawa region.",
+    "explanation": "Yonezawa Beef is a premium Wagyu from Yamagata's Okitama region, known for its rich aroma, fine marbling, and natural tenderness. With only 2,000 cattle shipped annually, it meets strict certification standards. Raised in an extreme climate and fed rice straw grown by local farmers, it offers a perfect balance of lean meat and fat.",
     "image": "yonezawa_beef.png"
   },
   {
@@ -31,7 +31,7 @@
     "brand": "Hida Beef",
     "brandJP": "飛騨牛",
     "prefecture": "Gifu",
-    "explanation": "Hida Beef is a premium Wagyu brand raised in the rich natural environment of Gifu Prefecture, where the cattle grow stress-free. Nurtured in a land blessed with vast open spaces, pure air, abundant nature, and clean water, Hida Beef benefits from ideal conditions for high-quality meat production. According to the Japan Meat Grading Association, Hida Beef consistently achieves a significantly higher percentage of Grade 5 rankings compared to the national average. It offers a rich umami flavor with a hint of sweetness, yet no undesirable odor, and has a clean, refreshing aftertaste. This makes it an excellent choice even for those who typically find fatty meat too heavy.",
+    "explanation": "Hida Beef is a premium Wagyu brand raised in the rich natural environment of Gifu Prefecture, where the cattle grow stress-free. Nurtured in a land blessed with vast open spaces, pure air, abundant nature, and clean water, Hida Beef benefits from ideal conditions for high-quality meat production. It offers a rich umami flavor with a hint of sweetness, yet no undesirable odor, and has a clean, refreshing aftertaste.",
     "image": "hida_beef.png"
   },
   {
@@ -45,7 +45,7 @@
     "brand": "Maezawa Beef",
     "brandJP": "前沢牛",
     "prefecture": "Iwate",
-    "explanation": "Maesawa Beef is a premium Wagyu brand raised in the Maesawa region of Oshu City, Iwate Prefecture. Located in the southern part of the Kitakami Basin, with the Kitakami River flowing through its center, the Maesawa region provides an ideal environment for cattle, offering an abundant supply of high-quality feed. Known as a prime rice-producing area, the region’s rice straw is fed to the cattle, contributing to Maesawa Beef’s vibrant marbling. The beef is characterized by its moist, tender texture, rich aroma, and melt-in-your-mouth sensation.",
+    "explanation": "Maesawa Beef is a premium Wagyu from Oshu City, Iwate Prefecture, raised in the fertile Maesawa region. Fed high-quality local rice straw, it develops vibrant marbling, a tender texture, and a rich aroma. Known for its melt-in-your-mouth sensation, it is one of Japan’s finest Wagyu brands.",
     "image": "maezawa_beef.png"
   },
   {
@@ -59,14 +59,14 @@
     "brand": "Saga Beef",
     "brandJP": "佐賀牛",
     "prefecture": "Saga",
-    "explanation": "Saga Beef is a premium Wagyu brand produced in Saga Prefecture, where only black-haired Wagyu cattle that achieve a Meat Quality Grade of 4 or higher are certified as Saga Beef. The region’s mild climate and fertile land provide an ideal environment for raising high-quality cattle. Fed on carefully selected feed and nurtured with pure local water, Saga Beef is known for its fine, evenly distributed marbling. This results in an exceptionally tender texture, a rich umami flavor, and a smooth, buttery mouthfeel. Its well-balanced fat content gives it a melt-in-your-mouth quality while maintaining a clean, refined aftertaste.",
+    "explanation": "Saga Beef, a premium Wagyu from Saga Prefecture, is made from black-haired cattle graded 4 or higher in Meat Quality. Raised in an ideal climate with pure water and select feed, it features fine marbling, exceptional tenderness, rich umami, and a buttery, melt-in-your-mouth texture with a clean finish.",
     "image": "saga_beef.png"
   },
   {
     "brand": "Sendai Beef",
     "brandJP": "仙台牛",
     "prefecture": "Miyagi",
-    "explanation": "Sendai Beef is a premium Wagyu brand produced in Miyagi Prefecture, where only cattle graded as Meat Quality Grade 5 are certified as Sendai Beef. While approximately 20,000 cattle are shipped for meat production in Miyagi each year, only about 40% meet the strict criteria to bear the Sendai Beef name. Raised on rice straw from locally grown varieties such as Sasanishiki and Hitomebore, nurtured with the region’s pure water, Sendai Beef is carefully raised over three years. It is known for its exceptionally tender texture and rich, juicy flavor.",
+    "explanation": "Sendai Beef is a top-quality Wagyu from Miyagi Prefecture, certified only if graded Meat Quality Grade 5. Of the 20,000 cattle shipped annually, only about 40% meet this strict standard. Raised for three years on locally grown rice straw and pure water, it is prized for its exceptional tenderness and rich, juicy flavor.",
     "image": "sendai_beef.png"
   },
   {
@@ -94,7 +94,7 @@
     "brand": "Hiba Beef",
     "brandJP": "比婆牛",
     "prefecture": "Hiroshima",
-    "explanation": "Hiba Beef is a premium Wagyu brand produced in the Hiba region of Hiroshima Prefecture, where only carefully selected Japanese Black cattle raised under strict conditions earn the Hiba Beef name. The region’s rich natural environment, with its clean water and lush pastures, provides an ideal setting for cattle rearing. Known for its fine-textured meat and balanced marbling, Hiba Beef offers a deep umami flavor with a rich yet delicate taste. Its tender, juicy texture and smooth fat distribution create a melt-in-your-mouth experience, making it a prized choice for various culinary preparations.",
+    "explanation": "Hiba Beef is a premium Wagyu brand produced in the Shobara region (formerly Hiba District) of Hiroshima Prefecture, where only carefully selected Japanese Black cattle raised under strict conditions earn the Hiba Beef name. Due to its limited production and high local consumption, it is rarely available on the market, making it a highly sought-after and rare Wagyu.",
     "image": "hiba_beef.png"
   }
 ]
