@@ -65,7 +65,7 @@ export class Cuisines {
     console.log(selectedCuisine);
     this.selectedName.textContent = selectedCuisine.name;
     this.selectedJpName.textContent = selectedCuisine.nameJP;
-    this.selectedImage.src = `${this.imageBaseDir}/single/${selectedCuisine.image}`;
+    this.selectedImage.src = `${this.imageBaseDir}/scene/${selectedCuisine.image}`;
     this.selectedExplanation.textContent = selectedCuisine.explanation;
   }
 
