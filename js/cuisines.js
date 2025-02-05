@@ -62,7 +62,6 @@ export class Cuisines {
       (cuisine) => cuisine.name === name
     )[0];
 
-    console.log(selectedCuisine);
     this.selectedName.textContent = selectedCuisine.name;
     this.selectedJpName.textContent = selectedCuisine.nameJP;
     this.selectedImage.src = `${this.imageBaseDir}/scene/${selectedCuisine.image}`;
