@@ -11905,3 +11905,7 @@ figure {
 .mb-20 {
   margin-bottom: 20rem;
 }
+
+.data-source p {
+  color: rgba(128, 128, 128, 0.8);
+}
