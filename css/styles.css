@@ -11678,6 +11678,7 @@ body {
 }
 
 .step h2,
+.step h4,
 .step p {
   margin: 0;
 }
@@ -11689,7 +11690,15 @@ body {
   line-height: 0.9em;
 }
 
+.step h4 {
+  text-align: right;
+  font-size: 1.4em;
+  padding-bottom: 25px;
+  line-height: 0.9em;
+}
+
 .step h2,
+.step h4,
 .step p {
   padding-right: 20px;
   border-right: 2px solid #8c8274;
@@ -11697,6 +11706,7 @@ body {
 }
 
 .step.is-active h2,
+.step.is-active h4,
 .step.is-active p {
   border-right-color: #01080d;
   color: #01080d;
@@ -11716,7 +11726,7 @@ figure {
 
 .scrolly {
   width: 1100px;
-  margin: 0 auto 10rem;
+  margin: 0 auto 20rem;
   position: relative;
 }
 
