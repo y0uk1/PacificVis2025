@@ -11730,19 +11730,19 @@ figure {
   position: relative;
 }
 
+.data-source {
+  float: right;
+}
+
 .ranking-board,
-#export-chart {
+.kobe-tajima-compare,
+.export-chart {
   width: 750px;
   float: right;
 }
 
-#kobe-tajima-compare {
-  width: 800px;
-  float: right;
-}
-
 .brand-map,
-#export-map {
+.export-map {
   width: 800px;
   float: right;
 }
