@@ -98,7 +98,7 @@ export class RankingBoard {
     const yScale = d3
       .scaleLinear()
       .domain(d3.extent(this.dataset, yAccessor))
-      .range([0, this.dimensions.ctrHeight])
+      .range([0, this.dimensions.ctrHeight - 150])
       .nice();
 
     return { xScale, yScale };
@@ -179,13 +179,13 @@ export class RankingBoard {
       })
       .transition(transition)
       .text((d) => {
-        const dollarYen = 155;
+        const dollarYen = 150;
         const name = d.name.split(" ")[0];
         if (rankingKey !== "priceYen") {
           return name;
         }
         const priceDollar = (d.priceYen / dollarYen).toFixed(1);
-        return `${name} ($${priceDollar})`;
+        return `${name} ($${priceDollar}/100g)`;
       })
       .attr("y", (d) => -xScale(d.name) - xScale.bandwidth() / 2);
   }
