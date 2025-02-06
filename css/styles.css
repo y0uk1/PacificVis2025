@@ -11831,14 +11831,14 @@ figure {
 }
 
 .scroll-container {
-  height: 400vh;
+  height: 900vh;
 }
 
 .horizontal-scroll {
   position: absolute;
   top: 0;
   height: 100%;
-  width: 400vw;
+  width: 900vw;
   will-change: transform;
   display: flex;
   justify-content: space-between;
@@ -11847,6 +11847,17 @@ figure {
 .scroll-contents {
   height: 100%;
   width: 100vw;
+}
+
+.scroll-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.scroll-img-container img {
+  height: 95%;
 }
 
 .sticky-wrap {

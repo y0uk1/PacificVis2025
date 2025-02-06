@@ -17,7 +17,7 @@ export class StickyHorizontalScroll {
     const scrollSection = section.querySelector(".horizontal-scroll");
 
     let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
-    percentage = Math.max(0, Math.min(percentage, 300));
+    percentage = Math.max(0, Math.min(percentage, 800));
 
     scrollSection.style.transform = `translate3d(${-percentage}vw, 0, 0)`;
   }
