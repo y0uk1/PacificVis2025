@@ -11726,7 +11726,7 @@ figure {
 
 .scrolly {
   width: 1100px;
-  margin: 0 auto 20rem;
+  margin: 0 auto 10rem;
   position: relative;
 }
 
@@ -11856,40 +11856,39 @@ figure {
   height: calc(100vh - 72px);
 }
 
-.box {
+.box-left,
+.box-right {
   position: relative;
-  padding: 3rem;
-  border-radius: 50%;
-  border: 4px solid #e1a639;
-  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #ddc49c;
+  border: 2px solid #333;
 }
 
-.box:before,
-.box:after {
+.box-left::before {
   position: absolute;
-  left: 50%;
-  content: "";
-  height: 0;
-  width: 0;
-}
-
-.box:before {
   top: 100%;
-  border: 14px solid;
-  border-color: transparent;
-  border-top-color: #e1a639;
-  margin-left: -14px;
+  left: 1%;
+  height: 25px;
+  width: 2px;
+  transform: rotate(35deg);
+  background-color: #333;
+  content: "";
 }
 
-.box:after {
-  top: 99%;
-  border: 10px solid;
-  border-color: transparent;
-  border-top-color: white;
-  margin-left: -10px;
+.box-right::before {
+  position: absolute;
+  top: 100%;
+  left: 99%;
+  height: 25px;
+  width: 2px;
+  transform: rotate(-35deg);
+  background-color: #333;
+  content: "";
 }
 
-.box p {
+.box-left p,
+.box-right p {
   color: #333;
   line-height: 1.5;
 }
@@ -11897,4 +11896,12 @@ figure {
 .wagyu-type {
   width: 450px;
   /* height: 150px; */
+}
+
+.custom-container {
+  max-width: 800px;
+}
+
+.mb-20 {
+  margin-bottom: 20rem;
 }
