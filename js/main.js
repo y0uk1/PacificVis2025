@@ -1,3 +1,4 @@
+import { BeefGradeTable } from "./beefGradeTable.js";
 import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
 import { BrandMap } from "./brandMap.js";
@@ -10,6 +11,9 @@ import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
+  const beefGradeTable = new BeefGradeTable("#beef-grade-table");
+  new ScrollamaSetting(beefGradeTable);
+
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
     "#beef-parts-rate",

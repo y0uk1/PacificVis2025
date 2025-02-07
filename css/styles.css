@@ -8585,6 +8585,11 @@ fieldset:disabled .btn {
   color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-light-dark {
+  --bs-text-opacity: 0.6;
+  color: rgba(var(--bs-dark-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-black {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-black-rgb), var(--bs-text-opacity)) !important;
@@ -11679,7 +11684,8 @@ body {
 
 .step h2,
 .step h4,
-.step p {
+.step p,
+.step ul {
   margin: 0;
 }
 
@@ -11699,7 +11705,8 @@ body {
 
 .step h2,
 .step h4,
-.step p {
+.step p,
+.step ul {
   padding-right: 20px;
   border-right: 2px solid #8c8274;
   color: #8c8274;
@@ -11707,7 +11714,8 @@ body {
 
 .step.is-active h2,
 .step.is-active h4,
-.step.is-active p {
+.step.is-active p,
+.step.is-active ul {
   border-right-color: #01080d;
   color: #01080d;
 }
@@ -11913,10 +11921,43 @@ figure {
   max-width: 800px;
 }
 
+.mb-10 {
+  margin-bottom: 10rem;
+}
+
 .mb-20 {
   margin-bottom: 20rem;
 }
 
 .data-source p {
   color: rgba(128, 128, 128, 0.8);
+}
+
+.odd {
+  background-color: blue; /* 奇数ページを青色に */
+}
+.even {
+  background-color: green; /* 偶数ページを緑色に */
+}
+
+#flipbook {
+  width: 1200px; /* flipbook自体の横幅なので各ページは200px */
+  height: 800px;
+  margin: 10% 20%; /* 一番左端だとたまに見切れるので適当に移動 */
+}
+
+.table {
+  background-color: #fefbec;
+}
+
+.bg-light-dark-transition {
+  --bs-bg-opacity: 0.4;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  transition: background-color 1s ease-in-out;
+}
+
+.bg-gold-transition {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-gold-rgb), var(--bs-bg-opacity)) !important;
+  transition: background-color 1s ease-in-out;
 }
