@@ -11924,3 +11924,16 @@ figure {
 .data-source p {
   color: rgba(128, 128, 128, 0.8);
 }
+
+.odd {
+  background-color: blue; /* 奇数ページを青色に */
+}
+.even {
+  background-color: green; /* 偶数ページを緑色に */
+}
+
+#flipbook {
+  width: 1200px; /* flipbook自体の横幅なので各ページは200px */
+  height: 800px;
+  margin: 10% 20%; /* 一番左端だとたまに見切れるので適当に移動 */
+}

@@ -10,6 +10,8 @@ import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
+  $("#flipbook").turn({});
+
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
     "#beef-parts-rate",
