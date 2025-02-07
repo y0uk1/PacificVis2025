@@ -11851,16 +11851,23 @@ figure {
 
 .scroll-img-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
 
 .scroll-img-container img {
-  height: 95%;
+  height: 40%;
+  margin-top: 12em;
+  margin-bottom: 10em;
 }
 
 .sticky-wrap {
+  background-image: url("../assets/img/comic/jp-story/0.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
   overflow: hidden;
   position: sticky;
   top: 72px;
