@@ -1,3 +1,4 @@
+import { BeefGradeTable } from "./beefGradeTable.js";
 import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
 import { BrandMap } from "./brandMap.js";
@@ -50,6 +51,9 @@ const draw = async () => {
 
   const exportMap = new KobebeefExportMap("#export-map");
   new ScrollamaSetting(exportMap, "#export-map-scrolly");
+
+  const beefGradeTable = new BeefGradeTable("#beef-grade-table");
+  new ScrollamaSetting(beefGradeTable, "#grading-table-scrolly");
 
   new StickyHorizontalScroll(".sticky-wrap");
 };
