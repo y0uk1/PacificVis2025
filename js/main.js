@@ -15,7 +15,6 @@ const draw = async () => {
     "#beef-parts-rate",
     "#beef-parts-explanation"
   );
-  const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
   const brandMap = new BrandMap("#brand-map");
   new ScrollamaSetting(brandMap, "#brand-map-scrolly");
 
