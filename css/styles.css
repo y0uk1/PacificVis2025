@@ -11722,6 +11722,7 @@ figure {
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   z-index: 10;
+  float: right;
 }
 
 .scrolly {
@@ -11734,17 +11735,12 @@ figure {
   float: right;
 }
 
-.ranking-board,
-.kobe-tajima-compare,
-.export-chart {
+.w-750 {
   width: 750px;
-  float: right;
 }
 
-.brand-map,
-.export-map {
+.w-800 {
   width: 800px;
-  float: right;
 }
 
 .tooltip {
@@ -11753,10 +11749,11 @@ figure {
   font-family: var(--bs-body-font-family);
 }
 
-#selected-cuisine-img {
+#selected-cuisine-img,
+#selected-bms-meat {
   height: 23rem;
   object-fit: cover;
-  margin-left: 150px;
+  margin-right: 2rem;
 }
 
 .custom-card {
