@@ -23,8 +23,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="js/turn.js"></script>
   </head>
 
   <body id="page-top">
@@ -441,20 +439,19 @@
       </article>
     </section>
 
-    <div class="scroll-container">
-      <div class="sticky-wrap">
-        <div class="horizontal-scroll">
-          <div class="scroll-contents">
-          </div>
-          <div class="scroll-contents">
-          </div>
-          <div class="scroll-contents">
-          </div>
-          <div class="scroll-contents">
-          </div>
-        </div>
+    <section id="flipbook">
+      <div class="odd">
+        <img src="assets/img/comic/us-story/0.png" width="100%">
+        <img src="assets/img/comic/us-story/0.png" width="100%">
       </div>
-    </div>
+      <div class="even">
+        <img src="assets/img/comic/us-story/0.png" width="100%">
+      </div>
+      <div class="odd">page3</div>
+      <div class="even">page4</div>
+      <div class="odd">page5</div>
+      <div class="even">page6</div>
+    </section>
 
     <section class="beef-grading-guide mt-4">
       <div class="container px-4 px-lg-5">
@@ -512,14 +509,7 @@
       </div>
     </section>
 
-    <div id="flipbook">
-      <div class="odd">page1</div>
-      <div class="even">page2</div>
-      <div class="odd">page3</div>
-      <div class="even">page4</div>
-      <div class="odd">page5</div>
-      <div class="even">page6</div>
-    </div>
+    
 
     </div>
     <!-- Footer-->
@@ -532,6 +522,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/turn.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script type="module" src="js/main.js"></script>
