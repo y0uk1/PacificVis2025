@@ -11,15 +11,18 @@ import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
+<<<<<<< HEAD
   const beefGradeTable = new BeefGradeTable("#beef-grade-table");
   new ScrollamaSetting(beefGradeTable);
+=======
+  $("#flipbook").turn({});
+>>>>>>> develop
 
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
     "#beef-parts-rate",
     "#beef-parts-explanation"
   );
-  const beefGradingGuide = new BeefGradingGuide("#beef-grading-guide");
   const brandMap = new BrandMap("#brand-map");
   new ScrollamaSetting(brandMap, "#brand-map-scrolly");
 
@@ -44,6 +47,11 @@ const draw = async () => {
     "selected-cuisine-jp-name",
     "selected-cuisine-explanation",
     "Yakiniku"
+  );
+
+  const beefGradingGuide = new BeefGradingGuide(
+    "#beef-grading-guide",
+    "selected-bms-meat"
   );
 
   const exportMap = new KobebeefExportMap("#export-map");
