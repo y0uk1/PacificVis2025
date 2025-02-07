@@ -11,12 +11,7 @@ import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
-<<<<<<< HEAD
-  const beefGradeTable = new BeefGradeTable("#beef-grade-table");
-  new ScrollamaSetting(beefGradeTable);
-=======
   $("#flipbook").turn({});
->>>>>>> develop
 
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
@@ -56,6 +51,9 @@ const draw = async () => {
 
   const exportMap = new KobebeefExportMap("#export-map");
   new ScrollamaSetting(exportMap, "#export-map-scrolly");
+
+  const beefGradeTable = new BeefGradeTable("#beef-grade-table");
+  new ScrollamaSetting(beefGradeTable, "#grading-table-scrolly");
 
   new StickyHorizontalScroll(".sticky-wrap");
 };
