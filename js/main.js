@@ -42,6 +42,11 @@ const draw = async () => {
     "Yakiniku"
   );
 
+  const beefGradingGuide = new BeefGradingGuide(
+    "#beef-grading-guide",
+    "selected-bms-meat"
+  );
+
   const exportMap = new KobebeefExportMap("#export-map");
   new ScrollamaSetting(exportMap, "#export-map-scrolly");
 

@@ -1,10 +1,26 @@
 export class BeefGradingGuide {
-  constructor(_parentElement) {
+  constructor(_parentElement, _selectedImageId) {
     this.parentElement = _parentElement;
+    this.selectedImageId = document.getElementById(_selectedImageId);
     this.countryFlags = {
       Japan: "assets/svg/Japan.svg",
       Australia: "assets/svg/Australia.svg",
       USA: "assets/svg/USA.svg",
+    };
+    this.imageBaseDir = "assets/img/bms";
+    this.bmsMapping = {
+      1: ["Japan-1", "Australia-1", "USA-1"],
+      2: ["Japan-2", "Australia-2", "USA-3"],
+      3: ["Japan-4", "Australia-3", "USA-3"],
+      4: ["Japan-4", "Australia-4", "USA-5"],
+      5: ["Japan-8", "Australia-5", "USA-5"],
+      6: ["Japan-8", "Australia-6"],
+      7: ["Japan-8", "Australia-7"],
+      8: ["Japan-8", "Australia-8"],
+      9: ["Japan-12", "Australia-9"],
+      10: ["Japan-12"],
+      11: ["Japan-12"],
+      12: ["Japan-12"],
     };
 
     this.initVis();
@@ -114,7 +130,7 @@ export class BeefGradingGuide {
       .selectAll("image")
       .data(series)
       .join("image")
-      .attr("xlink:href", (d) => `assets/img/bms/bms${d.key}.png`) // Use the flag URL based on the country
+      .attr("xlink:href", (d) => `${this.imageBaseDir}/rect/bms${d.key}.png`) // Use the flag URL based on the country
       .attr("x", (d) => xScale(d[0].data[0]))
       .attr("y", (d) => yScale(d[0][1]))
       .attr("width", xScale.bandwidth())
@@ -134,11 +150,15 @@ export class BeefGradingGuide {
       })
       .attr("x", (d) => xScale(d.data[0]))
       .attr("y", (d) => yScale(d[1]))
+      .attr("id", (d) => `${d.data[0]}-${d[1]}`)
       .attr("opacity", (d) => (d.data[0] === "BMS" ? 0 : 1))
       .attr("height", (d) => yScale(d[0]) - yScale(d[1]))
       .attr("width", xScale.bandwidth())
       .on("mouseover", (event, d) => {
-        console.log(d);
+        this.onMouseOver(event, d);
+      })
+      .on("mouseleave", (event, d) => {
+        this.onMouseLeave(event, d);
       });
 
     this.ctr
@@ -172,7 +192,20 @@ export class BeefGradingGuide {
       .attr("height", 50);
   }
 
-  // onMouseOver(event, item) {
+  onMouseOver(event, item) {
+    if (item.data[0] !== "BMS") return;
+    this.selectedImageId.src = `${this.imageBaseDir}/meat/bms${item.key}.png`;
+    this.bmsMapping[item.key].forEach((id) => {
+      this.ctr.selectAll(`#${id}`).style("opacity", 0.2);
+    });
+    d3.select(event.target).style("opacity", 0.4);
+  }
 
-  // }
+  onMouseLeave(event, item) {
+    if (item.data[0] !== "BMS") return;
+    this.bmsMapping[item.key].forEach((id) => {
+      this.ctr.selectAll(`#${id}`).style("opacity", 1);
+    });
+    d3.select(event.target).style("opacity", 0);
+  }
 }
