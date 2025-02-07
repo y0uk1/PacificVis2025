@@ -23,6 +23,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/turn.js"></script>
   </head>
 
   <body id="page-top">
@@ -222,40 +224,40 @@
               <img src="assets/img/comic/jp-story/1.png"></img>
               <h2>"Hi, I’m Yuki."</h2>
             </div>
-                  </div>
+          </div>
           <div class="scroll-contents">
             <div class="scroll-img-container">
               <img src="assets/img/comic/jp-story/2.png"></img>
               <h2>"I was born in Hyogo Prefecture</h2>
               <h2>where some of the world’s best beef is raised."</h2>
-                </div>
-              </div>
+            </div>
+          </div>
           <div class="scroll-contents">
             <div class="scroll-img-container">
               <img src="assets/img/comic/jp-story/3.png"></img>
               <h2>"To me, these cows were just part of the scenery.</h2>
               <h2>I had no idea they were living legends."</h2>
-            </div>  
+            </div>
           </div>
           <div class="scroll-contents">
             <div class="scroll-img-container">
               <img src="assets/img/comic/jp-story/4.png"></img>
               <h2>"But as a kid, I didn’t think much of it."</h2>
-                </div>
-                  </div>
+            </div>
+          </div>
           <div class="scroll-contents">
             <div class="scroll-img-container">
               <img src="assets/img/comic/jp-story/5.png"></img>
               <h2>"Dad, why do these cows look so… relaxed?</h2>
               <h2>Because they’re treated like royalty. Happy cows make the best beef."</h2>
-                </div>
-              </div>
+            </div>
+          </div>
           <div class="scroll-contents">
             <div class="scroll-img-container">
               <img src="assets/img/comic/jp-story/6.png"></img>
               <h2>"What… it’s so tender. It just melts!"</h2>
               <h2>"This isn’t just any beef, Yuki. This is Kobe beef, Hyogo’s pride!"</h2>
-            </div>  
+            </div>
           </div>
           <div class="scroll-contents">
             <div class="scroll-img-container">
@@ -267,17 +269,63 @@
             <div class="scroll-img-container">
               <img src="assets/img/comic/jp-story/8.png"></img>
               <h2>"That was the moment I realized, this wasn’t just food. It was art!"</h2>
-                </div>
-              </div>
+            </div>
+          </div>
           <div class="scroll-contents">
             <div class="scroll-img-container">
               <img src="assets/img/comic/jp-story/9.png"></img>
               <h2>"So, let me explain the magic of Kobe beef!"</h2>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <section class="mb-20">
+      <div class="container custom-container px-lg-5">
+        <h2>What makes Kobe Beef so special?</h2>
+        <p>Tajima Beef and Kobe Beef have specific definitions that are considered the strictest in Japan. Only beef that meets these criteria can be recognized as Kobe Beef and distributed globally.</p>
+        
+        <h4>Definition of Tajima Beef</h4>
+        <p>
+          Tajima Beef should be required to fulfill the following conditions:
+          "Moto-ushi" or purebred seed stock cattle must be Hyogo-produce Tajima cattle. The breeding farm should be in Hyogo Prefecture and should be registered by the Association.
+          The cattle should be bred and fatted in Hyogo Prefecture.
+          The cattle should be a steer or a cow and should be bred for above 28 month and under 60 months.
+          The meat should be processed at slaughter houses in Hyogo Prefecture.
+          Meat quality: A or B above Rank 2. In case any damage was founded in the carcass, Commission member shall check it and judge that it should be Tajima Beef or not.
+          Tajima Beef can be called "TAJIMA BEEF" or "Tajima-gyu."
+        </p>
+
+        <h4>Definition of Kobe Beef</h4>
+        <p>
+          Kobe Beef should be selected from Tajima Beef defined by Article 20 and the cattle must be a heifer or a steer. The following conditions should be required to fulfill for Kobe Beef. Kobe Beef or Kobe-niku can be called "KOBE BEEF," "Kobe-gyu" or "Kobe-ushi."
+        </p>
+
+        
+
+      </div>
+    </section>
+
+    <section class="scrolly" id="grading-table-scrolly">
+      <figure class="w-750">
+        <div id="beef-grade-table"></div>
+      </figure>
+      <article>
+        <div class="step" data-step="1">
+          <h2>Meet Grading System</h2>
+          <p>Sample</p>
+        </div>
+        <div class="step" data-step="2">
+          <h2>Tajima Beef</h2>
+          <p>Sample</p>
+        </div>
+        <div class="step" data-step="3">
+          <h2>Kobe Beef</h2>
+          <p>Sample</p>
+        </div>
+      </article>
+    </section>
 
     <section class="scrolly" id="kobe-tajima-compare-scrolly">
       <figure class="w-750">
@@ -463,6 +511,15 @@
         </div>
       </div>
     </section>
+
+    <div id="flipbook">
+      <div class="odd">page1</div>
+      <div class="even">page2</div>
+      <div class="odd">page3</div>
+      <div class="even">page4</div>
+      <div class="odd">page5</div>
+      <div class="even">page6</div>
+    </div>
 
     </div>
     <!-- Footer-->
