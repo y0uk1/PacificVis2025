@@ -1,5 +1,6 @@
-// This file was divided into brandMap.jsとkobebeefExportMap.js. This file may not be used.
-export class Map {
+// TODO: use zoom for zoom into Hyogo. As of now (2025/2/7), it is difficult to implement, so I alternatively use transition to zoom into Hyogo.
+
+export class KobebeefExportMap {
   constructor(_parentElement) {
     this.parentElement = _parentElement;
 
@@ -13,24 +14,24 @@ export class Map {
     this.createGroups();
     await this.loadData();
     this.processData();
-    this.drawBrandMap();
+    this.drawJapanMap();
+
+    this.zoom = d3.zoom().scaleExtent([1, 8]).on("zoom", this.zoomed);
+    this.mapGroup.call(this.zoom);
   }
 
   async loadData() {
-    const [japanGeo, worldGeo, wagyuBrandList, exportDataset] =
-      await Promise.all([
-        d3.json("data/japan.geo.json"),
-        d3.json("data/world.geo.json"),
-        d3.json("data/wagyu_brand_list.json"),
-        d3.csv("data/amount_of_exported_kobe_beef.csv", (d) => ({
-          year: new Date(d.date).getFullYear(),
-          exportedTo: d.exportedTo,
-          weightKg: +d.weightKg,
-        })),
-      ]);
+    const [japanGeo, worldGeo, exportDataset] = await Promise.all([
+      d3.json("data/japan.geo.json"),
+      d3.json("data/world.geo.json"),
+      d3.csv("data/amount_of_exported_kobe_beef.csv", (d) => ({
+        year: new Date(d.date).getFullYear(),
+        exportedTo: d.exportedTo,
+        weightKg: +d.weightKg,
+      })),
+    ]);
 
     this.geo = { japan: japanGeo, world: worldGeo };
-    this.groupedWagyuList = d3.group(wagyuBrandList, (d) => d.prefecture);
     this.wagyuIcon = {
       white: "assets/svg/wagyu-icon-white.svg",
       black: "assets/svg/wagyu-icon-black.svg",
@@ -188,78 +189,57 @@ export class Map {
       .scale(scale);
   }
 
-  drawBrandMap() {
+  drawJapanMap() {
     const duration = 500;
     const updateTransition = d3
       .transition()
       .duration(duration)
       .ease(d3.easeLinear);
-
     const projection = this.createProjection(this.geo.japan, 1400);
     const path = d3.geoPath().projection(projection);
 
     this.mapGroup
       .selectAll("path")
+      .attr("fill", "#DDD6CF")
+      .attr("stroke-width", 0.25)
+      .attr("fill-opacity", 0.3)
       .data(this.geo.japan.features)
       .join("path")
-      .transition(updateTransition)
+      // .transition(updateTransition)
+      .on("click", this.clicked)
       .attr("d", path)
-      .attr("stroke", "#666")
-      .attr("stroke-width", 0.25)
-      .attr("fill", (d) =>
-        this.groupedWagyuList.get(d.properties.name_nl) ? "red" : "#DDD6CF"
-      )
-      .attr("fill-opacity", 0.3);
-
-    this.iconGroup
-      .selectAll(".cow-icon")
-      .data(
-        this.geo.japan.features.filter((d) =>
-          this.groupedWagyuList.get(d.properties.name_nl)
-        )
-      )
-      .join("image")
-      .attr("class", "cow-icon")
-      .attr("xlink:href", this.wagyuIcon.black) // Path to the cow icon image
-      .attr("width", 20) // Adjust the size of the icon
-      .attr("height", 20)
-      .attr("x", (d) => projection(d3.geoCentroid(d))[0] - 10)
-      .attr("y", (d) => projection(d3.geoCentroid(d))[1] - 10)
-      .on("mouseover", (event, d) => this.onMouseOverBrand(event, d))
-      .on("mouseleave", (event, d) => this.onMouseLeaveBrand(event, d));
+      .attr("stroke", "#666");
   }
 
-  drawHyogoMap() {
-    const duration = 500;
-    const updateTransition = d3
-      .transition()
-      .duration(duration)
-      .ease(d3.easeLinear);
-
-    // 兵庫県のみを取得
-    const hyogoFeature = this.geo.japan.features.find(
-      (d) => d.properties.name_nl === "Hyogo"
-    );
-
-    // 兵庫県のみを表示
-    const projection = this.createProjection(
-      { type: "FeatureCollection", features: [hyogoFeature] },
-      13000,
-      [0, -0.2]
-    );
-    const path = d3.geoPath().projection(projection);
-
+  clicked = (event, d) => {
+    const [[x0, y0], [x1, y1]] = d3.geoPath().bounds(d);
+    console.log(x0, y0, x1, y1);
+    // const [x, y] = d3.projection(d3.geoCentroid(d));
+    event.stopPropagation();
+    this.mapGroup.transition().style("fill", null);
     this.mapGroup
-      .selectAll("path")
-      .data([hyogoFeature]) // 兵庫県のみをデータにする
-      .join("path")
-      .transition(updateTransition)
-      .attr("d", path)
-      .attr("fill", "#DDD6CF")
-      .attr("stroke", "#666")
-      .attr("stroke-width", 0.5)
-      .attr("fill-opacity", 0.6);
-  }
+      .transition()
+      .duration(750)
+      .call(
+        this.zoom.transform,
+        d3.zoomIdentity
+          .translate(
+            this.dimensions.ctrWidth / 2,
+            this.dimensions.ctrHeight / 2
+          )
+          .scale(4)
+          .translate(-(x0 + x1) / 2, -(y0 + y1) / 2),
+        // .translate(-x, -y),
+        d3.pointer(event, this.ctr.node())
+      );
+  };
+
+  zoomed = (event) => {
+    const { transform } = event;
+    console.log(transform);
+    this.mapGroup.attr("transform", transform);
+    this.mapGroup.attr("stroke-width", 1 / transform.k);
+  };
 
   drawExportMap(year = 2024) {
     const duration = 500;
@@ -317,45 +297,6 @@ export class Map {
       );
   }
 
-  onMouseOverBrand(event, d) {
-    const imgBaseDir = "assets/img/raw-meet";
-    this.tooltip.style("opacity", 1);
-    this.tooltip.style("visibility", "visible");
-    d3.select(event.currentTarget).attr("xlink:href", this.wagyuIcon.white);
-
-    const prefecture = d.properties.name_nl;
-    const brandData = this.groupedWagyuList.get(prefecture)[0];
-
-    this.tooltip
-      .html(
-        `
-        <div class="card custom-card-2">
-          <img class="card-img-top" src="${imgBaseDir}/${brandData.image}" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">${brandData.brand}</h5>
-            <h6 class="card-title">${brandData.prefecture} Prefecture</h6>
-            <p class="card-text">${brandData.explanation}</p>
-          </div>
-        </div>
-      `
-      )
-      .style("left", event.offsetX - 440 + "px")
-      .style("top", event.offsetY - 350 + "px");
-
-    // <div class="container">
-    //       <h2 class="text-center">${brandData.brand}</h2>
-    //       <h4 class="text-center">(${brandData.prefecture} Prefecture)</h4>
-    //       <div class="row">
-    //         <div class="col-8">
-    //           <p>${brandData.explanation}</p>
-    //         </div>
-    //         <div class="col-4">
-    //           <img src="${imgBaseDir}/${brandData.image}">
-    //         </div>
-    //       </div>
-    //     </div>
-  }
-
   onMouseOverExport(event, d, exportData) {
     const format = d3.format(".2f");
 
@@ -389,11 +330,6 @@ export class Map {
       .style("top", event.offsetY + 20 + "px");
   }
 
-  onMouseLeaveBrand(event, d) {
-    d3.select(event.currentTarget).attr("xlink:href", this.wagyuIcon.black);
-    this.tooltip.style("visibility", "hidden");
-  }
-
   onMouseLeaveExport(event, d) {
     d3.select(event.target).style("opacity", 0.4);
     this.tooltip.style("visibility", "hidden");
@@ -407,17 +343,13 @@ export class Map {
     const currDirection = response.direction;
     switch (currIdx) {
       case 0:
-        this.drawBrandMap();
-        this.iconGroup.attr("visibility", "visible");
-        break;
-      case 1:
-        this.drawHyogoMap();
+        this.drawJapanMap();
         this.iconGroup.attr("visibility", "hidden");
         if (currDirection === "up") {
           this.connectionGroup.attr("visibility", "hidden");
         }
         break;
-      case 2:
+      case 1:
         this.drawExportMap(2024);
         this.connectionGroup.attr("visibility", "visible");
         break;

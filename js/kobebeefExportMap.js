@@ -12,6 +12,7 @@ export class KobebeefExportMap {
     this.createGroups();
     await this.loadData();
     this.processData();
+    this.drawJapanMap();
   }
 
   async loadData() {
@@ -26,10 +27,6 @@ export class KobebeefExportMap {
     ]);
 
     this.geo = { japan: japanGeo, world: worldGeo };
-    this.wagyuIcon = {
-      white: "assets/svg/wagyu-icon-white.svg",
-      black: "assets/svg/wagyu-icon-black.svg",
-    };
     this.exportDataset = exportDataset;
   }
 
@@ -183,6 +180,28 @@ export class KobebeefExportMap {
       .scale(scale);
   }
 
+  drawJapanMap() {
+    const duration = 500;
+    const updateTransition = d3
+      .transition()
+      .duration(duration)
+      .ease(d3.easeLinear);
+
+    const projection = this.createProjection(this.geo.japan, 1400);
+    const path = d3.geoPath().projection(projection);
+
+    this.mapGroup
+      .selectAll("path")
+      .data(this.geo.japan.features)
+      .join("path")
+      .transition(updateTransition)
+      .attr("d", path)
+      .attr("stroke", "#666")
+      .attr("stroke-width", 0.25)
+      .attr("fill", "#DDD6CF")
+      .attr("fill-opacity", 0.3);
+  }
+
   drawHyogoMap() {
     const duration = 500;
     const updateTransition = d3
@@ -317,17 +336,20 @@ export class KobebeefExportMap {
     const currDirection = response.direction;
     switch (currIdx) {
       case 0:
+        this.drawJapanMap();
+        this.iconGroup.attr("visibility", "visible");
+        break;
+      case 1:
         this.drawHyogoMap();
         this.iconGroup.attr("visibility", "hidden");
         if (currDirection === "up") {
           this.connectionGroup.attr("visibility", "hidden");
         }
         break;
-      case 1:
+      case 2:
         this.drawExportMap(2024);
         this.connectionGroup.attr("visibility", "visible");
         break;
-      case 2:
       default:
         break;
     }
