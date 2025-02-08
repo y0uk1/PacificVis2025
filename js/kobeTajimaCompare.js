@@ -141,7 +141,6 @@ export class KobeTajimaCompare {
     );
 
     const acceptanceRate = ((kobeGyuCount / tajimaGyuCount) * 100).toFixed(1);
-    console.log(acceptanceRate);
     this.acceptanceRate
       .transition(updateTransition)
       .text(acceptanceRate !== "NaN" ? `${acceptanceRate}%` : "");
