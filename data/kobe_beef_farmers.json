@@ -1,0 +1,98 @@
+[
+  {
+    "x": 498,
+    "y": 286,
+    "id": "ja-hyogo-rokko",
+    "name": "JA Hyogo Rokko",
+    "nameJP": "JA 兵庫六甲",
+    "farmers": 57
+  },
+  {
+    "x": 491,
+    "y": 217,
+    "id": "ja-tanba-sasayama",
+    "name": "JA Tanba Sasayama",
+    "nameJP": "JA 丹波ささやま",
+    "farmers": 15
+  },
+  {
+    "x": 451,
+    "y": 177,
+    "id": "ja-tanba-hikami",
+    "name": "JA Tanba Hikami",
+    "nameJP": "JA 丹波ひかみ",
+    "farmers": 30
+  },
+  {
+    "x": 344,
+    "y": 77,
+    "id": "ja-tajima",
+    "name": "JA Tajima",
+    "nameJP": "JA たじま",
+    "farmers": 58
+  },
+  {
+    "x": 427,
+    "y": 245,
+    "id": "ja-minori",
+    "name": "JA Minori",
+    "nameJP": "JA みのり",
+    "farmers": 26
+  },
+  {
+    "x": 380,
+    "y": 248,
+    "id": "ja-hyogo-mirai",
+    "name": "JA Hyogo Mirai",
+    "nameJP": "JA 兵庫みらい",
+    "farmers": 13
+  },
+  {
+    "x": 401,
+    "y": 312,
+    "id": "ja-hyogo-minami",
+    "name": "JA Hyogo Minami",
+    "nameJP": "JA 兵庫南",
+    "farmers": 12
+  },
+  {
+    "x": 294,
+    "y": 256,
+    "id": "ja-hyogo-nishi",
+    "name": "JA Hyogo Nishi",
+    "nameJP": "JA 兵庫西",
+    "farmers": 30
+  },
+  {
+    "x": 316,
+    "y": 188,
+    "id": "ja-harima",
+    "name": "JA Harima",
+    "nameJP": "JA ハリマ",
+    "farmers": 3
+  },
+  {
+    "x": 405,
+    "y": 412,
+    "id": "ja-awaji-hinode",
+    "name": "JA Awaji Hinode",
+    "nameJP": "JA 淡路日の出",
+    "farmers": 39
+  },
+  {
+    "x": 388,
+    "y": 466,
+    "id": "ja-awajishima",
+    "name": "JA Awajishima",
+    "nameJP": "JA あわじ島",
+    "farmers": 27
+  },
+  {
+    "x": 650,
+    "y": 50,
+    "id": "ja-others",
+    "name": "Others",
+    "nameJP": "その他",
+    "farmers": 53
+  }
+]
