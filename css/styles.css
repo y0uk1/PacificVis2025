@@ -11990,3 +11990,13 @@ figure {
   background-color: rgba(var(--bs-gold-rgb), var(--bs-bg-opacity)) !important;
   transition: background-color 1s ease-in-out;
 }
+
+.jp-story {
+  font-family: Book Antiqua, Palatino, Nunito, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.jp-story h2 {
+  font-weight: 600 !important;
+}
