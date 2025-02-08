@@ -209,6 +209,21 @@ export class KobebeefExportMap {
       .duration(duration)
       .ease(d3.easeLinear);
 
+    const testPoints = [
+      { x: 498, y: 286, name: "JA-Hyogo-Rokko", farmers: 49 },
+      { x: 491, y: 217, name: "JA-Tanba-Sasayama", farmers: 19 },
+      { x: 451, y: 177, name: "JA-Tanba-Hikami", farmers: 19 },
+      { x: 384, y: 55, name: "JA-Tajima", farmers: 59 },
+      { x: 427, y: 245, name: "JA-Minori", farmers: 35 },
+      { x: 380, y: 248, name: "JA-Hyogo-Mirai", farmers: 14 },
+      { x: 401, y: 312, name: "JA-Hyogo-Minami", farmers: 10 },
+      { x: 337, y: 282, name: "JA-Hyogo-Nishi", farmers: 40 },
+      { x: 380, y: 248, name: "JA-Hyogo-Nishi", farmers: 40 },
+      { x: 316, y: 188, name: "JA-Harima", farmers: 2 },
+      { x: 413, y: 417, name: "JA-Awaji-Hinode", farmers: 37 },
+      { x: 388, y: 466, name: "JA-Awajishima", farmers: 24 },
+    ];
+
     // 兵庫県のみを取得
     const hyogoFeature = this.geo.japan.features.find(
       (d) => d.properties.name_nl === "Hyogo"
@@ -217,7 +232,7 @@ export class KobebeefExportMap {
     // 兵庫県のみを表示
     const projection = this.createProjection(
       { type: "FeatureCollection", features: [hyogoFeature] },
-      13000,
+      15500,
       [0, -0.2]
     );
     const path = d3.geoPath().projection(projection);
@@ -226,12 +241,25 @@ export class KobebeefExportMap {
       .selectAll("path")
       .data([hyogoFeature]) // 兵庫県のみをデータにする
       .join("path")
+      .on("click", (event, d) => {
+        console.log(event);
+        console.log(event.layerX, event.layerY);
+      })
       .transition(updateTransition)
       .attr("d", path)
       .attr("fill", "#DDD6CF")
       .attr("stroke", "#666")
       .attr("stroke-width", 0.5)
       .attr("fill-opacity", 0.6);
+
+    this.ctr
+      .selectAll("circle")
+      .data(testPoints)
+      .join("circle")
+      .attr("cx", (d) => d.x - this.dimensions.margin.left)
+      .attr("cy", (d) => d.y - this.dimensions.margin.top)
+      .attr("r", 3)
+      .attr("fill", "red");
   }
 
   drawExportMap(year = 2024) {
