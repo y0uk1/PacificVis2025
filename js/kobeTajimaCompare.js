@@ -65,6 +65,24 @@ export class KobeTajimaCompare {
   }
 
   createLabels() {
+    this.acceptanceRate = this.ctr
+      .append("text")
+      .attr("x", this.dimensions.ctrWidth * 0.25)
+      .attr("y", this.dimensions.ctrHeight / 2)
+      .attr("font-size", "40px")
+      .attr("text-anchor", "middle")
+      .attr("alignment-baseline", "central")
+      .attr("fill", "#CBB460");
+
+    this.ctr
+      .insert("rect", "text")
+      .attr("x", this.dimensions.ctrWidth * 0.25 - 70) // 余白を調整
+      .attr("y", this.dimensions.ctrHeight / 2 - 25)
+      .attr("width", 140)
+      .attr("height", 50)
+      .attr("fill", "white")
+      .attr("opacity", 0.8);
+
     this.labelElements.map((labelElement) => {
       const year = parseInt(labelElement.split("-").at(-1));
       const { tajimaGyuCount, kobeGyuCount } = this.getGyuCount(year);
@@ -84,7 +102,7 @@ export class KobeTajimaCompare {
             <p>
               <img src="${this.wagyuImg.kobe}" style="width: 30px; height: 30px;">
               <img src="${this.wagyuImg.tajima}" style="width: 30px; height: 30px;">
-              Kobe&Tajima: ${tajimaGyuCount}
+              Tajima: ${tajimaGyuCount}
             </p>
           </div>
           `
@@ -104,7 +122,7 @@ export class KobeTajimaCompare {
     return { tajimaGyuCount, kobeGyuCount };
   }
 
-  updateVis(year = 0) {
+  updateVis(year = 2008) {
     const duration = 300;
     const exitTransition = d3.transition().duration(duration);
     const updateTransition = exitTransition.transition().duration(duration);
@@ -121,6 +139,12 @@ export class KobeTajimaCompare {
         isKobeGyu: i < scaledKobeGyuCount,
       })
     );
+
+    const acceptanceRate = ((kobeGyuCount / tajimaGyuCount) * 100).toFixed(1);
+    console.log(acceptanceRate);
+    this.acceptanceRate
+      .transition(updateTransition)
+      .text(acceptanceRate !== "NaN" ? `${acceptanceRate}%` : "");
 
     this.wagyuGroup
       .selectAll(".wagyu")
