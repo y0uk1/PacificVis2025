@@ -12,7 +12,7 @@ export class BeefGradeTable {
         <table class="table table-bordered text-center">
           <thead>
             <tr>
-              <th scope="col" colspan="2" class="text-start">BMS</th>
+              <th scope="col" colspan="2" class="text-start">Beef Marbling Score (BMS)</th>
               <th scope="col">1</th>
               <th scope="col">2</th>
               <th scope="col">3</th>
@@ -65,6 +65,7 @@ export class BeefGradeTable {
             </tr>
           </tbody>
         </table>
+        <p>Beef Marbling Score (1 to 12): This measures the level of intramuscular fat (marbling) in the meat, which affects tenderness, juiciness, and flavor. A higher BMS indicates superior marbling and richer taste.</p>
         <p>Meat Quality Score (1 to 5): This is the overall score based on the degree of marbling, firmness, and texture, color, quality, and other factors.</p>
         <p>Yield Score (A to C): This is classified into three grades depending on the amount or percentage of edible cuts that can be grained from a single head of cattle.</p>
 
