@@ -11553,6 +11553,15 @@ body {
   margin-bottom: 5rem;
 }
 
+.thanks-section {
+  padding-top: 5rem;
+  height: 100vh;
+  background-image: url("../assets/img/thanks-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .projects-section {
   padding: 10rem 0;
 }
@@ -11923,6 +11932,22 @@ figure {
 
 .custom-container {
   max-width: 800px;
+}
+
+.mt-10 {
+  margin-top: 10rem;
+}
+
+.mt-15 {
+  margin-top: 15rem;
+}
+
+.mt-20 {
+  margin-top: 20rem;
+}
+
+.mb-6 {
+  margin-bottom: 6rem;
 }
 
 .mb-10 {
