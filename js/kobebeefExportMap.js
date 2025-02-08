@@ -6,28 +6,31 @@ export class KobebeefExportMap {
   }
 
   async initVis() {
+    await this.loadData();
+    this.processData();
     this.setDimensions();
     this.createSvg();
     this.createTooltip();
     this.createGroups();
-    await this.loadData();
-    this.processData();
     this.drawJapanMap();
   }
 
   async loadData() {
-    const [japanGeo, worldGeo, exportDataset] = await Promise.all([
-      d3.json("data/japan.geo.json"),
-      d3.json("data/world.geo.json"),
-      d3.csv("data/amount_of_exported_kobe_beef.csv", (d) => ({
-        year: new Date(d.date).getFullYear(),
-        exportedTo: d.exportedTo,
-        weightKg: +d.weightKg,
-      })),
-    ]);
+    const [japanGeo, worldGeo, exportDataset, farmersDataset] =
+      await Promise.all([
+        d3.json("data/japan.geo.json"),
+        d3.json("data/world.geo.json"),
+        d3.csv("data/amount_of_exported_kobe_beef.csv", (d) => ({
+          year: new Date(d.date).getFullYear(),
+          exportedTo: d.exportedTo,
+          weightKg: +d.weightKg,
+        })),
+        d3.json("data/kobe_beef_farmers.json", d3.autoType),
+      ]);
 
     this.geo = { japan: japanGeo, world: worldGeo };
     this.exportDataset = exportDataset;
+    this.farmersDataset = farmersDataset;
   }
 
   processData() {
@@ -129,17 +132,29 @@ export class KobebeefExportMap {
 
   createGroups() {
     this.mapGroup = this.ctr.append("g").classed("map", true);
+    this.kobeGroup = this.ctr.append("g").classed("kobe", true);
+    this.circleGroup = this.ctr.append("g").classed("circle", true);
     this.connectionGroup = this.ctr
       .append("g")
       .classed("connection-line", true);
-    this.iconGroup = this.ctr.append("g").classed("wagyu-icon", true);
+  }
+
+  createTransition(duration = 500) {
+    return d3.transition().duration(duration).ease(d3.easeLinear);
   }
 
   createStrokeWidthScale(dataset) {
     return d3
       .scaleLinear()
       .domain(d3.extent(dataset, (d) => d.weightKg))
-      .range([0, 20]);
+      .range([5, 30]);
+  }
+
+  createCircleSizeScale(dataset) {
+    return d3
+      .scaleLinear()
+      .domain(d3.extent(dataset, (d) => d.farmers))
+      .range([10, 50]);
   }
 
   createArrowheadDef() {
@@ -181,14 +196,9 @@ export class KobebeefExportMap {
   }
 
   drawJapanMap() {
-    const duration = 500;
-    const updateTransition = d3
-      .transition()
-      .duration(duration)
-      .ease(d3.easeLinear);
-
     const projection = this.createProjection(this.geo.japan, 1400);
     const path = d3.geoPath().projection(projection);
+    const updateTransition = this.createTransition();
 
     this.mapGroup
       .selectAll("path")
@@ -203,27 +213,7 @@ export class KobebeefExportMap {
   }
 
   drawHyogoMap() {
-    const duration = 500;
-    const updateTransition = d3
-      .transition()
-      .duration(duration)
-      .ease(d3.easeLinear);
-
-    const testPoints = [
-      { x: 498, y: 286, name: "JA-Hyogo-Rokko", farmers: 49 },
-      { x: 491, y: 217, name: "JA-Tanba-Sasayama", farmers: 19 },
-      { x: 451, y: 177, name: "JA-Tanba-Hikami", farmers: 19 },
-      { x: 384, y: 55, name: "JA-Tajima", farmers: 59 },
-      { x: 427, y: 245, name: "JA-Minori", farmers: 35 },
-      { x: 380, y: 248, name: "JA-Hyogo-Mirai", farmers: 14 },
-      { x: 401, y: 312, name: "JA-Hyogo-Minami", farmers: 10 },
-      { x: 337, y: 282, name: "JA-Hyogo-Nishi", farmers: 40 },
-      { x: 380, y: 248, name: "JA-Hyogo-Nishi", farmers: 40 },
-      { x: 316, y: 188, name: "JA-Harima", farmers: 2 },
-      { x: 413, y: 417, name: "JA-Awaji-Hinode", farmers: 37 },
-      { x: 388, y: 466, name: "JA-Awajishima", farmers: 24 },
-    ];
-
+    const updateTransition = this.createTransition();
     // 兵庫県のみを取得
     const hyogoFeature = this.geo.japan.features.find(
       (d) => d.properties.name_nl === "Hyogo"
@@ -239,42 +229,155 @@ export class KobebeefExportMap {
 
     this.mapGroup
       .selectAll("path")
-      .data([hyogoFeature]) // 兵庫県のみをデータにする
+      .data([hyogoFeature])
       .join("path")
-      .on("click", (event, d) => {
-        console.log(event);
-        console.log(event.layerX, event.layerY);
-      })
       .transition(updateTransition)
       .attr("d", path)
       .attr("fill", "#DDD6CF")
       .attr("stroke", "#666")
       .attr("stroke-width", 0.5)
       .attr("fill-opacity", 0.6);
+  }
 
-    this.ctr
+  drawKobeDot() {
+    const updateTransition = this.createTransition();
+    const kobe = { x: 514, y: 297 };
+    this.kobeGroup
+      .append("circle")
+      .attr("cx", kobe.x - this.dimensions.margin.left)
+      .attr("cy", kobe.y - this.dimensions.margin.top)
+      .attr("r", 8)
+      .attr("fill", "none")
+      .attr("stroke", "black")
+      .attr("stroke-width", 3)
+      .style("opacity", 0)
+      .transition(updateTransition)
+      .style("opacity", 1);
+
+    this.kobeGroup
+      .append("circle")
+      .attr("cx", kobe.x - this.dimensions.margin.left)
+      .attr("cy", kobe.y - this.dimensions.margin.top)
+      .attr("r", 5)
+      .attr("fill", "black")
+      .style("opacity", 0)
+      .transition(updateTransition)
+      .style("opacity", 1);
+
+    this.kobeGroup
+      .append("text")
+      .attr("dominant-baseline", "middle")
+      .attr("x", kobe.x - this.dimensions.margin.left + 20)
+      .attr("y", kobe.y - this.dimensions.margin.top)
+      .attr("font-size", 20)
+      .text("Kobe")
+      .style("opacity", 0)
+      .transition(updateTransition)
+      .style("opacity", 1);
+  }
+
+  drawDots() {
+    const updateTransition = this.createTransition();
+    this.circleGroup
       .selectAll("circle")
-      .data(testPoints)
+      .data(this.farmersDataset)
       .join("circle")
       .attr("cx", (d) => d.x - this.dimensions.margin.left)
       .attr("cy", (d) => d.y - this.dimensions.margin.top)
-      .attr("r", 3)
-      .attr("fill", "red");
+      .style("opacity", 0)
+      .attr("fill", "#cbb460")
+      .attr("visibility", "visible")
+      .on("mouseover", (event, d) => this.onMouseOverFarmer(event, d))
+      .on("mouseleave", (event, d) => this.onMouseLeaveFarmer(event, d))
+      .transition(updateTransition)
+      .attr("r", 5)
+      .style("opacity", 1);
+  }
+
+  drawBubbleChart() {
+    const updateTransition = this.createTransition();
+    const circleSizeScale = this.createCircleSizeScale(this.farmersDataset);
+    this.circleGroup
+      .selectAll("circle")
+      .data(this.farmersDataset)
+      .join("circle")
+      .attr("id", (d) => d.id)
+      .attr("cx", (d) => d.x - this.dimensions.margin.left)
+      .attr("cy", (d) => d.y - this.dimensions.margin.top)
+      .attr("fill", "#cbb460")
+      .style("opacity", 1)
+      .attr("visibility", "visible")
+      .on("mouseover", (event, d) => this.onMouseOverFarmer(event, d))
+      .on("mousemove", (event, d) => this.onMouseMove(event))
+      .on("mouseleave", (event, d) => this.onMouseLeaveFarmer(event, d))
+      .transition(updateTransition)
+      .attr("r", (d) => circleSizeScale(d.farmers));
+
+    this.circleGroup
+      .selectAll("text")
+      .data(this.farmersDataset)
+      .join("text")
+      .attr("x", (d) => d.x - this.dimensions.margin.left)
+      .attr("y", (d) => d.y - this.dimensions.margin.top)
+      .attr("dominant-baseline", "middle")
+      .attr("text-anchor", "middle")
+      .on("mouseover", (event, d) => this.onMouseOverFarmer(event, d))
+      .on("mousemove", (event, d) => this.onMouseMove(event))
+      .on("mouseleave", (event, d) => this.onMouseLeaveFarmer(event, d))
+      .transition(updateTransition)
+      .attr("fill", "white")
+      .style("opacity", 1)
+      .attr("visibility", "visible")
+      .text((d) => d.farmers);
+  }
+
+  toggleOpacity(isCircle, isFarmerNumber, isKobe, isConnection, isVisible) {
+    const updateTransition = this.createTransition();
+
+    if (isCircle) {
+      this.circleGroup
+        .selectAll("circle")
+        .transition(updateTransition)
+        .style("opacity", isVisible ? 1 : 0)
+        .attr("visibility", isVisible ? "visible" : "hidden");
+    }
+    if (isFarmerNumber) {
+      this.circleGroup
+        .selectAll("text")
+        .transition(updateTransition)
+        .style("opacity", isVisible ? 1 : 0)
+        .attr("visibility", isVisible ? "visible" : "hidden");
+    }
+    if (isKobe) {
+      this.kobeGroup
+        .selectAll("circle")
+        .transition(updateTransition)
+        .style("opacity", isVisible ? 1 : 0)
+        .attr("visibility", isVisible ? "visible" : "hidden");
+      this.kobeGroup
+        .selectAll("text")
+        .transition(updateTransition)
+        .style("opacity", isVisible ? 1 : 0)
+        .attr("visibility", isVisible ? "visible" : "hidden");
+    }
+    if (isConnection) {
+      this.connectionGroup
+        .selectAll("path")
+        .transition(updateTransition)
+        .style("opacity", isVisible ? 1 : 0)
+        .attr("visibility", isVisible ? "visible" : "hidden");
+    }
   }
 
   drawExportMap(year = 2024) {
-    const duration = 500;
-    const updateTransition = d3
-      .transition()
-      .duration(duration)
-      .ease(d3.easeLinear);
-
+    const updateTransition = this.createTransition();
     const projection = this.createProjection(this.geo.world, 150, [-115, 10]);
     const path = d3.geoPath().projection(projection);
     const filteredData = this.summarizedExportData.filter(
       (item) => item.year === year
     );
     filteredData.sort((a, b) => b.weightKg - a.weightKg);
+    console.log(filteredData);
     const groupedData = d3.group(filteredData, (d) => d.exportedTo);
     const countries = Array.from(groupedData.keys());
     const connections = this.createConnections(countries);
@@ -311,11 +414,36 @@ export class KobebeefExportMap {
       .attr("d", path)
       .attr("fill", "none")
       .attr("stroke", "orange")
-      .attr("opacity", 0.4)
+      .style("opacity", 0.4)
+      .attr("visibility", "visible")
       .attr("marker-end", "url(#arrow)")
       .attr("stroke-width", (d) =>
         widthLengthScale(groupedData.get(d.exportedTo)[0].weightKg)
       );
+  }
+
+  onMouseOverFarmer(event, d) {
+    d3.select(`#${d.id}`).attr("fill", "#DBC88F");
+    this.tooltip.style("opacity", 1);
+    this.tooltip.style("visibility", "visible");
+
+    this.tooltip
+      .html(
+        `
+        <div class="card bg-base-100">
+          <div class="card-body">
+            <h5 class="card-title">${d.name} (${d.nameJP})</h5>
+          </div>
+        </div>
+      `
+      )
+      .style("left", event.offsetX + 20 + "px")
+      .style("top", event.offsetY + 20 + "px");
+  }
+
+  onMouseLeaveFarmer(event, d) {
+    d3.select(`#${d.id}`).attr("fill", "#cbb460");
+    this.tooltip.style("visibility", "hidden");
   }
 
   onMouseOverExport(event, d, exportData) {
@@ -365,18 +493,34 @@ export class KobebeefExportMap {
     switch (currIdx) {
       case 0:
         this.drawJapanMap();
-        this.iconGroup.attr("visibility", "visible");
+        if (currDirection === "up") {
+          this.toggleOpacity(true, false, true, false, false);
+        }
         break;
       case 1:
         this.drawHyogoMap();
-        this.iconGroup.attr("visibility", "hidden");
+        this.drawKobeDot();
         if (currDirection === "up") {
-          this.connectionGroup.attr("visibility", "hidden");
+          this.toggleOpacity(true, false, false, false, false);
         }
         break;
       case 2:
+        this.drawDots();
+        this.toggleOpacity(false, false, true, false, false);
+        if (currDirection === "up") {
+          this.toggleOpacity(false, true, false, false, false);
+        }
+        break;
+      case 3:
+        this.drawBubbleChart();
+        if (currDirection === "up") {
+          this.toggleOpacity(false, false, false, true, false);
+          this.drawHyogoMap();
+        }
+        break;
+      case 4:
         this.drawExportMap(2024);
-        this.connectionGroup.attr("visibility", "visible");
+        this.toggleOpacity(true, true, false, false, false);
         break;
       default:
         break;
