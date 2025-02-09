@@ -173,9 +173,19 @@ export class WagyuExportChart {
   getStackedData(year) {
     const filteredData = this.getYearFilteredData(year);
 
+    const countryOrder = [
+      "others",
+      "thailand",
+      "singapore",
+      "cambodia",
+      "usa",
+      "hongkong",
+      "taiwan",
+    ];
+
     return d3
       .stack()
-      .keys(d3.union(filteredData.map((d) => d.country)))
+      .keys(countryOrder)
       .value(([, group], key) => {
         const entry = group.get(key);
         return entry ? entry.amount : 0;
@@ -242,8 +252,8 @@ export class WagyuExportChart {
 
   addLegend() {
     const legendArray = [
-      { label: "Hong Kong", id: "hongkong" },
       { label: "Taiwan", id: "taiwan" },
+      { label: "Hong Kong", id: "hongkong" },
       { label: "USA", id: "usa" },
       { label: "Cambodia", id: "cambodia" },
       { label: "Singapore", id: "singapore" },
