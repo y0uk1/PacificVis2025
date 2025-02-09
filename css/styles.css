@@ -12005,6 +12005,7 @@ figure {
   transition: background-color 1s ease-in-out;
 }
 
+.wagyu-speech,
 .jp-story,
 .final-story {
   font-family: Book Antiqua, Palatino, Nunito, -apple-system, BlinkMacSystemFont,
