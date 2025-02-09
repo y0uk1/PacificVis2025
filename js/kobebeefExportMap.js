@@ -324,7 +324,7 @@ export class KobebeefExportMap {
       .attr("cx", (d) => d.x - this.dimensions.margin.left)
       .attr("cy", (d) => d.y - this.dimensions.margin.top)
       .attr("fill", "#cbb460")
-      .style("opacity", 1)
+      .style("opacity", 0.8)
       .attr("visibility", "visible")
       .on("mouseover", (event, d) => this.onMouseOverFarmer(event, d))
       .on("mousemove", (event, d) => this.onMouseMove(event))
@@ -332,12 +332,13 @@ export class KobebeefExportMap {
       .transition(updateTransition)
       .attr("r", (d) => circleSizeScale(d.farmers));
 
+    const yOffset = 1;
     this.circleGroup
       .selectAll("text")
       .data(this.farmersDataset)
       .join("text")
       .attr("x", (d) => d.x - this.dimensions.margin.left)
-      .attr("y", (d) => d.y - this.dimensions.margin.top)
+      .attr("y", (d) => d.y - this.dimensions.margin.top + yOffset)
       .attr("dominant-baseline", "middle")
       .attr("text-anchor", "middle")
       .on("mouseover", (event, d) => this.onMouseOverFarmer(event, d))
