@@ -27,7 +27,7 @@ export class WagyuExportChart {
     this.dimensions = {
       width: 700,
       height: 500,
-      margin: { top: 50, right: 50, bottom: 50, left: 50 },
+      margin: { top: 80, right: 20, bottom: 50, left: 80 },
     };
     this.dimensions.ctrWidth =
       this.dimensions.width -
@@ -118,14 +118,14 @@ export class WagyuExportChart {
     this.xAxis = d3.axisBottom(this.xScale).tickFormat(d3.format("d"));
     this.xAxisGroup = this.ctr
       .append("g")
-      .attr("class", "x axis")
+      .attr("class", "x-axis")
       .attr("transform", `translate(0, ${this.dimensions.ctrHeight})`)
       .call(this.xAxis);
 
     this.yAxisGroup = this.ctr
       .append("g")
       .attr("transform", "translate(0, 0)")
-      .attr("class", "y axis")
+      .attr("class", "y-axis")
       .call((g) => g.select(".domain").remove())
       .call((g) =>
         g
@@ -137,13 +137,18 @@ export class WagyuExportChart {
 
     const xLabel = this.xAxisGroup
       .append("text")
-      .attr("class", "x axisLabel")
-      .attr("y", 30)
+      .attr("class", "x-axisLabel")
+      .attr("y", 40)
       .attr("x", this.dimensions.ctrWidth / 2)
-      .attr("font-size", "14px")
-      .attr("text-anchor", "middle")
-      .attr("fill", "black")
       .text("Year");
+
+    const yLabel = this.yAxisGroup
+      .append("text")
+      .attr("class", "y-axisLabel")
+      .attr("y", -60)
+      .attr("x", -this.dimensions.ctrHeight / 2)
+      .attr("transform", "rotate(-90)")
+      .text("Export Volume");
   }
 
   createGroups() {
@@ -269,7 +274,7 @@ export class WagyuExportChart {
       .attr("class", "legendCol")
       .attr(
         "transform",
-        (d, i) => `translate(${(i % 4) * 150}, ${((i / 4) | 0) * 30})`
+        (d, i) => `translate(${(i % 4) * 140}, ${((i / 4) | 0) * 30 - 30})`
       )
       .attr("id", (d) => d.id);
 

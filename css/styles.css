@@ -12088,3 +12088,15 @@ figure {
   width: 100%;
   white-space: nowrap;
 }
+
+.x-axis,
+.y-axis {
+  font-size: 12px;
+}
+
+.x-axisLabel,
+.y-axisLabel {
+  font-size: 14px;
+  fill: black;
+  text-anchor: middle;
+}
