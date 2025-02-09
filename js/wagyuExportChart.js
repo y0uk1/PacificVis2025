@@ -237,7 +237,7 @@ export class WagyuExportChart {
         "stroke",
         mode === "stackedAreaChart" ? "none" : (d) => this.colorScale(d[0])
       )
-      .attr("stroke-width", 2);
+      .attr("stroke-width", 4);
   }
 
   addLegend() {
