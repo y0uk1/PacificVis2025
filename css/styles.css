@@ -12065,3 +12065,15 @@ figure {
 .bg-orange {
   background-color: #fed8a5;
 }
+
+.swiper-button-next {
+  top: auto !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(90deg) !important;
+}
+
+.swiper-pagination-bullet {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-gold-rgb), var(--bs-bg-opacity)) !important;
+}
