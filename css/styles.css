@@ -12040,7 +12040,18 @@ figure {
 }
 
 .highlighted-text {
-  background-color: #f9af9b;
-  padding: 2px 2px;
+  padding: 0px 0px;
   border-radius: 4px;
+}
+
+.bg-red {
+  background-color: #f9af9b;
+}
+
+.bg-brown {
+  background-color: #e5d7bd;
+}
+
+.bg-orange {
+  background-color: #fed8a5;
 }
