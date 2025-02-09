@@ -31,7 +31,7 @@ const draw = async () => {
     wagyuExportChart,
     "#export-chart-scrolly",
     undefined,
-    0.35
+    0.5
   );
 
   const kobeTajimaCompare = new KobeTajimaCompare("#kobe-tajima-compare", [

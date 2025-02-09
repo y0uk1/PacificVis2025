@@ -212,6 +212,25 @@ export class KobebeefExportMap {
       .attr("fill-opacity", 0.3);
   }
 
+  highlightJapanMap() {
+    const projection = this.createProjection(this.geo.japan, 1400);
+    const path = d3.geoPath().projection(projection);
+    const updateTransition = this.createTransition();
+
+    this.mapGroup
+      .selectAll("path")
+      .data(this.geo.japan.features)
+      .join("path")
+      .transition(updateTransition)
+      .attr("d", path)
+      .attr("stroke", "#666")
+      .attr("stroke-width", 0.25)
+      .attr("fill", (d) =>
+        d.properties.name_nl === "Hyogo" ? "red" : "#DDD6CF"
+      )
+      .attr("fill-opacity", 0.3);
+  }
+
   drawHyogoMap() {
     const updateTransition = this.createTransition();
     // 兵庫県のみを取得
@@ -493,32 +512,35 @@ export class KobebeefExportMap {
     switch (currIdx) {
       case 0:
         this.drawJapanMap();
+        break;
+      case 1:
+        this.highlightJapanMap();
         if (currDirection === "up") {
           this.toggleOpacity(true, false, true, false, false);
         }
         break;
-      case 1:
+      case 2:
         this.drawHyogoMap();
         this.drawKobeDot();
         if (currDirection === "up") {
           this.toggleOpacity(true, false, false, false, false);
         }
         break;
-      case 2:
+      case 3:
         this.drawDots();
         this.toggleOpacity(false, false, true, false, false);
         if (currDirection === "up") {
           this.toggleOpacity(false, true, false, false, false);
         }
         break;
-      case 3:
+      case 4:
         this.drawBubbleChart();
         if (currDirection === "up") {
           this.toggleOpacity(false, false, false, true, false);
           this.drawHyogoMap();
         }
         break;
-      case 4:
+      case 5:
         this.drawExportMap(2024);
         this.toggleOpacity(true, true, false, false, false);
         break;

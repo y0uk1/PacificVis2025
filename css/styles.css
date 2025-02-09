@@ -11774,7 +11774,7 @@ figure {
 #selected-bms-meat {
   height: 23rem;
   object-fit: cover;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 
 .custom-card {
@@ -11983,10 +11983,20 @@ figure {
   background-color: #fefbec;
 }
 
+.bg-light-dark {
+  --bs-bg-opacity: 0.4;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
 .bg-light-dark-transition {
   --bs-bg-opacity: 0.4;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   transition: background-color 1s ease-in-out;
+}
+
+.bg-gold {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-gold-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-gold-transition {
@@ -11995,6 +12005,7 @@ figure {
   transition: background-color 1s ease-in-out;
 }
 
+.wagyu-speech,
 .jp-story,
 .final-story {
   font-family: Book Antiqua, Palatino, Nunito, -apple-system, BlinkMacSystemFont,
@@ -12032,4 +12043,48 @@ figure {
 .swiper-slide img {
   width: 700px;
   margin-bottom: 2rem;
+}
+
+.vis-caption {
+  font-size: 12px;
+  float: right;
+}
+
+.highlighted-text {
+  padding: 0px 0px;
+  border-radius: 4px;
+}
+
+.bg-red {
+  background-color: #f9af9b;
+}
+
+.bg-brown {
+  background-color: #e5d7bd;
+}
+
+.bg-orange {
+  background-color: #fed8a5;
+}
+
+.swiper-button-next {
+  top: auto !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(90deg) !important;
+}
+
+.swiper-pagination-bullet {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-gold-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bottom-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
 }

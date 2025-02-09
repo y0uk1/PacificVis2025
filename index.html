@@ -73,8 +73,10 @@
             <h1 class="mx-auto my-0">和牛物語</h1>
             <h2 class="text-white-50 my-0">最高峰の肉を世界へ</h2>
             <h2 class="text-white-50 mx-auto mt-2 mb-5">
-              The Story of Wagyu: Bringing Charm of Japan's Pride to the
-              World
+              The Story of Wagyu: Bringing Charm of Japan's Pride to the World
+            </h2>
+            <h2 class="text-white-50 mx-auto bottom-text">
+              Yuki Ueno, Zhuojun Jiang, and Chris Bryan </br>Arizona State University
             </h2>
           </div>
         </div>
@@ -86,11 +88,30 @@
       <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-lg-8 text-center">
-            <h2 class="text-center text-red">
-              Wa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gyu</span>
-            </h2>
-            <h1 class="text-white">和&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;牛</h1>
-            <!-- TODO: Japanese Beefをここに書く -->
+            <div class="row d-flex justify-content-center mb-3">
+              <div class="col-3">
+                <h2 class="text-red">
+                  Wa
+                </h2>
+                <h1 class="text-white">
+                  和
+                </h1>
+                <h2 class="text-white-50">
+                  Japanese
+                </h2>
+              </div>
+              <div class="col-3">
+                <h2 class="text-red">
+                  gyu 
+                </h2>
+                <h1 class="text-white">
+                  牛
+                </h1>
+                <h2 class="text-white-50">
+                  Beef 
+                </h2>
+              </div>
+            </div>
             <h5 class="text-white-75">
               Rich, tender and expensive 
             </h5>
@@ -101,8 +122,8 @@
 
     <section class="about-section-2">
       <div class="position-relative vh-100">
-        <div class="position-absolute top-50 start-50 translate-middle fs-3 fw-bold text-white">
-          <h5>refers to four breeds of cattle raised in Japan.</h5>
+        <div class="position-absolute top-50 start-50 translate-middle fs-3 fw-bold text-white-75">
+          <h5>refers to <span class="h3 text-white">four breeds</span> of cattle raised in Japan.</h5>
           <!-- TODO: make bigger and bold four breeds -->
         </div>
         <div class="position-absolute top-10 start-10 text-center">
@@ -126,15 +147,14 @@
           <h4 class="text-white-75">日本短角和種</h4>
         </div>
       </div>
-
     </section>
 
+    <!-- Wagyu Brand Map Section -->
     <section class="mb-20">
       <div class="container custom-container">
         <div class="row">
           <div class="col-7 box-right">
-            <!-- TODO: use book antiqua font -->
-            <p>
+            <p class="wagyu-speech">
               Alright, you met my family. But hey, I’ve got a brand too! Ever heard of Kobe or Matsusaka? Yep, my famous cousins. Let me introduce them.
             </p>
           </div>
@@ -150,6 +170,7 @@
     <section class="scrolly" id="brand-map-scrolly">
       <figure class="w-800">
         <div id="brand-map"></div>
+        <p class="vis-caption mt-2">(*) Hover over the <span class="highlighted-text bg-red">highlighted prefectures</span></br>to see some examples of famous wagyu brands.</p>
       </figure>
       <article>
         <div class="step" data-step="1">
@@ -162,11 +183,12 @@
       </article>
     </section>
 
+    <!-- Japanese Beef Exportation Section -->
     <section class="mb-20">
       <div class="container custom-container">
         <div class="row d-flex justify-content-end">
           <div class="col-7 box-left">
-            <p>
+            <p class="wagyu-speech">
               A heartfelt thank you for the growing love from around the world!
             </p>
           </div>
@@ -195,11 +217,9 @@
       <article>
         <div class="step" data-step="1">
           <h2>Dawn of Global Expansion</h2>
-          <p>In 2001, bovine spongiform encephalopathy (BSE) occurred, limiting export destinations to only a few countries. However, after being certified as a "BSE-free country" with the lowest risk by an international organization in 2013, exports gradually expanded, supported by government promotional efforts.</p>
+          <p>While throughout the 1900s, a small amount of Wagyu beef was exported from Japan, in 2001, bovine spongiform encephalopathy (BSE) occurred, limiting export destinations to only a few countries. However, after being certified as a "BSE-free country" with the lowest risk by an international organization in 2013, exports gradually expanded, supported by government promotional efforts.</p>
         </div>
-        <div class="step" data-step="2">
-
-        </div>
+        <div class="step" data-step="2"></div>
         <div class="step" data-step="3"></div>
         <div class="step" data-step="4"></div>
         <div class="step" data-step="5"></div>
@@ -212,21 +232,21 @@
         <div class="step" data-step="12"></div>
         <div class="step" data-step="13">
           <h2>Trends of exportation</h2>
-          <p>The amount of exported beef has been increasing over the past 10 years.</p>
+          <p>More recently, the amount of exported beef has been rapidly increasing over the past 10 years. The chart at right shows some of the most popular destinations.</p>
         </div>
         <div class="step" data-step="14">
           <h2>Area-by-Area Comparison</h2>
-          <p>The top three export destinations are Taiwan, Hong Kong, and the United States.</p>
-          <!-- TODO: Taiwan, Hong Kong, USの文字色を線グラフの色と一致させる -->
+          <p>The top three export destinations are <span class="highlighted-text bg-brown text-white">Taiwan</span>, <span class="highlighted-text bg-red text-white">Hong Kong</span>, and <span class="highlighted-text bg-orange text-white">the United States</span>.</p>
         </div>
       </article>
     </section>
 
+    <!-- Wagyu Brand Ranking Section -->
     <section class="mb-20">
       <div class="container custom-container">
         <div class="row">
           <div class="col-7 box-right">
-            <p>
+            <p class="wagyu-speech">
               In Japan, people even rank us based on fame, price, and crave-worthiness. Curious who tops the charts? Let’s check it out!
             </p>
           </div>
@@ -238,7 +258,6 @@
         </div>
       </div>
     </section> 
-
 
     <section class="scrolly" id="ranking-board-scrolly">
       <figure class="w-750">
@@ -261,26 +280,27 @@
           <h2>Brand Awareness</h2>
           <h4>知名度</h4>
           <p>
-            The top four are also known as Japan’s "Three Great Wagyu" (Nihon Sandai Wagyu), though whether Omi Beef or Yonezawa Beef is included varies by region. The ones listed here are just a small selection of the many Wagyu brands. It is clear that the level of recognition differs significantly among the various brands.
+            The top wagyu brands are also known as Japan's "Three Great Wagyu" (Nihon Sandai Wagyu), though whether Omi Beef and Yonezawa Beef are included varies by region. The chart at right lists a subselection of some common Wagyu brands, based on their level of recognition.
           </p>
         </div>
         <div class="step" data-step="2">
           <h2>Price</h2>
           <h4>価格</h4>
           <p>
-            The reference price is calculated based on an exchange rate of 150 yen per dollar.
+            Likewise, prices for wagyu can vary widely between brands. Here, the reference price is calculated based on an exchange rate of 150 yen per dollar.
           </p>
         </div>
         <div class="step" data-step="3">
           <h2>Most Wanted Brand to Try</h2>
           <h4>一番食べてみたい</h4>
           <p>
-            The overwhelming brand was "Matsusaka Beef." In second place was "Kobe Beef" followed by "Yonezawa Beef."
+            "Matsusaka Beef" in particular is a highly coveted brand, followed by "Kobe Beef" and "Yonezawa Beef."
           </p>
         </div>
       </article>
     </section>
 
+    <!-- JP Manga Section -->
     <section class="jp-story">
       <div class="scroll-container mb-10">
         <div class="sticky-wrap">
@@ -340,7 +360,7 @@
             <div class="scroll-contents">
               <div class="scroll-img-container">
                 <img src="assets/img/comic/jp-story/9.png"></img>
-                <h2>"So, let me explain the magic of Kobe beef!"</h2>
+                <h2>"So let me explain the magic of Kobe beef, the Wagyu brand from my home!"</h2>
               </div>
             </div>
           </div>
@@ -348,6 +368,7 @@
       </div>
     </section>
 
+    <!-- Definition of Kobe and Tajima Gyu Section -->
     <section class="mb-10">
       <div class="container custom-container">
         <div class="d-flex flex-column justify-content-center align-items-center">
@@ -364,13 +385,13 @@
       </figure>
       <article>
         <div class="step" data-step="1">
-          <h2>Meet Grading System</h2>
+          <h2>Meat Grading System</h2>
           <p>Meat grade is one of the criteria used to define Tajima and Kobe beef.</p>
         </div>
         <div class="step" data-step="2">
           <h2 class="text-light-dark">Tajima Beef</h2>
           <ul>
-            <li>Graded A2–A5 or B2–B5 in the meat grading system</li>
+            <li>Graded <span class="highlighted-text bg-light-dark text-white">A2–A5 or B2–B5</span> in the meat grading system</li>
             <li>Bred and fattened in Hyogo Prefecture</li>
             <li>Steer or cow, aged between 28 and 60 months</li>
             <li>Processed at slaughterhouses in Hyogo Prefecture</li>
@@ -380,13 +401,14 @@
           <h2 class="text-gold">Kobe Beef</h2>
           <p>Kobe Beef should be selected from Tajima Beef that meets following conditions</p>
           <ul>
-            <li>Graded A4, A5, B4, or B5 in the meat grading system</li>
+            <li>Graded <span class="highlighted-text bg-gold text-white">A4, A5, B4, or B5</span> in the meat grading system</li>
             <li>270kg—499.9kg for cow or 300kg—499.9kg for steer</li>
           </ul>
         </div>
       </article>
     </section>
 
+    <!-- Tajima and Kobe Comparison Section -->
     <section class="mb-10">
       <div class="container custom-container">
         <div class="d-flex flex-column justify-content-center align-items-center">
@@ -413,29 +435,30 @@
         <div class="step" data-step="1">
           <h2>2008</h2>
           <div id="kobe-tajima-label-2008"></div>
-          <p class="pt-2">
-            Only half of Tajima Gyu are selected as Kobe Gyu.
-          </p>
+          <p class="pt-2">In 2008 for example, only half of Tajima Gyu were selected as Kobe Gyu.</p>
         </div>
         <div class="step" data-step="2">
           <h2>2013</h2>
           <div id="kobe-tajima-label-2013"></div>
+          <p class="pt-2">In 2013, this percentage jumped to 65%.</p>
           
         </div>
         <div class="step" data-step="3">
           <h2>2018</h2>
           <div id="kobe-tajima-label-2018"></div>
+          <p class="pt-2">To over 80% in 2018.</p>
         </div>
         <div class="step" data-step="4">
           <h2>2023</h2>
           <div id="kobe-tajima-label-2023"></div>
           <p class="pt-2">
-            The number of Kobe Gyu has been increasing in recent years due to the expansion of breeding cows, increased production of fattening cattle through embryo transfer, improvements in feed, and enhanced information dissemination.
+            Why the increase? The number of Kobe Gyu has been increasing in recent years due to the expansion of breeding cows, increased production of fattening cattle through embryo transfer, improvements in feed, and enhanced information dissemination.
           </p>
         </div>
       </article>
     </section>
 
+    <!-- Kobe Gyu Export Section -->
     <section class="mb-10">
       <div class="container custom-container">
         <div class="d-flex flex-column justify-content-center align-items-center">
@@ -460,22 +483,22 @@
       <article>
         <div class="step" data-step="1">
           <h2>Do you remember where Hyogo is located?</h2>
-          <p>
-          </p>
         </div>
         <div class="step" data-step="2">
+        </div>
+        <div class="step" data-step="3">
           <h2>Hyogo Prefecture</h2>
           <p>Hyogo Prefecture is located in western Japan and is home to Kobe. It features a diverse landscape, including mountains, coastline, and rich cultural heritage.</p>
         </div>
-        <div class="step" data-step="3">
+        <div class="step" data-step="4">
           <h2>Designated Farmers</h2>
           <p>Tajima and Kobe Gyu are produced by designated farmers in Hyogo. They belong to each region's Japan Agricultural Cooperatives.</p>
         </div>
-        <div class="step" data-step="4">
-          <h2>Number of Designated Farmers</h2>
-          <p>JA Tajima in the Tajima region has the largest number, followed by JA Hyogo Rokko in Kobe and JA Awaji Hinode in Awajishima.</p>
-        </div>
         <div class="step" data-step="5">
+          <h2>Number of Designated Farmers</h2>
+          <p>JA Tajima in the Tajima region has the largest number, followed by JA Hyogo Rokko in Kobe and JA Awaji Hinode in Awaji Island.</p>
+        </div>
+        <div class="step" data-step="6">
           <h2>From Hyogo to the World</h2>
           <p>In 2024, a total of 51.2 tons of Kobe beef was exported to 19 countries and regions.</p>
         </div>
@@ -486,8 +509,8 @@
       <div class="container custom-container">
         <div class="row d-flex justify-content-end">
           <div class="col-7 box-left">
-            <p>
-              Not only Kobe Gyu but also Yuki started his new story in the U.S.
+            <p class="wagyu-speech">
+              The U.S. is a major export destinations for Kobe Gyu, but it's not the only traveler from Hyogo. Recently, Yuki started his Ph.D. studies in Arizona.
             </p>
           </div>
         </div>
@@ -499,7 +522,8 @@
       </div>
     </section>      
 
-    <section class="scrolly" id="us-story-scrolly">
+    <!-- US Comic Section -->
+    <section class="scrolly mb-20" id="us-story-scrolly">
       <figure class="w-1000 float-none">
         <div id="flipbook">
           <div>
@@ -577,39 +601,41 @@
       </article>
     </section>
 
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center mt-10 mb-20">
       <img src="assets/img/price-comparison.png" width="50%">
     </div>
 
+    <!-- Meat Grading System Section -->
     <section class="mb-2">
       <div class="container custom-container">
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <h2>What is the grading difference across countries?</h2>
+          <h2>How does Wagyu compare to beef in other countries?</h2>
           <p>Japan’s highest Wagyu grade sets a far higher standard than the top beef grades in the U.S. and Australia </p>
       </div>
     </section>
 
-    <section class="beef-grading-guide mt-4">
+    <section class="beef-grading-guide mb-20">
       <div class="container px-4 px-lg-5">
         <div class="row">
           <div class="col-md-6 d-flex align-items-center justify-content-center">
-            <img src="assets/img/bms/meat/bms8.png" id="selected-bms-meat">
+            <img class="float-right" src="assets/img/bms/meat/bms8.png" id="selected-bms-meat" height="50%">
           </div>
-          <div class="col-md-5">
+          <div class="col-md-6">
             <div id="beef-grading-guide"></div>
           </div>
         </div>
+        <p class="vis-caption mt-2">(*) Hover over a BMS bar on the chart to see how Wagyu </br> compares to the quality standards in Australia and the U.S.</p>
       </div>
     </section>
 
-
+    <!-- Beef Cut Section -->
     <section class="mb-2">
       <div class="container custom-container">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h2>How does each cut taste different?</h2>
       </div>
     </section>
-    <section class="beef-parts-map mt-4">
+    <section class="beef-parts-map mt-4 mb-20">
       <div class="container px-4 px-lg-5">
         <div class="row">
           <div class="col-md-12">
@@ -631,14 +657,15 @@
       </div>
     </section>
 
-
+    <!-- Cuisine Section -->
     <section class="mb-2">
       <div class="container custom-container">
         <div class="d-flex flex-column justify-content-center align-items-center">
-          <h2>How to Enjoy Wagyu in Japanese Style</h2>
+          <h2>How to Enjoy Wagyu in Japanese Style?</h2>
+          <p>Unlike in the U.S., where steak is often eaten on its own, Wagyu in Japan has a rich tradition of being served in various ways. You can click on an image below to learn about some of the common servings.</p>
       </div>
     </section>
-    <section class="mb-10 cuisines-section">
+    <section class="mb-20 cuisines-section">
       <div class="container">
         <div class="row background-cuisine">
           <div class="col-md-12">
@@ -647,9 +674,9 @@
                 <img src="" id="selected-cuisine-img">
               </div>
               <div class="col-md-3 mt-2 ml-5">
-                <h2 id="selected-cuisine-name">Gyudon</h2>
-                <h2 id="selected-cuisine-jp-name">牛丼</h2>
-                <p id="selected-cuisine-explanation">Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h2 id="selected-cuisine-name"></h2>
+                <h2 id="selected-cuisine-jp-name"></h2>
+                <p id="selected-cuisine-explanation"></p>
               </div>
             </div>
             <div class="row" id="cuisine-list"></div>
@@ -666,7 +693,7 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                  <h1>Thank you for watching!</h1>
+                  <h1>Hope you enjoyed learning about Wagyu!</h1>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -688,6 +715,7 @@
                 </div>
               </div>
             </div>
+            <div class="swiper-button-next text-gold"></div>
             <div class="swiper-pagination"></div>
           </div>
         </div>

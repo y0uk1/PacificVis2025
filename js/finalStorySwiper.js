@@ -21,6 +21,9 @@ export class FinalStorySwiper {
         el: ".swiper-pagination",
         clickable: true,
       },
+      navigation: {
+        nextEl: ".swiper-button-next",
+      },
       on: {
         slideChange: function () {
           $(`#t-text-${swiper.activeIndex}`).t({
