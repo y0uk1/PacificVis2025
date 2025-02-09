@@ -12077,3 +12077,13 @@ figure {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-gold-rgb), var(--bs-bg-opacity)) !important;
 }
+
+.bottom-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+}
