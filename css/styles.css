@@ -11843,9 +11843,14 @@ figure {
   height: 100%;
 }
 
+.cuisines-container {
+  background-image: url("../assets/img/background/japanese-paper/japanese-paper.jpeg");
+  background-size: 100%;
+}
+
 .selected-cuisine {
-  margin-top: 200px;
-  margin-bottom: 50px;
+  margin-top: 230px;
+  margin-bottom: 20px;
 }
 
 .scroll-container {
