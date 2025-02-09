@@ -40,9 +40,9 @@ export class BeefGradingGuide {
   setDimensions() {
     this.dimensions = {
       width: 500,
-      height: 700,
+      height: 600,
       margin: {
-        top: 100,
+        top: 60,
         right: 0,
         bottom: 0,
         left: 100,
