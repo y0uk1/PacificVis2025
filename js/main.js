@@ -8,10 +8,12 @@ import { RankingBoard } from "./rankingBoard.js";
 import { StickyHorizontalScroll } from "./stickyHorizontalScroll.js";
 import { ScrollamaSetting } from "./scrollamaSetting.js";
 import { KobeTajimaCompare } from "./kobeTajimaCompare.js";
+import { UsStoryBook } from "./usStoryBook.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
-  $("#flipbook").turn({});
+  const usStoryBook = new UsStoryBook("#flipbook");
+  new ScrollamaSetting(usStoryBook, "#us-story-scrolly", 0);
 
   const beefPartsMap = new BeefPartsMap(
     "#beef-parts-map",
@@ -22,7 +24,12 @@ const draw = async () => {
   new ScrollamaSetting(brandMap, "#brand-map-scrolly");
 
   const wagyuExportChart = new WagyuExportChart("#export-chart");
-  new ScrollamaSetting(wagyuExportChart, "#export-chart-scrolly", 0.35);
+  new ScrollamaSetting(
+    wagyuExportChart,
+    "#export-chart-scrolly",
+    undefined,
+    0.35
+  );
 
   const kobeTajimaCompare = new KobeTajimaCompare("#kobe-tajima-compare", [
     "#kobe-tajima-label-2008",
