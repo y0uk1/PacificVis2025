@@ -12033,3 +12033,14 @@ figure {
   width: 700px;
   margin-bottom: 2rem;
 }
+
+.vis-caption {
+  font-size: 12px;
+  float: right;
+}
+
+.highlighted-text {
+  background-color: #f9af9b;
+  padding: 2px 2px;
+  border-radius: 4px;
+}
