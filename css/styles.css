@@ -11983,10 +11983,20 @@ figure {
   background-color: #fefbec;
 }
 
+.bg-light-dark {
+  --bs-bg-opacity: 0.4;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
 .bg-light-dark-transition {
   --bs-bg-opacity: 0.4;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   transition: background-color 1s ease-in-out;
+}
+
+.bg-gold {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-gold-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-gold-transition {
