@@ -3,6 +3,7 @@ import { BeefPartsMap } from "./beefPartsMap.js";
 import { BeefGradingGuide } from "./beefGradingGuide.js";
 import { BrandMap } from "./brandMap.js";
 import { Cuisines } from "./cuisines.js";
+import { FinalStorySwiper } from "./finalStorySwiper.js";
 import { KobebeefExportMap } from "./kobebeefExportMap.js";
 import { RankingBoard } from "./rankingBoard.js";
 import { StickyHorizontalScroll } from "./stickyHorizontalScroll.js";
@@ -12,6 +13,8 @@ import { UsStoryBook } from "./usStoryBook.js";
 import { WagyuExportChart } from "./wagyuExportChart.js";
 
 const draw = async () => {
+  new FinalStorySwiper("#final-story-swiper");
+
   const usStoryBook = new UsStoryBook("#flipbook");
   new ScrollamaSetting(usStoryBook, "#us-story-scrolly", 0);
 
