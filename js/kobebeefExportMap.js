@@ -332,13 +332,18 @@ export class KobebeefExportMap {
       .transition(updateTransition)
       .attr("r", (d) => circleSizeScale(d.farmers));
 
-    const yOffset = 1;
+    const yOffsetNumber = 1;
+    const yOffsetNumberTajima = -8;
     this.circleGroup
       .selectAll("text")
       .data(this.farmersDataset)
       .join("text")
       .attr("x", (d) => d.x - this.dimensions.margin.left)
-      .attr("y", (d) => d.y - this.dimensions.margin.top + yOffset)
+      .attr("y", (d) =>
+        d.id === "ja-tajima"
+          ? d.y - this.dimensions.margin.top + yOffsetNumberTajima
+          : d.y - this.dimensions.margin.top + yOffsetNumber
+      )
       .attr("dominant-baseline", "middle")
       .attr("text-anchor", "middle")
       .on("mouseover", (event, d) => this.onMouseOverFarmer(event, d))
@@ -349,6 +354,23 @@ export class KobebeefExportMap {
       .style("opacity", 1)
       .attr("visibility", "visible")
       .text((d) => d.farmers);
+
+    const yOffsetFarmer = 8;
+    const jaTajima = this.farmersDataset.filter((d) => d.id === "ja-tajima")[0];
+    this.circleGroup
+      .append("text")
+      .attr("x", jaTajima.x - this.dimensions.margin.left)
+      .attr("y", jaTajima.y - this.dimensions.margin.top + yOffsetFarmer)
+      .on("mouseover", (event) => this.onMouseOverFarmer(event, jaTajima))
+      .on("mousemove", (event) => this.onMouseMove(event, jaTajima))
+      .on("mouseleave", (event) => this.onMouseLeaveFarmer(event, jaTajima))
+      .attr("dominant-baseline", "middle")
+      .attr("text-anchor", "middle")
+      .transition(updateTransition)
+      .attr("fill", "white")
+      .style("opacity", 1)
+      .attr("visibility", "visible")
+      .text("farmers");
   }
 
   toggleOpacity(isCircle, isFarmerNumber, isKobe, isConnection, isVisible) {
