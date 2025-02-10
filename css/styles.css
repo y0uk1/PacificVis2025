@@ -11673,14 +11673,14 @@ body {
 }
 
 .beef-parts-tooltip {
-  background-color: white;
-  border: solid;
-  border-width: 2px;
-  border-radius: 5px;
-  padding: 5px;
+  background-image: url("../assets/img/background/makimono.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 50px 50px;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  height: 380px;
+  height: 430px;
+  width: 900px;
 }
 
 .step {
