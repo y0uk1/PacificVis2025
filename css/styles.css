@@ -11984,6 +11984,11 @@ figure {
   margin: 0 auto; /* 一番左端だとたまに見切れるので適当に移動 */
 }
 
+#flipbook img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
 .table {
   background-color: #fefbec;
 }
@@ -12012,6 +12017,7 @@ figure {
 
 .wagyu-speech,
 .jp-story,
+.us-story,
 .final-story {
   font-family: Book Antiqua, Palatino, Nunito, -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
@@ -12019,7 +12025,8 @@ figure {
 }
 
 .jp-story h2,
-.final-story h2 {
+.final-story h2,
+#flipbook h4 {
   font-weight: 600 !important;
 }
 
