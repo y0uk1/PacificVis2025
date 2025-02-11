@@ -11861,7 +11861,7 @@ figure {
 
 .cuisines-container {
   background-image: url("../assets/img/background/japanese-paper/japanese-paper-2.jpeg");
-  background-size: 100%;
+  background-size: cover;
 }
 
 .selected-cuisine {
