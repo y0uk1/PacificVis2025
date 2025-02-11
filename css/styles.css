@@ -11681,6 +11681,13 @@ body {
   overflow-wrap: break-word;
   height: 430px;
   width: 900px;
+  display: flex;
+  flex-direction: column;
+}
+
+#beef-parts-rate {
+  text-align: center;
+  width: 100%; /* 必要に応じて幅を調整 */
 }
 
 .step {
@@ -11844,7 +11851,7 @@ figure {
 }
 
 .cuisines-container {
-  background-image: url("../assets/img/background/japanese-paper/japanese-paper.jpeg");
+  background-image: url("../assets/img/background/japanese-paper/japanese-paper-2.jpeg");
   background-size: 100%;
 }
 
@@ -11971,6 +11978,15 @@ figure {
   color: rgba(128, 128, 128, 0.8);
 }
 
+.tech-stack img {
+  height: 40px;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
 .odd {
   background-color: white;
 }
@@ -12032,14 +12048,14 @@ figure {
 
 .slider-part {
   position: relative;
-  height: 500px;
+  height: 600px;
   width: 1100px;
   overflow: hidden;
 }
 
 .swiper-container {
   height: 100%;
-  background: #e6dfd0;
+  /* background: #e6dfd0; */
 }
 
 .swiper-slide {
