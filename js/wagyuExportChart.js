@@ -311,8 +311,8 @@ export class WagyuExportChart {
 
   handlerStepEnter = (response) => {
     const currIdx = response.index;
-    if (currIdx < 13) {
-      this.updateVis("stackedAreaChart", currIdx + 2012);
+    if (currIdx < 6) {
+      this.updateVis("stackedAreaChart", currIdx * 3 + 2012);
     } else {
       this.updateVis("lineChart", 2024);
     }
