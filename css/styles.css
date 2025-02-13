@@ -11499,6 +11499,13 @@ body {
   max-width: 20rem;
   font-size: 1rem;
 }
+
+.masthead h4,
+.masthead .h4 {
+  max-width: 20rem;
+  font-size: 0.8rem;
+}
+
 @media (min-width: 768px) {
   .masthead h1,
   .masthead .h1 {
@@ -11556,7 +11563,7 @@ body {
 .thanks-section {
   padding-top: 5rem;
   height: 100vh;
-  background-image: url("../assets/img/thanks-bg.png");
+  background-image: url("../assets/img/background/thanks-page.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11681,6 +11688,13 @@ body {
   overflow-wrap: break-word;
   height: 430px;
   width: 900px;
+  display: flex;
+  flex-direction: column;
+}
+
+#beef-parts-rate {
+  text-align: center;
+  width: 100%; /* 必要に応じて幅を調整 */
 }
 
 .step {
@@ -11750,6 +11764,7 @@ figure {
 
 .data-source {
   float: right;
+  align-self: flex-end;
 }
 
 .w-750 {
@@ -11844,8 +11859,12 @@ figure {
 }
 
 .cuisines-container {
-  background-image: url("../assets/img/background/japanese-paper/japanese-paper.jpeg");
-  background-size: 100%;
+  background-image: url("../assets/img/background/japanese-paper/japanese-paper-2.jpeg");
+  background-size: cover;
+}
+
+.cuisines-container h1 {
+  font-size: 60px;
 }
 
 .selected-cuisine {
@@ -11971,6 +11990,15 @@ figure {
   color: rgba(128, 128, 128, 0.8);
 }
 
+.tech-stack img {
+  height: 40px;
+}
+
+a,
+u {
+  text-decoration: none;
+}
+
 .odd {
   background-color: white;
 }
@@ -12032,14 +12060,14 @@ figure {
 
 .slider-part {
   position: relative;
-  height: 500px;
+  height: 600px;
   width: 1100px;
   overflow: hidden;
 }
 
 .swiper-container {
   height: 100%;
-  background: #e6dfd0;
+  /* background: #e6dfd0; */
 }
 
 .swiper-slide {
@@ -12096,7 +12124,6 @@ figure {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
   width: 100%;
   white-space: nowrap;
 }

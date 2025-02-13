@@ -157,7 +157,7 @@ export class WagyuExportChart {
   }
 
   updateVis(mode, year) {
-    const duration = 100;
+    const duration = 300;
     const updateTransition = d3.transition().duration(duration);
 
     const data =
@@ -311,8 +311,8 @@ export class WagyuExportChart {
 
   handlerStepEnter = (response) => {
     const currIdx = response.index;
-    if (currIdx < 13) {
-      this.updateVis("stackedAreaChart", currIdx + 2012);
+    if (currIdx < 6) {
+      this.updateVis("stackedAreaChart", currIdx * 3 + 2012);
     } else {
       this.updateVis("lineChart", 2024);
     }

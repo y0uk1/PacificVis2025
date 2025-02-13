@@ -15,7 +15,7 @@ export class BeefPartsRate {
 
   setDimensions() {
     this.dimensions = {
-      width: 300,
+      width: 400,
       height: 180,
       margin: {
         top: 0,
@@ -56,9 +56,9 @@ export class BeefPartsRate {
 
   createLabels() {
     const labelArray = [
-      { label: "Low Fat", id: "lowFat" },
-      { label: "Tenderness", id: "tenderness" },
-      { label: "Rarity", id: "rarity" },
+      { label: "Low Fat (脂の少なさ)", id: "lowFat" },
+      { label: "Tenderness (柔らかさ)", id: "tenderness" },
+      { label: "Rarity (希少性)", id: "rarity" },
     ];
 
     this.labelGroup
@@ -103,7 +103,7 @@ export class BeefPartsRate {
       .attr("xlink:href", (d) => `assets/svg/${d.type}`) // flower-on/off を設定
       .attr("width", 20)
       .attr("height", 20)
-      .attr("x", (d) => 150 + d.i * 30) // 横方向の位置
+      .attr("x", (d) => 250 + d.i * 30) // 横方向の位置
       .attr("y", (d) => d.index * 50 + 10); // カテゴリごとに間隔を空けて配置
   }
 }

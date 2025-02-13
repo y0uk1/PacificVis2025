@@ -10,6 +10,18 @@ export class UsStoryBook {
       duration: 1000,
       gradients: true,
       autoCenter: true,
+      when: {
+        start: function (event, pageObject, corner) {
+          if (corner != null) {
+            return event.preventDefault();
+          }
+        },
+        turning(event) {
+          if ($(this).turn("data").mouseAction) {
+            return event.preventDefault();
+          }
+        },
+      },
     });
   }
 

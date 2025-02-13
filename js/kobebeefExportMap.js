@@ -370,7 +370,7 @@ export class KobebeefExportMap {
       .attr("fill", "white")
       .style("opacity", 1)
       .attr("visibility", "visible")
-      .text("farmers");
+      .text("farms");
   }
 
   toggleOpacity(isCircle, isFarmerNumber, isKobe, isConnection, isVisible) {
