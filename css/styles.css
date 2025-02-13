@@ -11534,15 +11534,6 @@ body {
   );
 }
 
-.lets-go-kobe {
-  padding-bottom: 20rem;
-  background: linear-gradient(
-    to bottom,
-    rgba(241, 233, 209, 0.9) 0%,
-    rgba(232, 221, 203, 1) 80%
-  );
-}
-
 .about-section {
   padding-top: 5rem;
   height: 100vh;
