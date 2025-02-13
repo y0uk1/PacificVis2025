@@ -157,7 +157,7 @@ export class WagyuExportChart {
   }
 
   updateVis(mode, year) {
-    const duration = 100;
+    const duration = 300;
     const updateTransition = d3.transition().duration(duration);
 
     const data =
