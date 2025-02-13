@@ -11766,6 +11766,7 @@ figure {
 
 .data-source {
   float: right;
+  align-self: flex-end;
 }
 
 .w-750 {
