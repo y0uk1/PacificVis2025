@@ -11499,6 +11499,13 @@ body {
   max-width: 20rem;
   font-size: 1rem;
 }
+
+.masthead h4,
+.masthead .h4 {
+  max-width: 20rem;
+  font-size: 0.8rem;
+}
+
 @media (min-width: 768px) {
   .masthead h1,
   .masthead .h1 {
@@ -11856,6 +11863,10 @@ figure {
   background-size: cover;
 }
 
+.cuisines-container h1 {
+  font-size: 60px;
+}
+
 .selected-cuisine {
   margin-top: 230px;
   margin-bottom: 20px;
@@ -12113,7 +12124,6 @@ u {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
   width: 100%;
   white-space: nowrap;
 }
