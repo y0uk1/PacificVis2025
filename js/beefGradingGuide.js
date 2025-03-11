@@ -3,9 +3,9 @@ export class BeefGradingGuide {
     this.parentElement = _parentElement;
     this.selectedImageId = document.getElementById(_selectedImageId);
     this.countryFlags = {
-      Japan: "assets/svg/Japan.svg",
-      Australia: "assets/svg/Australia.svg",
-      USA: "assets/svg/USA.svg",
+      Japan: "assets/svg/country/Japan.svg",
+      Australia: "assets/svg/country/Australia.svg",
+      USA: "assets/svg/country/USA.svg",
     };
     this.imageBaseDir = "assets/img/bms";
     this.bmsMapping = {

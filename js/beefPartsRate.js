@@ -100,7 +100,7 @@ export class BeefPartsRate {
       .data(data)
       .join("image")
       .transition(updateTransition)
-      .attr("xlink:href", (d) => `assets/svg/${d.type}`) // flower-on/off を設定
+      .attr("xlink:href", (d) => `assets/svg/flower/${d.type}`) // flower-on/off を設定
       .attr("width", 20)
       .attr("height", 20)
       .attr("x", (d) => 250 + d.i * 30) // 横方向の位置
