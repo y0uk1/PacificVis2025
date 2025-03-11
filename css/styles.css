@@ -11478,7 +11478,7 @@ body {
       rgba(0, 0, 0, 0.7) 75%,
       #000 100%
     ),
-    url("../assets/img/bg-masthead.png");
+    url("../assets/img/background/bg-masthead.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11544,7 +11544,7 @@ body {
 .about-section {
   padding-top: 5rem;
   height: 100vh;
-  background-image: url("../assets/img/japanese-black-with-background.png");
+  background-image: url("../assets/img/background/japanese-black.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -11847,15 +11847,6 @@ figure {
 .selected-cuisine .slide-in {
   transform: translateY(0);
   opacity: 1;
-}
-
-.background-cuisine {
-  background-image: url("../assets/img/cuisine/sake.png"),
-    url("../assets/img/cuisine/wine.png");
-  background-repeat: no-repeat, no-repeat;
-  background-position: left top, right top;
-  background-size: 15%, 25%;
-  height: 100%;
 }
 
 .cuisines-container {
