@@ -24,8 +24,8 @@ export class BrandMap {
     this.geo = { japan: japanGeo, world: worldGeo };
     this.groupedWagyuList = d3.group(wagyuBrandList, (d) => d.prefecture);
     this.wagyuIcon = {
-      white: "assets/svg/wagyu-icon-white.svg",
-      black: "assets/svg/wagyu-icon-black.svg",
+      white: "assets/svg/caw-icon/caw-white.svg",
+      black: "assets/svg/caw-icon/caw-black.svg",
     };
   }
 

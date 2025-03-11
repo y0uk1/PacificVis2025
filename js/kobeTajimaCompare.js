@@ -4,9 +4,9 @@ export class KobeTajimaCompare {
     this.labelElements = _labelElements;
 
     this.wagyuImg = {
-      kobe: "assets/svg/wagyu-kobe.svg",
-      tajima: "assets/svg/wagyu-tajima.svg",
-      remove: "assets/svg/wagyu-remove.svg",
+      kobe: "assets/svg/wagyu-icon/kobe.svg",
+      tajima: "assets/svg/wagyu-icon/tajima.svg",
+      remove: "assets/svg/wagyu-icon/remove.svg",
     };
 
     this.initVis();

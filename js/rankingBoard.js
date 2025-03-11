@@ -106,7 +106,7 @@ export class RankingBoard {
 
   // Update the board visuals
   updateBoards(scales, rankingKey, transition) {
-    const svgBaseDir = "assets/svg";
+    const svgBaseDir = "assets/svg/board";
     const { xScale, yScale } = scales;
 
     this.barsGroup
