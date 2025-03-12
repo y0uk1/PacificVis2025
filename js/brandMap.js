@@ -6,11 +6,12 @@ export class BrandMap {
   }
 
   async initVis() {
+    await this.loadData();
     this.setDimensions();
     this.createSvg();
     this.createTooltip();
     this.createGroups();
-    await this.loadData();
+    this.createLegend();
     this.drawBrandMap();
   }
 
@@ -23,8 +24,10 @@ export class BrandMap {
     this.geo = japanGeo;
     this.groupedWagyuList = d3.group(wagyuBrandList, (d) => d.prefecture);
     this.wagyuIcon = {
-      white: "assets/svg/caw-icon/caw-white.svg",
-      black: "assets/svg/caw-icon/caw-black.svg",
+      blackContour: "assets/svg/caw-icon/black-contour.svg",
+      blackSilhouette: "assets/svg/caw-icon/black-silhouette.svg",
+      brownContour: "assets/svg/caw-icon/brown-contour.svg",
+      brownSilhouette: "assets/svg/caw-icon/brown-silhouette.svg",
     };
   }
 
@@ -77,6 +80,14 @@ export class BrandMap {
       .append("g")
       .classed("connection-line", true);
     this.iconGroup = this.ctr.append("g").classed("wagyu-icon", true);
+    this.legendGroup = this.ctr
+      .append("g")
+      .attr(
+        "transform",
+        `translate(${
+          this.dimensions.ctrWidth - this.dimensions.margin.right * 5
+        }, ${this.dimensions.ctrHeight - this.dimensions.margin.bottom * 2})`
+      );
   }
 
   escapeId(name) {
@@ -94,6 +105,40 @@ export class BrandMap {
       .scale(scale);
   }
 
+  createLegend() {
+    const legendArray = [
+      {
+        label: "Japanese Black",
+        legend: this.wagyuIcon.blackSilhouette,
+      },
+      {
+        label: "Japanese Brown",
+        legend: this.wagyuIcon.brownSilhouette,
+      },
+    ];
+
+    const legendRow = this.legendGroup
+      .selectAll(".legendRow")
+      .data(legendArray)
+      .join("g")
+      .attr("class", "legendRow")
+      .attr("transform", (d, i) => `translate(0, ${i * 30})`);
+
+    legendRow
+      .append("image")
+      .attr("width", 20)
+      .attr("height", 20)
+      .attr("xlink:href", (d) => d.legend);
+
+    legendRow
+      .append("text")
+      .attr("class", "legendText")
+      .attr("x", 30)
+      .attr("y", 15)
+      .attr("text-anchor", "start")
+      .text((d) => d.label);
+  }
+
   drawBrandMap() {
     const duration = 500;
     const updateTransition = d3
@@ -104,6 +149,7 @@ export class BrandMap {
     const projection = this.createProjection(this.geo, 1400);
     const path = d3.geoPath().projection(projection);
 
+    console.log(this.groupedWagyuList);
     this.mapGroup
       .selectAll("path")
       .data(this.geo.features)
@@ -113,9 +159,9 @@ export class BrandMap {
       .attr("stroke", "#666")
       .attr("stroke-width", 0.25)
       .attr("fill", (d) =>
-        this.groupedWagyuList.get(d.properties.name_nl) ? "red" : "#DDD6CF"
+        this.groupedWagyuList.get(d.properties.name_nl) ? "#CBB460" : "#DDD6CF"
       )
-      .attr("fill-opacity", 0.3);
+      .attr("fill-opacity", 0.6);
 
     this.iconGroup
       .selectAll(".cow-icon")
@@ -126,7 +172,12 @@ export class BrandMap {
       )
       .join("image")
       .attr("class", "cow-icon")
-      .attr("xlink:href", this.wagyuIcon.black) // Path to the cow icon image
+      .attr("xlink:href", (d) => {
+        const breed = this.groupedWagyuList.get(d.properties.name_nl)[0].breed;
+        return breed === "Japanese Black"
+          ? this.wagyuIcon.blackSilhouette
+          : this.wagyuIcon.brownSilhouette;
+      }) // Path to the cow icon image
       .attr("width", 20) // Adjust the size of the icon
       .attr("height", 20)
       .attr("x", (d) => projection(d3.geoCentroid(d))[0] - 10)
@@ -139,7 +190,12 @@ export class BrandMap {
     const imgBaseDir = "assets/img/raw-meet";
     this.tooltip.style("opacity", 1);
     this.tooltip.style("visibility", "visible");
-    d3.select(event.currentTarget).attr("xlink:href", this.wagyuIcon.white);
+    d3.select(event.currentTarget).attr("xlink:href", (d) => {
+      const breed = this.groupedWagyuList.get(d.properties.name_nl)[0].breed;
+      return breed === "Japanese Black"
+        ? this.wagyuIcon.blackContour
+        : this.wagyuIcon.brownContour;
+    });
 
     const prefecture = d.properties.name_nl;
     const brandData = this.groupedWagyuList.get(prefecture)[0];
@@ -162,7 +218,12 @@ export class BrandMap {
   }
 
   onMouseLeaveBrand(event, d) {
-    d3.select(event.currentTarget).attr("xlink:href", this.wagyuIcon.black);
+    d3.select(event.currentTarget).attr("xlink:href", (d) => {
+      const breed = this.groupedWagyuList.get(d.properties.name_nl)[0].breed;
+      return breed === "Japanese Black"
+        ? this.wagyuIcon.blackSilhouette
+        : this.wagyuIcon.brownSilhouette;
+    });
     this.tooltip.style("visibility", "hidden");
   }
 }
